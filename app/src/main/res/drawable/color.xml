@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 클릭 했을 때에 대한 색깔 -->
+    <item android:color = "@color/mainColor" android:state_selected="true"></item>
+
+    <!-- 클릭 안했을 때에 대한 색깔 -->
+    <item android:color = "#BDBDBD" android:state_selected="false"></item>
+
+
+</selector>
