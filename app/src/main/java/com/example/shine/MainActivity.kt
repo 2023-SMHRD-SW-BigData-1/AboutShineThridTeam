@@ -28,18 +28,23 @@ class MainActivity : AppCompatActivity() {
             // when문은 (이 값)과 일치 시 실행
             when(item.itemId){
                R.id.tap1 ->{
+                                            // fragment 추가/삭제/교체 // 어디에 frag, 어떤 frag
+                   supportFragmentManager.beginTransaction().replace(R.id.fl, main_fm()).commit()
                    Toast.makeText(this@MainActivity, "홈 클릭",Toast.LENGTH_SHORT).show()
 
                }
                 R.id.tap2 ->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fl, post_fm()).commit()
                     Toast.makeText(this@MainActivity, "게시판 클릭",Toast.LENGTH_SHORT).show()
 
                 }
                 R.id.tap3 ->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fl, chat_fm()).commit()
                     Toast.makeText(this@MainActivity, "채팅 클릭",Toast.LENGTH_SHORT).show()
 
                 }
                 R.id.tap4 ->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fl, mypage_fm()).commit()
                     Toast.makeText(this@MainActivity, "마페 클릭",Toast.LENGTH_SHORT).show()
 
                 }
