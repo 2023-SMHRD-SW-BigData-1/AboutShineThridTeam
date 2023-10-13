@@ -23,6 +23,9 @@ class post_fm : Fragment() {
         btnWrite.setOnClickListener {
                                 //fragment 올려진 activity정보 가져오기  -> context 이용
             val intent = Intent(context, BoardWriteActivity::class.java)
+
+
+
             startActivity(intent)
         }
 

@@ -7,5 +7,21 @@
     <!-- 클릭 안했을 때에 대한 색깔 -->
     <item android:color = "#BDBDBD" android:state_selected="false"></item>
 
+    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="#0000ff">
+        <item android:id="@android:id/mask">
+            <shape android:shape="rectangle">
+                <solid android:color="#0000ff" />
+                <corners android:radius="2dp" />
+            </shape>
+        </item>
+
+        <item android:id="@android:id/background">
+            <shape android:shape="rectangle">
+                <solid android:color="#c0c0c0" />
+                <corners android:radius="2dp" />
+            </shape>
+        </item>
+    </ripple>
 
 </selector>

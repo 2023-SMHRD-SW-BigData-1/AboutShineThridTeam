@@ -15,6 +15,9 @@ class chat_fm : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var chatV = inflater.inflate(R.layout.fragment_chat_fm, container, false)
+
+
+
         return chatV
     }
 
