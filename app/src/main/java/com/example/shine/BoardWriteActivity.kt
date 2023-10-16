@@ -21,6 +21,7 @@ class BoardWriteActivity : AppCompatActivity() {
     lateinit var ctContent : MultiAutoCompleteTextView
     lateinit var btnUpload : Button
 
+
     //lateinit var  reqQueue: RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,6 @@ class BoardWriteActivity : AppCompatActivity() {
         ctContent = findViewById(R.id.ctContent)
         btnUpload = findViewById(R.id.btnUpload)
 
-        val boardRef
 
        // reqQueue= Volley.newRequestQueue(this)
 
