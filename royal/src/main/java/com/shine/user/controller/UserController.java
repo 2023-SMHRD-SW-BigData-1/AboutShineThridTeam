@@ -59,5 +59,12 @@ public class UserController {
 		}
 	}
 	
+	// 로그아웃
+	@RequestMapping("/user/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 	
 }

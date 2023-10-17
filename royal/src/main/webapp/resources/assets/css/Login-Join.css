@@ -371,7 +371,7 @@ body {
 
 
 
-/*硫��댁�� 紐⑤��---------------------*/
+/*메뉴용 모달---------------------*/
 #modal_menu {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -381,7 +381,7 @@ body {
     animation: modal .3s;
 }
 
-.container { /*紐⑤�ъ갹 �대�諛���*/
+.container { /*모달창 내부박스*/
     width: 100%; max-width: 1200px; margin: auto;
     height: 90vh;
     background: #fff; padding: 5px; position: relative;
@@ -398,12 +398,12 @@ body {
 }
 
 
-@keyframes modal {   /*紐⑤�ъ갹 諛곌꼍��*/
+@keyframes modal {   /*모달창 배경용*/
     from { opacity: 0;}     
     to {opacity: 1;}
 }
 
-@keyframes modalBox {    /*紐⑤�ъ갹 �댁�� 諛��ㅼ��*/
+@keyframes modalBox {    /*모달창 내용 박스용*/
     from { transform: translateY(50px); opacity: 0;}
     to { transform: translateY(0); opacity: 1;}
 }
