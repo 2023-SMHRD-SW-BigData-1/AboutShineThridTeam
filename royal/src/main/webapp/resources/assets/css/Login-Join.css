@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 :root {
     --primary-color: #4EA685;
     --secondary-color: #57B894;
@@ -97,6 +97,17 @@ body {
 
 .form button {
     cursor: pointer;
+    width: 100%;
+    padding: .6rem 0;
+    border-radius: .5rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.2rem;
+    outline: none;
+}
+.Sh_submit_btn{
+	cursor: pointer;
     width: 100%;
     padding: .6rem 0;
     border-radius: .5rem;
@@ -360,7 +371,7 @@ body {
 
 
 
-/*메뉴용 모달---------------------*/
+/*硫��댁�� 紐⑤��---------------------*/
 #modal_menu {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -370,7 +381,7 @@ body {
     animation: modal .3s;
 }
 
-.container { /*모달창 내부박스*/
+.container { /*紐⑤�ъ갹 �대�諛���*/
     width: 100%; max-width: 1200px; margin: auto;
     height: 90vh;
     background: #fff; padding: 5px; position: relative;
@@ -387,12 +398,12 @@ body {
 }
 
 
-@keyframes modal {   /*모달창 배경용*/
+@keyframes modal {   /*紐⑤�ъ갹 諛곌꼍��*/
     from { opacity: 0;}     
     to {opacity: 1;}
 }
 
-@keyframes modalBox {    /*모달창 내용 박스용*/
+@keyframes modalBox {    /*紐⑤�ъ갹 �댁�� 諛��ㅼ��*/
     from { transform: translateY(50px); opacity: 0;}
     to { transform: translateY(0); opacity: 1;}
 }
