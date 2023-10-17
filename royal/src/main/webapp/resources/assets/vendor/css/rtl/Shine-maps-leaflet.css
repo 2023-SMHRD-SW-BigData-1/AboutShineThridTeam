@@ -1,0 +1,11 @@
+@charset "EUC-KR";
+
+#logo {
+      display: none;
+    }
+    #mobile-ovr-select {
+      display: none;
+    }
+    .top-border .noselect .clickable {
+      display: none;
+    }
