@@ -17,30 +17,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="userid" />
-
-            <TextView
-                android:id="@+id/cmt_date_tv"
-                android:gravity="right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="date" />
+                android:text="작성자"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/cmt_content_tv"
-            android:layout_width="match_parent"
-            android:textColor="#333333"
-            android:layout_height="wrap_content"
-            android:text="content" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_margin="16dp"
-            android:background="#000000"
-            />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/cmt_date_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="start"
+        android:text="날짜" />
+
+    <TextView
+        android:id="@+id/cmt_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="댓글 내용"
+        android:textColor="#333333" />
+</LinearLayout>
 
