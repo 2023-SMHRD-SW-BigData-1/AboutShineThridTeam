@@ -1,0 +1,32 @@
+
+
+server:
+  # context-path
+  servlet:
+    context-path: /shine
+    
+  # tomcat port
+  port: 8582
+
+spring:
+  # JSP 경로 설정
+  mvc:
+    view:
+      prefix: /WEB-INF/views/mainpage/
+      suffix: .jsp
+      
+      # DB 연결정보
+  datasource:
+    url: jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe
+    username: royal
+    password: r1234
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: gganesstock002@gmail.com
+    password: sstockggame1313
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
