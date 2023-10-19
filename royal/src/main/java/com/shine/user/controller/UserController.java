@@ -1,5 +1,7 @@
 package com.shine.user.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shine.user.mapper.UserMapper;
 import com.shine.user.model.UserModel;
+import com.shine.user.service.UserPwFindService;
 
 @Controller
 public class UserController {
@@ -81,6 +84,27 @@ public class UserController {
 			session.setAttribute("loginUser", m);
 			return "redirect:/";
 		}else {  // 수정실패
+			return "redirect:/";
+		}
+	}
+	
+	// 비밀번호찾기
+	
+	@RequestMapping(value="/user/findpw", method=RequestMethod.POST)
+	public String findpw(@RequestParam("user_email")String user_email,
+			@RequestParam("user_pw")String user_phone, HttpSession session) {
+		UserModel findUser = new UserModel(user_email, user_phone);
+		
+		UserModel result = mapper.findpw(findUser);
+		
+		UserPwFindService userPwFindService = new UserPwFindService();
+		
+		if(result != null) {
+			userPwFindService = UserModel.pwFind_select(userPwFindService);
+			
+			return "redirect:/";
+		}else {
+			System.out.println("로그인 실패");
 			return "redirect:/";
 		}
 	}

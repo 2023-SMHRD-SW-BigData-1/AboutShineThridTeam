@@ -22,5 +22,10 @@ public interface UserMapper {
 	@Update("update tb_user set user_nick=#{user_nick}, user_email=#{user_email}, user_pw=#{user_pw}, user_name=#{user_name}, user_add=#{user_add}, user_phone=#{user_phone}")
 	public int update(UserModel m);
 	
+	// 비밀번호 조회
+		@Select("select user_pw from tb_user where user_email=#{user_email}, user_phone=#{user_phone}")
+		public UserModel findpw(UserModel m);
+
+	
 
 }

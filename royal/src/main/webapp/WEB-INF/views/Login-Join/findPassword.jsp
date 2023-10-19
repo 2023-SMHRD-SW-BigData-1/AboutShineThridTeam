@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../../assets/vendor/css/rtl/Shine-Login-Join.css">
+  <link rel="stylesheet" href="resources/assets/vendor/css/rtl/Shine-Login-Join.css">
   <title>Document</title>
 </head>
 <body>
@@ -22,19 +22,18 @@
       <div class="col align-items-center flex-col sign-in ">
 
         <div class="form-wrapper align-items-center Shine-verification">
-          <div class="form sign-in">
+          <form action="/user/findpw" class="form sign-in">
             <div class="input-group">
               <i class='bx bxs-user'></i>
-              <input type="email" placeholder="Email">
+              <input type="email" name="user_email" placeholder="Email">
             </div>
-            <button>
-                Verification
-            </button>
+            
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Verification Code">
+              <input type="tel" name="user_phone" placeholder="Phone">
             </div>
-          </div>
+            <input type="submit" value="Verification">
+          </form>
         </div>
         <div class="form-wrapper">
     
@@ -49,7 +48,7 @@
       <div class="col align-items-center ">
         <div class="text sign-in ">
           <h2>
-            Verificationtes
+            Verification
           </h2>
         </div>
         <div class="img sign-in">
@@ -64,5 +63,5 @@
   </div>
 </div>
 </body>
-<script src="../../../assets/vendor/js/Shine-Login-Join.js"></script>
+<script src="resources/assets/vendor/js/Shine-Login-Join.js"></script>
 </html>
