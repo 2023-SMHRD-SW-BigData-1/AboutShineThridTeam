@@ -39,7 +39,7 @@ body {
 }
 
 .col {
-    width: 50%;
+    width: 40%;
 }
 
 .align-items-center {
@@ -47,6 +47,9 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.Shine-verification {
+    position: absolute; top: 50%; left: 75%; transform: translate(-50%, -50%);
 }
 
 .form-wrapper {
@@ -359,7 +362,7 @@ body {
 
 
 
-/*ë©”ë‰´ìš© ëª¨ë‹¬---------------------*/
+/*¸Þ´º¿ë ¸ð´Þ---------------------*/
 #modal_menu {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -369,7 +372,7 @@ body {
     animation: modal .3s;
 }
 
-.container { /*ëª¨ë‹¬ì°½ ë‚´ë¶€ë°•ìŠ¤*/
+.container { /*¸ð´ÞÃ¢ ³»ºÎ¹Ú½º*/
     width: 100%; max-width: 1200px; margin: auto;
     height: 90vh;
     background: #fff; padding: 5px; position: relative;
@@ -386,12 +389,12 @@ body {
 }
 
 
-@keyframes modal {   /*ëª¨ë‹¬ì°½ ë°°ê²½ìš©*/
+@keyframes modal {   /*¸ð´ÞÃ¢ ¹è°æ¿ë*/
     from { opacity: 0;}     
     to {opacity: 1;}
 }
 
-@keyframes modalBox {    /*ëª¨ë‹¬ì°½ ë‚´ìš© ë°•ìŠ¤ìš©*/
+@keyframes modalBox {    /*¸ð´ÞÃ¢ ³»¿ë ¹Ú½º¿ë*/
     from { transform: translateY(50px); opacity: 0;}
     to { transform: translateY(0); opacity: 1;}
 }
