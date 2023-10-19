@@ -186,7 +186,7 @@ table {
 	font-family: "Noto Sans KR", sans-serif;
 }
 
-/* ë…¸ë§ë¼ì´ì¦ˆ */
+/* ³ë¸»¶óÀÌÁî */
 body, ul, li, h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
@@ -197,7 +197,7 @@ a:link {
 	color: lightblue;
 }
 
-/* ë¼ì´ë¸ŒëŸ¬ë¦¬ */
+/* ¶óÀÌºê·¯¸® */
 .con {
 	margin: 0 auto;
 }
@@ -267,8 +267,8 @@ a:link {
 	transform: translateY(-50%);
 }
 
-/* ì»¤ìŠ¤í…€ */
-/* ë°˜ì‘í˜• ë ˆì´ì•„ì›ƒ */
+/* Ä¿½ºÅÒ */
+/* ¹ÝÀÀÇü ·¹ÀÌ¾Æ¿ô */
 .con {
 	max-width: 950px;
 }
@@ -423,23 +423,41 @@ html, body {
     content:" : ";
     font-weight:bold;
 }
-  /***********************************comm-ctt**************************/
-  /***********************************comm-Writing**************************/
-  
-  .Sh-notice {
-    width: 1100px;
-    border: 1px solid #000;
-  }
-  .Sh-title {
-    text-align-last: left;
-  }
-  .Sh-comm-head {
-    width: 100%; display: flex; justify-content: space-between;
-  }
-  .Sh-comm-head > li {
-    display: flex;
-  }
-  .Sh-ctt-pagination {
-    margin-left: 45%;
-  }
-  /***********************************comm-Writing**************************/
+/***********************************comm-ctt**************************/
+/***********************************comm-Writing**************************/
+.Sh-notice {
+  width: 1100px;
+}
+.Sh-title {
+  text-align-last: left;
+}
+
+.Sh-comm-head {
+  border-bottom: 1px solid #bbb;
+}
+.Sh-fa-user, .Sh-fa-clock {
+  font-size: 1.2rem;
+}
+ 
+.Sh-comm-head > .Sh-comm-head-ctt2 {
+  width: 35%;
+  display: flex;
+}
+.Sh-ctt-pagination {
+  margin-left: 45%;
+}
+
+.ctttt {
+  width: 100%; height: 300px;
+  background-color: brown;
+  opacity: 0.7;
+  overflow: scroll;
+  padding: 10px;
+}
+.ctttr {
+  font-size: 1.2rem;
+  width: 100%;
+  color: #000;
+}
+
+/***********************************comm-Writing**************************/
