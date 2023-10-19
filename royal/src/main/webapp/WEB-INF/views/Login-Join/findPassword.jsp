@@ -49,7 +49,7 @@
       <div class="col align-items-center ">
         <div class="text sign-in ">
           <h2>
-            Verificationtest
+            Verificationtes
           </h2>
         </div>
         <div class="img sign-in">
