@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
       <div class="col align-items-center flex-col sign-in ">
 
         <div class="form-wrapper align-items-center Shine-verification">
-          <form action="/user/findpw" class="form sign-in">
+          <form action="user/findpw" method="post" class="form sign-in">
             <div class="input-group">
               <i class='bx bxs-user'></i>
               <input type="email" name="user_email" placeholder="Email">
@@ -56,6 +57,18 @@
         </div>
       </div>
       <!-- END SIGN IN CONTENT -->
+      
+      <% 
+      
+      	String user_email = (String)session.getAttribute("user_email");
+		String user_phone = (String)session.getAttribute("user_phone");
+		
+		System.out.println(user_email);
+		
+		
+		
+		
+		%>
      
     </div>
     <!-- END CONTENT SECTION -->

@@ -11,7 +11,7 @@ import com.shine.user.model.UserModel;
 public interface UserMapper {
 	
 	// 회원가입
-	@Insert("insert into tb_user values (#{user_nick}, #{user_email}, #{user_pw}, #{user_name}, #{user_add}, #{user_phone})")
+	@Insert("insert into tb_user values (#{user_nick}, #{user_email}, #{user_pw}, #{user_name}, #{user_add}, #{user_add_detail}, #{user_phone})")
 	public int join(UserModel m);
 	
 	// 로그인
@@ -23,8 +23,8 @@ public interface UserMapper {
 	public int update(UserModel m);
 	
 	// 비밀번호 조회
-		@Select("select user_pw from tb_user where user_email=#{user_email}, user_phone=#{user_phone}")
-		public UserModel findpw(UserModel m);
+	@Select("select user_pw from tb_user where user_email=#{user_email}, user_phone=#{user_phone}")
+	public UserModel findpw(UserModel m);
 
 	
 

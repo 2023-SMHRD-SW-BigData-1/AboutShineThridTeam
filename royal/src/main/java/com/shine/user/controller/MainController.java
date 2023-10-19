@@ -10,6 +10,6 @@ public class MainController {
 	@GetMapping(value="/")
 	public String home() {
 		
-		return "findPassword";
+		return "Login-Join";
 	}
 }

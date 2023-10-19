@@ -1,15 +1,19 @@
 package com.shine.user.service;
 
+import java.util.Base64;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Component;
 
 import com.shine.user.model.UserModel;
 
+@Component
 public class UserPwFindService {
 
-	//회원 비밀번호 가져오기
-		public UserModel pwFind_select( UserModel UserModel ) {
-			UserModel to = SqlSession.selectOne("pwFind_select", UserModel);
-			return to;
-		}
+
 		
 }
