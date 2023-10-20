@@ -16,7 +16,6 @@ public class UserModel {
 	private String user_pw;
 	private String user_name;
 	private String user_add;
-	private String user_add_detail;
 	private String user_phone;
 	private String user_isdeleted;
 	private String user_create_at;
@@ -26,7 +25,7 @@ public class UserModel {
 	
 	
 	public UserModel(String user_nick, String user_email, String user_pw, String user_name, String user_add,
-			String user_add_detail, String user_phone, String user_isdeleted, String user_create_at,
+			String user_phone, String user_isdeleted, String user_create_at,
 			String user_create_name, String user_modify_at, String user_modify_name) {
 		super();
 		this.user_nick = user_nick;
@@ -34,7 +33,6 @@ public class UserModel {
 		this.user_pw = user_pw;
 		this.user_name = user_name;
 		this.user_add = user_add;
-		this.user_add_detail = user_add_detail;
 		this.user_phone = user_phone;
 		this.user_isdeleted = user_isdeleted;
 		this.user_create_at = user_create_at;
@@ -57,9 +55,6 @@ public class UserModel {
 	}
 	public String getUser_add() {
 		return user_add;
-	}
-	public String getUser_add_detail() {
-		return user_add_detail;
 	}
 	public String getUser_phone() {
 		return user_phone;
@@ -94,9 +89,6 @@ public class UserModel {
 	public void setUser_add(String user_add) {
 		this.user_add = user_add;
 	}
-	public void setUser_add_detail(String user_add_detail) {
-		this.user_add_detail = user_add_detail;
-	}
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
@@ -116,14 +108,13 @@ public class UserModel {
 		this.user_modify_name = user_modify_name;
 	}
 	
-	public UserModel(String user_nick, String user_email, String user_pw, String user_name, String user_add,
-			String user_add_detail, String user_phone) {
+	public UserModel(String user_nick, String user_email, String user_pw, 
+			String user_name, String user_add, String user_phone) {
 		this.user_nick = user_nick;
 		this.user_email = user_email;
 		this.user_pw = user_pw;
 		this.user_name = user_name;
 		this.user_add = user_add;
-		this.user_add_detail = user_add_detail;
 		this.user_phone = user_phone;
 	}
 	

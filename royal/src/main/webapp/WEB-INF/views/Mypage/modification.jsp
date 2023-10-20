@@ -31,11 +31,11 @@
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Name">
+              <input type="text" placeholder="Name">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Phone Number">
+              <input type="tel" placeholder="Phone Number">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>

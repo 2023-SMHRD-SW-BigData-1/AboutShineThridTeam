@@ -30,13 +30,12 @@ public class UserController {
 			@RequestParam("user_pw") String user_pw, 
 			@RequestParam("user_name") String user_name,
 			@RequestParam("user_add") String user_add,
-			@RequestParam("user_add_detail") String user_add_detail,
 			@RequestParam("user_phone") String user_phone,
 			HttpSession session) {
 
 		System.out.println(user_email + ", " + user_pw);
 
-		UserModel m = new UserModel(user_nick, user_email, user_pw, user_name, user_add, user_add_detail, user_phone);
+		UserModel m = new UserModel(user_nick, user_email, user_pw, user_name, user_add, user_phone);
 
 		int cnt = mapper.join(m);
 
