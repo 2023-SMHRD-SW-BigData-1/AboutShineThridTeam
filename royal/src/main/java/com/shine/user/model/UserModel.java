@@ -118,10 +118,10 @@ public class UserModel {
 		this.user_phone = user_phone;
 	}
 	
-	public UserModel(String user_email, String user_pw) {
-		super();
+
+	public UserModel(String user_email, String user_name) {
 		this.user_email = user_email;
-		this.user_pw = user_pw;
+		this.user_name = user_name;
 	}
 
 

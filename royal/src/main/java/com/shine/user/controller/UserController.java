@@ -5,9 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +26,7 @@ public class UserController {
 			@RequestParam("user_email") String user_email,
 			@RequestParam("user_pw") String user_pw, 
 			@RequestParam("user_name") String user_name,
-			@RequestParam("user_add") String user_add,
+			@RequestParam("user_add") String user_add, 
 			@RequestParam("user_phone") String user_phone,
 			HttpSession session) {
 
@@ -49,7 +46,9 @@ public class UserController {
 
 	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam("user_email") String user_email, @RequestParam("user_pw") String user_pw,
+	public String login(
+			@RequestParam("user_email") String user_email, 
+			@RequestParam("user_pw") String user_pw,
 			HttpSession session) {
 		UserModel loginUser = new UserModel(user_email, user_pw);
 
@@ -75,7 +74,9 @@ public class UserController {
 
 	// 회원정보수정
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(@ModelAttribute UserModel m, HttpSession session) {
+	public String update(
+			@ModelAttribute UserModel m, 
+			HttpSession session) {
 
 		UserModel modifyUser = (UserModel) session.getAttribute("loginUser");
 
@@ -94,52 +95,49 @@ public class UserController {
 	// 비밀번호찾기
 
 	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
-	public String findpw(@RequestParam("user_email") String user_email, @RequestParam("user_phone") String user_phone, HttpSession session) {
+	public String findpw(
+	        @RequestParam("user_email") String user_email,
+	        @RequestParam("user_name") String user_name,
+	        HttpSession session) { 
 
-		System.out.println("findpw 입장");
+	    System.out.println("findpw");
 
-		 UserModel findUser = new UserModel(user_email, user_phone);
+	    UserModel findUser = new UserModel(user_email, user_name);
 
-		UserModel result = mapper.login(findUser);
+	    UserModel result = mapper.findpw(findUser);
 
-		int flag = 0;
+	    if (result != null) {
+	    	session.setAttribute("result", result);
 
-		if (result != null) {
+	        String userFindPw = result.getUser_email();
+	        int pwSize = userFindPw.length() / 2;
 
-			session.setAttribute("result", result);
+	        String resultPwd_1 = userFindPw.substring(0, pwSize);
 
-			String userFindPw = result.getUser_pw();
-			int pwSize = userFindPw.length() / 2;
+	        // 뒤의 절반은 *로 표시
+	        String tmp = "";
+	        if (pwSize % 2 == 1) { // 홀수인 경우 * 한개 더 추가
+	            for (int i = 0; i < pwSize + 1; i++) {
+	                tmp += "*";
+	            }
+	        } else {
+	            for (int i = 0; i < pwSize; i++) {
+	                tmp += "*";
+	            }
+	        }
+	        String resultPwd = resultPwd_1 + tmp;
 
-			String resultPwd_1 = userFindPw.substring(0, pwSize);
+	        findUser.setUser_pw(resultPwd);
 
-			// 뒤의 절반은 *로 표시
-			String tmp = "";
-			if (pwSize % 2 == 1) { // 홀수인 경우 * 한개 더 추가
-				for (int i = 0; i < pwSize + 1; i++) {
-					tmp += "*";
-				}
-			} else {
-				for (int i = 0; i < pwSize; i++) {
-					tmp += "*";
-				}
-			}
-			String resultPwd = resultPwd_1 + tmp;
+	        session.setAttribute("user_email", user_email);
+	        session.setAttribute("user_name", user_name);
+	        session.setAttribute("flag", 1); // 여기서 flag를 1로 설정
+	    } else {
+	    	session.setAttribute("flag", 2); // 여기서 flag를 2로 설정
+	        System.out.println("회원정보 없음");
+	    }
 
-			flag = 1;
-
-			findUser.setUser_pw(resultPwd);
-
-			session.setAttribute("user_email", user_email);
-			session.setAttribute("user_phone", user_phone);
-
-		} else {
-			flag = 2;
-			System.out.println("회원정보가 없습니다.");
-		}
-		session.setAttribute("flag", flag);
-
-		return "redirect:/";
+	    return "redirect:/";
 	}
 
 }
