@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFEFE"
+    android:backgroundTint="#AEAEAE"
+    android:backgroundTintMode="src_over"
     tools:context=".BoardWriteActivity">
 
     <EditText
@@ -25,7 +26,7 @@
     <ImageView
         android:id="@+id/imgAdd"
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_marginTop="10dp"
         android:backgroundTint="#FFB2B2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +39,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="56dp"
         android:text="제목"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -78,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.10123119" />
 
     <Button
         android:id="@+id/btnUpload"
@@ -126,5 +127,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.108"
         app:srcCompat="@drawable/close" />
+
+    <Button
+        android:id="@+id/btnGellery"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#AEAEAE"
+        android:text="Gellery"
+        android:textColor="@color/white"
+        android:textColorHighlight="#DA3535"
+        android:textColorHint="#FAF6F6"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgAdd"
+        app:layout_constraintStart_toStartOf="@+id/imgAdd"
+        app:layout_constraintTop_toBottomOf="@+id/imgAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

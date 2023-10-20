@@ -18,14 +18,12 @@ class post_fm : Fragment() {
     ): View? {
         var postV = inflater.inflate(R.layout.fragment_post_fm, container, false)
 
+
         var btnWrite : Button = postV.findViewById(R.id.btnWrite)
 
         btnWrite.setOnClickListener {
                                 //fragment 올려진 activity정보 가져오기  -> context 이용
             val intent = Intent(context, BoardWriteActivity::class.java)
-
-
-
             startActivity(intent)
         }
 
