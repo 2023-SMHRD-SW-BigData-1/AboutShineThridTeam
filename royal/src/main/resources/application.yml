@@ -1,18 +1,13 @@
 
 
 server:
-  # context-path
-  servlet:
-    context-path: /shine
-    
-  # tomcat port
   port: 8582
 
 spring:
   # JSP 경로 설정
   mvc:
     view:
-      prefix: /WEB-INF/views/Login-Join/
+      prefix: /WEB-INF/views
       suffix: .jsp
       
   # DB 연결정보
