@@ -12,7 +12,7 @@ spring:
   # JSP 경로 설정
   mvc:
     view:
-      prefix: /WEB-INF/views/Login-Join/
+      prefix: /WEB-INF/views/Mypage/
       suffix: .jsp
       
       # DB 연결정보

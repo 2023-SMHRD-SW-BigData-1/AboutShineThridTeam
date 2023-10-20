@@ -10,6 +10,6 @@ public class MainController {
 	@GetMapping(value="/")
 	public String home() {
 		
-		return "Login-Join";
+		return "modification";
 	}
 }
