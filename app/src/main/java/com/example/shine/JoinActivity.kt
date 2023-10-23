@@ -1,6 +1,7 @@
 package com.example.shine
 
 import android.content.ContextParams
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -62,6 +63,14 @@ class JoinActivity : AppCompatActivity() {
                 {
                     res ->
                     Log.d("JoinRes", res.toString())
+                    if(res=="Success"){
+                        Toast.makeText(this,"회원가입 성공",Toast.LENGTH_SHORT).show()
+                        //loginactivity로 전환
+                        var intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(this,"회원가입 실패",Toast.LENGTH_SHORT).show()
+                    }
 
                 },
                 {
