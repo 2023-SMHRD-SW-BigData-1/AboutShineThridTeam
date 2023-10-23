@@ -4,13 +4,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shine.user.mapper.UserMapper;
+import com.shine.user.model.MailModel;
 import com.shine.user.model.UserModel;
+import com.shine.user.service.MailService;
 
 @Controller
 @RequestMapping("/user")
@@ -94,50 +97,17 @@ public class UserController {
 
 	// 비밀번호찾기
 
-	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
-	public String findpw(
-	        @RequestParam("user_email") String user_email,
-	        @RequestParam("user_name") String user_name,
-	        HttpSession session) { 
+	// 이메일 보내기
+    @Transactional
+    @RequestMapping(method = RequestMethod.POST, path = "/sendEmail")
+    public String sendEmail(@RequestParam("memberEmail") String memberEmail){
+    	
+    	MailService ms = new MailService();
+    	
+        MailModel dto = ms.createMailAndChangePassword(memberEmail);
+        ms.mailSend(dto);
 
-	    System.out.println("findpw");
-
-	    UserModel findUser = new UserModel(user_email, user_name);
-
-	    UserModel result = mapper.findpw(findUser);
-
-	    if (result != null) {
-	    	session.setAttribute("result", result);
-
-	        String userFindPw = result.getUser_email();
-	        int pwSize = userFindPw.length() / 2;
-
-	        String resultPwd_1 = userFindPw.substring(0, pwSize);
-
-	        // 뒤의 절반은 *로 표시
-	        String tmp = "";
-	        if (pwSize % 2 == 1) { // 홀수인 경우 * 한개 더 추가
-	            for (int i = 0; i < pwSize + 1; i++) {
-	                tmp += "*";
-	            }
-	        } else {
-	            for (int i = 0; i < pwSize; i++) {
-	                tmp += "*";
-	            }
-	        }
-	        String resultPwd = resultPwd_1 + tmp;
-
-	        findUser.setUser_pw(resultPwd);
-
-	        session.setAttribute("user_email", user_email);
-	        session.setAttribute("user_name", user_name);
-	        session.setAttribute("flag", 1); // 여기서 flag를 1로 설정
-	    } else {
-	    	session.setAttribute("flag", 2); // 여기서 flag를 2로 설정
-	        System.out.println("회원정보 없음");
-	    }
-
-	    return "redirect:/";
-	}
+        return "redirect:/";
+    }
 
 }

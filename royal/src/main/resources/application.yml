@@ -16,3 +16,12 @@ spring:
     username: royal
     password: r1234
     driver-class-name: oracle.jdbc.OracleDriver
+
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: shineweb1110@gmail.com
+    password: shinesmhrd1110
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
