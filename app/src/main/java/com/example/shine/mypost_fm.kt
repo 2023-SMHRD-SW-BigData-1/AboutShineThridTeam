@@ -1,10 +1,13 @@
 package com.example.shine
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 
 
 class mypost_fm : Fragment() {
@@ -13,6 +16,9 @@ class mypost_fm : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var mypostV = inflater.inflate(R.layout.fragment_mypost_fm, container, false)
+
+
+
         return mypostV
     }
 

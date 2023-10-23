@@ -5,157 +5,164 @@
     android:id="@+id/memberModifyPageCon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backColor"
+    android:background="@color/white"
     tools:context=".mypage_fm">
 
-    <Button
-        android:id="@+id/memberModifyPageMainBack"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#FFFFFF"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView35"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView35"
+        app:layout_constraintTop_toBottomOf="@+id/textView35"
+        app:srcCompat="@drawable/baseline_create_24" />
 
     <TextView
-        android:id="@+id/memberModifyPageTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="회원 정보 수정"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toTopOf="@+id/memberModifyPageMainBack" />
-
-    <TextView
-        android:id="@+id/memberModifyPageEmailTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="이메일 수정"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageTv" />
-
-    <EditText
-        android:id="@+id/memberModifyPageEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageEmailTv" />
-
-    <TextView
-        android:id="@+id/memberModifyPageNameTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="이름 수정"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageEmail" />
-
-    <EditText
-        android:id="@+id/memberModifyPageName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageNameTv" />
-
-    <TextView
-        android:id="@+id/memberModifyPagePwTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="비밀번호 수정"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageName" />
-
-    <EditText
-        android:id="@+id/memberModifyPagePw"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPagePwTv" />
-
-    <TextView
-        android:id="@+id/memberModifyPageTelTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="전화번호 수정"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPagePw" />
-
-    <EditText
-        android:id="@+id/memberModifyPageTel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageMainBack"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageTelTv" />
-
-    <Button
-        android:id="@+id/memberModifyPageModifyBtn"
+        android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="48dp"
-        android:backgroundTint="@color/mainColor"
-        android:text="수정"
-        app:cornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="@+id/memberModifyPageTel"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageTel" />
+        android:text="내 발전소"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/imageView14"
+        app:layout_constraintVertical_bias="0.444" />
 
-    <Button
-        android:id="@+id/memberModifyPageCancelBtn"
+    <TextView
+        android:id="@+id/tv_mypost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="@color/mainColor"
-        android:gravity="center"
-        android:text="취소"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/memberModifyPageTel"
-        app:layout_constraintTop_toBottomOf="@+id/memberModifyPageTel" />
+        android:layout_marginStart="40dp"
+        android:text="내가 쓴 글"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintTop_toTopOf="@+id/imageView13"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/baseline_room_24"
+        app:layout_constraintEnd_toEndOf="@+id/imageView13"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/baseline_library_books_24"
+        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/tv_modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="회원정보수정"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+        app:layout_constraintStart_toEndOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+    <ImageView
+        android:id="@+id/imgMyphoto"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/person"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/membermodify" />
+
+    <TextView
+        android:id="@+id/tvNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="닉네임"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgMyphoto"
+        app:layout_constraintTop_toTopOf="@+id/imgMyphoto" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="이메일"
+        app:layout_constraintEnd_toEndOf="@+id/tvNickname"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvNickname"
+        app:layout_constraintTop_toBottomOf="@+id/tvNickname" />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전화번호"
+        app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="68dp"
+        android:text="My Status"
+        android:textColor="#A8A5A5"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMyphoto" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_modify"
+        app:layout_constraintStart_toEndOf="@+id/tv_modify"
+        app:layout_constraintTop_toTopOf="@+id/tv_modify"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mypost"
+        app:layout_constraintStart_toEndOf="@+id/tv_mypost"
+        app:layout_constraintTop_toTopOf="@+id/tv_mypost" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintTop_toTopOf="@+id/textView34"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

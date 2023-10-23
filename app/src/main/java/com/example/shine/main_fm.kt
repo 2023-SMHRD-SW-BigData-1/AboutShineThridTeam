@@ -17,15 +17,23 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.ValueFormatter
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
 
 class main_fm : Fragment() {
 
+    private var chartData = ArrayList<Entry>()
+    private var linedata : LineData = LineData()
+    private var lineDataSet = ArrayList<ILineDataSet>()
+
     private lateinit var barChart: BarChart
     private lateinit var lineChart: LineChart
 
-    // [막대 그래프]
+    // [바 그래프]
     // 바 차트 설정
     private fun initBarChart(barChart: BarChart) {
         // 차트 회색 배경 설정 (default = false)
@@ -75,7 +83,7 @@ class main_fm : Fragment() {
 
     }
 
-    // 차트 데이터 설정
+    // 바 차트 데이터 설정
     private fun setData(barChart: BarChart) {
 
         // Zoom In / Out 가능 여부 설정
@@ -106,10 +114,38 @@ class main_fm : Fragment() {
 
 
 
-    // [꺾은 선 그래프]
+    // [라인 그래프]
+    //라인 차트 설정
+
+    private  fun initChart(){
+        lineChart.run {
+            setDrawGridBackground(false)
+            setBackgroundColor(Color.WHITE)
+            legend.isEnabled = false
+        }
+
+        val xAxis =lineChart.xAxis
+        xAxis.setDrawLabels(true)
 
 
+        }
 
+
+    // 라인 차트 데이터 설정
+    private fun initCharData() {
+        chartData.add(Entry(-240f,0f))
+        chartData.add(Entry((1200).toFloat(),0f))
+
+        var set = LineDataSet(chartData,"set1")
+        lineDataSet.add(set)
+        linedata = LineData(lineDataSet)
+
+        set.lineWidth = 2F
+        set.setDrawValues(false)
+        set.highLightColor = Color.TRANSPARENT
+        set.mode = LineDataSet.Mode.STEPPED
+
+    }
 
 
     override fun onCreateView(
@@ -122,11 +158,11 @@ class main_fm : Fragment() {
         initBarChart(barChart)
         setData(barChart)
 
-
-
-
         return mainV
     }
 
 
 }
+
+
+

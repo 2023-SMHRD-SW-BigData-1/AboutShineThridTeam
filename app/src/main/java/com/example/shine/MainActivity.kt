@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.ImageView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.logging.Log
-import com.google.firebase.database.core.Tag
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
+//import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.logging.Log
+//import com.google.firebase.database.core.Tag
+//import com.google.firebase.messaging.FirebaseMessaging
+//import com.google.android.gms.tasks.OnCompleteListener
+//import com.google.android.gms.tasks.Task
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
@@ -27,15 +27,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-
         fl = findViewById(R.id.fl)
         bnv = findViewById(R.id.bnv)
         alarm = findViewById(R.id.imgAlarm)
         logout = findViewById(R.id.imgLogout)
 
-
-
+        supportFragmentManager.beginTransaction().replace(R.id.fl, main_fm()).commit()
 
 
         alarm.setOnClickListener {
@@ -57,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.tap1 -> {
-                    // fragment 추가/삭제/교체 // 어디에 frag, 어떤 frag
+                    // fragment 추가/삭제/교체시 사용  // 어디에 frag, 어떤 frag
                     supportFragmentManager.beginTransaction().replace(R.id.fl, main_fm()).commit()
                     Toast.makeText(this@MainActivity, "홈 클릭", Toast.LENGTH_SHORT).show()
 
@@ -85,22 +82,22 @@ class MainActivity : AppCompatActivity() {
             //이벤트 종료 감지해서 다음 이벤트 준비하는 결과값 : true
             true
         }
-            // Firebase Cloud Messaging 토큰 가져오기
-            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-                if (!task.isSuccessful) {
-                    val exception = task.exception
-                    android.util.Log.w("TAG", "Fetching FCM registration token failed", exception)
-                    return@OnCompleteListener
-                }
-
-                // FCM 토큰 가져오기
-                val token = task.result
-
-//                // Log 및 toast
-//                val msg = getString(R.string.msg_token_fmt, token)
-//                android.util.Log.d("TAG", "msg")
-//                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-            })
+//            // Firebase Cloud Messaging 토큰 가져오기
+//            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+//                if (!task.isSuccessful) {
+//                    val exception = task.exception
+//                    android.util.Log.w("TAG", "Fetching FCM registration token failed", exception)
+//                    return@OnCompleteListener
+//                }
+//
+//                // FCM 토큰 가져오기
+//                val token = task.result
+//
+////                // Log 및 toast
+////                val msg = getString(R.string.msg_token_fmt, token)
+////                android.util.Log.d("TAG", "msg")
+////                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+//            })
 
 
 
