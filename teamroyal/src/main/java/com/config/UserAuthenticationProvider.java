@@ -41,7 +41,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 		String userId = authentication.getName();
 		String userPw = authentication.getCredentials().toString();
 		
-		log.info(userId + "로그인 시도를 하였습니다.");
+		System.out.println(userId + "로그인 시도를 하였습니다.");
 		
 		List<UserVO> userList = userService.userSelectList(userId);
 

@@ -74,5 +74,81 @@ public class LoginInfoVO implements UserDetails {
 			this.password = userVo.getUserPw();
 			this.username = userVo.getUserNick();
 		}
+
+		@Override
+		public String getPassword() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String getUsername() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public String getUserNick() {
+			return userNick;
+		}
+
+		public String getUserEmail() {
+			return userEmail;
+		}
+
+		public String getUserRole() {
+			return userRole;
+		}
+
+		public String getUserNm() {
+			return userNm;
+		}
+
+		public String getUserAdd() {
+			return userAdd;
+		}
+
+		public String getUserPhone() {
+			return userPhone;
+		}
+
+		public List<String> getAuths() {
+			return auths;
+		}
+
+		public void setUsername(String username) {
+			this.username = username;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		public void setUserNick(String userNick) {
+			this.userNick = userNick;
+		}
+
+		public void setUserEmail(String userEmail) {
+			this.userEmail = userEmail;
+		}
+
+		public void setUserRole(String userRole) {
+			this.userRole = userRole;
+		}
+
+		public void setUserNm(String userNm) {
+			this.userNm = userNm;
+		}
+
+		public void setUserAdd(String userAdd) {
+			this.userAdd = userAdd;
+		}
+
+		public void setUserPhone(String userPhone) {
+			this.userPhone = userPhone;
+		}
+
+		public void setAuths(List<String> auths) {
+			this.auths = auths;
+		}
 		
 }

@@ -23,4 +23,76 @@ public class UserVO {
 	private String userCreateNm; //생성자
 	private String userModifyAt; //수정일
 	private String userModifyNm; //수정자
+	public String getUserNick() {
+		return userNick;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public String getUserRole() {
+		return userRole;
+	}
+	public String getUserNm() {
+		return userNm;
+	}
+	public String getUserAdd() {
+		return userAdd;
+	}
+	public String getUserPhone() {
+		return userPhone;
+	}
+	public String getUserPw() {
+		return userPw;
+	}
+	public String getUserIsdeleted() {
+		return userIsdeleted;
+	}
+	public String getUserCreateAt() {
+		return userCreateAt;
+	}
+	public String getUserCreateNm() {
+		return userCreateNm;
+	}
+	public String getUserModifyAt() {
+		return userModifyAt;
+	}
+	public String getUserModifyNm() {
+		return userModifyNm;
+	}
+	public void setUserNick(String userNick) {
+		this.userNick = userNick;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+	public void setUserNm(String userNm) {
+		this.userNm = userNm;
+	}
+	public void setUserAdd(String userAdd) {
+		this.userAdd = userAdd;
+	}
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
+	}
+	public void setUserIsdeleted(String userIsdeleted) {
+		this.userIsdeleted = userIsdeleted;
+	}
+	public void setUserCreateAt(String userCreateAt) {
+		this.userCreateAt = userCreateAt;
+	}
+	public void setUserCreateNm(String userCreateNm) {
+		this.userCreateNm = userCreateNm;
+	}
+	public void setUserModifyAt(String userModifyAt) {
+		this.userModifyAt = userModifyAt;
+	}
+	public void setUserModifyNm(String userModifyNm) {
+		this.userModifyNm = userModifyNm;
+	}
 }

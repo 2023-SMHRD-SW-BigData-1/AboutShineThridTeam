@@ -3,8 +3,8 @@ package com.user.service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import com.shine.user.mapper.UserMapper;
-import com.shine.user.model.MailModel;
+import com.user.dao.UserMapper;
+import com.user.vo.MailModel;
 
 public class MailService {
 	
