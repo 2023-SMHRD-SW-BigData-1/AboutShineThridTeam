@@ -35,14 +35,14 @@
     <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
-    <title>Document</title>
+    <title>comm-list</title>
     <link rel="stylesheet" href="comm-list.css">
 
 </head>
 
 <body>
 
-    <section class="notice" style="width: 1100px; border: 1px solid blue;">
+    <section class="notice" style="width: 1100px;">
         <div class="page-title">
             <div class="container">
                 <h3>공지사항</h3>
@@ -66,16 +66,14 @@
 
         <!-- board list area -->
         <div id="board-list">
-            <div class="container" style="border: 1px solid red;">
+            <div class="container" >
                 <table class="board-table">
                     <thead>
                         <tr>
-                            <th scope="col" class="th-num" style="border: 1px solid red;">번호</th>
-                            <th scope="col" class="th-title" style="border: 1px solid red;">제목</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">글쓴이</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">채팅</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">이메일</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">날짜</th>
+                            <th scope="col" class="th-num" >번호</th>
+                            <th scope="col" class="th-title" >제목</th>
+                            <th scope="col" class="th-ctt" >글쓴이</th>
+                            <th scope="col" class="th-ctt" >날짜</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,11 +81,8 @@
                             <td>3</td>
                             <th>
                                 <a href="#!">내 생각에는 table 한개에</a>
-                                <p>테스트</p>
                             </th>
                             <td>박충희</td>
-                            <td>채팅이모티콩</td>
-                            <td>이메일</td>
                             <td>2017.06.15</td>
                         </tr>
 
@@ -95,8 +90,6 @@
                             <td>2</td>
                             <th><a href="#!">for문 같은거를 써서 </a></th>
                             <td>박충희</td>
-                            <td>채팅이모티콩</td>
-                            <td>이메일</td>
                             <td>2017.06.15</td>
                         </tr>
 
@@ -104,8 +97,6 @@
                             <td>1</td>
                             <th><a href="#!">해야하지 않을까라는 생각을 해봅니다</a></th>
                             <td>박충희</td>
-                            <td>채팅이모티콩</td>
-                            <td>이메일</td>
                             <td>2017.06.15</td>
                         </tr>
                     </tbody>
@@ -113,10 +104,10 @@
             </div>
         </div>
         <div class="row mx-0 mt-3">
-            <div class="col-sm-12 col-md-6 w-75" style="border: 1px solid red;">
+            <div class="col-sm-12 col-md-6 w-75" >
                 <div class="dataTables_paginate paging_simple_numbers"
                     id="DataTables_Table_0_paginate">
-                    <ul class="pagination" style="border: 1px solid blue; margin-left: 45%;">
+                    <ul class="pagination" style="margin-left: 45%;">
                         <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a
                                 aria-controls="DataTables_Table_0" aria-disabled="true" aria-role="link"
                                 data-dt-idx="previous" tabindex="0" class="page-link">Previous</a></li>
@@ -137,7 +128,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="w-25" style="border: 1px solid red; ">
+            <div class="w-25">
                 <div class="d-flex justify-content-end" >
                     <button style="height: 30px; border-radius: 4px; background-color: #7367F0; border: none; color: #fff;" class="w-50">글쓰기</button>
                 </div>

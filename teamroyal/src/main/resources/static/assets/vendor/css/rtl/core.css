@@ -75,6 +75,9 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -11741,6 +11744,26 @@ html:not([dir=rtl]) .card .card-separator {
   bottom: 100% !important;
 }
 
+.left-0 {
+  left: 0 !important;
+}
+.left-50 {
+  left: 50 !important;
+}
+.left-100 {
+  left: 100 !important;
+}
+
+.right-0 {
+  right: 0 !important;
+}
+.right-50 {
+  right: 50 !important;
+}
+.right-0 {
+  right: 100 !important;
+}
+
 .zindex-1 {
   z-index: 1 !important;
 }
@@ -11779,6 +11802,18 @@ html:not([dir=rtl]) .card .card-separator {
 
 .border-none {
   border-style: none !important;
+}
+
+.bdr {
+  border: 1px solid red;
+}
+
+.bdb {
+  border: 1px solid blue;
+}
+
+.bdy {
+  border: 1px solid yellow;
 }
 
 .border-top {
@@ -12357,6 +12392,14 @@ html:not([dir=rtl]) .card .card-separator {
 
 .m-auto {
   margin: auto !important;
+}
+
+.mxl-auto {
+  margin-left: auto;
+}
+
+.mxr-auto {
+  margin-right: auto;
 }
 
 .mx-0 {

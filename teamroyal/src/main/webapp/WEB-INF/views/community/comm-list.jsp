@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,18 +37,17 @@
     <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
-    <title>Document</title>
+    <title>comm-list</title>
     <link rel="stylesheet" href="comm-list.css">
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+
 </head>
+
 <body>
 
-    <section class="notice" style="width: 1100px; border: 1px solid blue;">
+    <section class="notice" style="width: 1100px;">
         <div class="page-title">
             <div class="container">
-                <h3>°øÁö»çÇ×</h3>
+                <h3>ê³µì§€ì‚¬í•­</h3>
             </div>
         </div>
 
@@ -57,9 +57,9 @@
                 <div class="search-window">
                     <form action="">
                         <div class="search-wrap">
-                            <label for="search" class="blind">°øÁö»çÇ× ³»¿ë °Ë»ö</label>
-                            <input id="search" type="search" name="" placeholder="°Ë»ö¾î¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." value="">
-                            <button type="submit" class="btn btn-dark">°Ë»ö</button>
+                            <label for="search" class="blind">ê³µì§€ì‚¬í•­ ë‚´ìš© ê²€ìƒ‰</label>
+                            <input id="search" type="search" name="" placeholder="ê²€ìƒ‰ì–´ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”." value="">
+                            <button type="submit" class="btn btn-dark">ê²€ìƒ‰</button>
                         </div>
                     </form>
                 </div>
@@ -68,46 +68,37 @@
 
         <!-- board list area -->
         <div id="board-list">
-            <div class="container" style="border: 1px solid red;">
+            <div class="container" >
                 <table class="board-table">
                     <thead>
                         <tr>
-                            <th scope="col" class="th-num" style="border: 1px solid red;">¹øÈ£</th>
-                            <th scope="col" class="th-title" style="border: 1px solid red;">Á¦¸ñ</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">±Û¾´ÀÌ</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">Ã¤ÆÃ</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">ÀÌ¸ÞÀÏ</th>
-                            <th scope="col" class="th-ctt" style="border: 1px solid red;">³¯Â¥</th>
+                            <th scope="col" class="th-num" >ë²ˆí˜¸</th>
+                            <th scope="col" class="th-title" >ì œëª©</th>
+                            <th scope="col" class="th-ctt" >ê¸€ì“´ì´</th>
+                            <th scope="col" class="th-ctt" >ë‚ ì§œ</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>3</td>
                             <th>
-                                <a href="#!">³» »ý°¢¿¡´Â table ÇÑ°³¿¡</a>
-                                <p>Å×½ºÆ®</p>
+                                <a href="#!">ë‚´ ìƒê°ì—ëŠ” table í•œê°œì—</a>
                             </th>
-                            <td>¹ÚÃæÈñ</td>
-                            <td>Ã¤ÆÃÀÌ¸ðÆ¼Äá</td>
-                            <td>ÀÌ¸ÞÀÏ</td>
+                            <td>ë°•ì¶©í¬</td>
                             <td>2017.06.15</td>
                         </tr>
 
                         <tr>
                             <td>2</td>
-                            <th><a href="#!">for¹® °°Àº°Å¸¦ ½á¼­ </a></th>
-                            <td>¹ÚÃæÈñ</td>
-                            <td>Ã¤ÆÃÀÌ¸ðÆ¼Äá</td>
-                            <td>ÀÌ¸ÞÀÏ</td>
+                            <th><a href="#!">forë¬¸ ê°™ì€ê±°ë¥¼ ì¨ì„œ </a></th>
+                            <td>ë°•ì¶©í¬</td>
                             <td>2017.06.15</td>
                         </tr>
 
                         <tr>
                             <td>1</td>
-                            <th><a href="#!">ÇØ¾ßÇÏÁö ¾ÊÀ»±î¶ó´Â »ý°¢À» ÇØº¾´Ï´Ù</a></th>
-                            <td>¹ÚÃæÈñ</td>
-                            <td>Ã¤ÆÃÀÌ¸ðÆ¼Äá</td>
-                            <td>ÀÌ¸ÞÀÏ</td>
+                            <th><a href="#!">í•´ì•¼í•˜ì§€ ì•Šì„ê¹Œë¼ëŠ” ìƒê°ì„ í•´ë´…ë‹ˆë‹¤</a></th>
+                            <td>ë°•ì¶©í¬</td>
                             <td>2017.06.15</td>
                         </tr>
                     </tbody>
@@ -115,10 +106,10 @@
             </div>
         </div>
         <div class="row mx-0 mt-3">
-            <div class="col-sm-12 col-md-6 w-75" style="border: 1px solid red;">
+            <div class="col-sm-12 col-md-6 w-75" >
                 <div class="dataTables_paginate paging_simple_numbers"
                     id="DataTables_Table_0_paginate">
-                    <ul class="pagination" style="border: 1px solid blue; margin-left: 45%;">
+                    <ul class="pagination" style="margin-left: 45%;">
                         <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a
                                 aria-controls="DataTables_Table_0" aria-disabled="true" aria-role="link"
                                 data-dt-idx="previous" tabindex="0" class="page-link">Previous</a></li>
@@ -139,13 +130,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="w-25" style="border: 1px solid red; ">
+            <div class="w-25">
                 <div class="d-flex justify-content-end" >
-                    <button style="height: 30px; border-radius: 4px; background-color: #7367F0; border: none; color: #fff;" class="w-50">±Û¾²±â</button>
+                    <button style="height: 30px; border-radius: 4px; background-color: #7367F0; border: none; color: #fff;" class="w-50">ê¸€ì“°ê¸°</button>
                 </div>
             </div>
         </div>
     </section>
-
 </body>
+
 </html>
