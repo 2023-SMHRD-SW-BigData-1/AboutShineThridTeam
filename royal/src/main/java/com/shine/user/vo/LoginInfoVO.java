@@ -1,4 +1,4 @@
-package com.user.vo;
+package com.shine.user.vo;
 
 import java.util.ArrayList;
 import java.util.Collection;

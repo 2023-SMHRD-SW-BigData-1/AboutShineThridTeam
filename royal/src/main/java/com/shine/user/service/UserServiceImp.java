@@ -1,4 +1,4 @@
-package com.user.service;
+package com.shine.user.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.user.dao.UserDAO;
-import com.user.vo.UserVO;
+import com.shine.user.dao.UserDAO;
+import com.shine.user.vo.UserVO;
 
 @Service
 public class UserServiceImp implements UserService {

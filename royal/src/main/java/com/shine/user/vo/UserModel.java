@@ -1,4 +1,4 @@
-package com.shine.user.model;
+package com.shine.user.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

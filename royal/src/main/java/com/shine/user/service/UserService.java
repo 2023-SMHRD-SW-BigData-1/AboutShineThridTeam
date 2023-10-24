@@ -1,9 +1,9 @@
-package com.user.service;
+package com.shine.user.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.user.vo.UserVO;
+import com.shine.user.vo.UserVO;
 
 public interface UserService {
 

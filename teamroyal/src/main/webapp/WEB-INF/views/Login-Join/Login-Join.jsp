@@ -1,12 +1,15 @@
+<%@page import="com.shine.user.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="resources/assets/vendor/css/rtl/Shine-Login-Join.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="/assets/vendor/css/rtl/Shine-Login-Join.css">
+  <title>Login-Join</title>
 </head>
 <body>
   <nav id="navi">
@@ -21,33 +24,32 @@
       <!-- SIGN UP -->
       <div class="col align-items-center flex-col sign-up">
         <div class="form-wrapper align-items-center">
-          <form action="user/join" method="post" class="form sign-up">
+          <form action="/user/login/join" method="post" class="form sign-up">
             <div class="input-group">
               <i class='bx bxs-user'></i>
-              <input type="text" name="user_nick" placeholder="Nickname">
+              <input type="text" name="userNick" placeholder="Nickname">
             </div>
             <div class="input-group">
               <i class='bx bx-mail-send'></i>
-              <input type="email" name="user_email" placeholder="Email">
+              <input type="email" name="userEmail" placeholder="Email">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" name="user_pw" placeholder="Password">
+              <input type="password" name="userPw" placeholder="Password">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="text" name="user_name" placeholder="Username">
+              <input type="text" name="userNm" placeholder="Username">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="text" name="user_add" placeholder="Address">
+              <input type="text" name="userAdd" placeholder="Address">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="tel" name="user_phone" placeholder="Phone">
+              <input type="tel" name="userPhone" placeholder="Phone">
             </div>
             <input type="submit" value="Sign up" class="Sh_submit_btn">
-            
             <p>
               <span>
                 Already have an account?
@@ -64,14 +66,14 @@
       <!-- SIGN IN -->
       <div class="col align-items-center flex-col sign-in">
         <div class="form-wrapper align-items-center">
-          <form action="user/login" method="post" class="form sign-in">
+          <form action="/user/login/Success" method="post" class="form sign-in">
             <div class="input-group">
               <i class='bx bxs-user'></i>
-              <input type="text" name="user_email" placeholder="Email">
+              <input type="text" name="userEmail" placeholder="Email">
             </div>
             <div class="input-group">
               <i class='bx bxs-lock-alt'></i>
-              <input type="password" name="user_pw" placeholder="Password">
+              <input type="password" name="userPw" placeholder="Password">
             </div>
             <input type="submit" value="Sign in" class="Sh_submit_btn">
             <p>
@@ -130,5 +132,5 @@
   </div>
 </div>
 </body>
-<script src="resources/assets/vendor/js/Shine-Login-Join.js"></script>
+<script src="/assets/vendor/js/Shine-Login-Join.js"></script>
 </html>

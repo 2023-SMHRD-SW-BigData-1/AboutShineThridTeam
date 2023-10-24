@@ -3,8 +3,7 @@ package com.shine.user.service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import com.shine.user.mapper.UserMapper;
-import com.shine.user.model.MailModel;
+import com.shine.user.vo.MailModel;
 
 public class MailService {
 	
@@ -23,8 +22,8 @@ public class MailService {
     //임시 비밀번호로 업데이트
     public void updatePassword(String str, String userEmail){
         String memberPassword = str;
-        Long memberId = mr.findByMemberEmail(userEmail).getId();
-        mmr.updatePassword(memberId,memberPassword);
+        //Long memberId = mr.findByMemberEmail(userEmail).getId();
+        //mmr.updatePassword(memberId,memberPassword);
     }
 
     //랜덤함수로 임시비밀번호 구문 만들기
@@ -52,12 +51,12 @@ public class MailService {
         message.setFrom("보낸이@gmail.com");
         message.setReplyTo("보낸이@gamil.com");
         System.out.println("message"+message);
-        JavaMailSender.send(message);
+        //JavaMailSender.send(message);
     }
 
     //비밀번호 변경
     public void updatePassWord(Long memberId, String memberPassword) {
-        mmr.updatePassword(memberId,memberPassword);
+        //mmr.updatePassword(memberId,memberPassword);
     }
 
 		

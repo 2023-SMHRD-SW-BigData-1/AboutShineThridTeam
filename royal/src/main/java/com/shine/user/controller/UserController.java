@@ -1,113 +1,135 @@
 package com.shine.user.controller;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.shine.user.mapper.UserMapper;
-import com.shine.user.model.MailModel;
-import com.shine.user.model.UserModel;
-import com.shine.user.service.MailService;
+import com.shine.user.service.UserService;
+import com.shine.user.vo.UserVO;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+	
 	@Autowired
-	UserMapper mapper;
+	private UserService userService;
 
-	// 회원가입
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	//로그인 화면 조회
+	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+	public String login(Model model, HttpSession session, HttpServletResponse response){
+		return "/Mypage/modification";
+	}
+	
+	/**
+	 * 회원가입
+	 * @param UserVO userVo
+	 * @param HttpSession session
+	 * @param Map<String, Object>
+	 * @return Login-Join/Login-Join.jsp
+	 * 
+	 * ------------이력------------
+	 * 2023.10.24 / 정윤지 / 최초 적용
+	 */
+	@RequestMapping(value = "/login/join", method = RequestMethod.POST)
 	public String join(
-			@RequestParam("user_nick") String user_nick, 
-			@RequestParam("user_email") String user_email,
-			@RequestParam("user_pw") String user_pw, 
-			@RequestParam("user_name") String user_name,
-			@RequestParam("user_add") String user_add, 
-			@RequestParam("user_phone") String user_phone,
+			@ModelAttribute UserVO userVo, 
 			HttpSession session) {
 
-		System.out.println(user_email + ", " + user_pw);
-
-		UserModel m = new UserModel(user_nick, user_email, user_pw, user_name, user_add, user_phone);
-
-		int cnt = mapper.join(m);
-
-		if (cnt > 0) {
+		System.out.println("::::::::::" + userVo);
+		//회원가입 서비스 실행
+		Map<String, Object> reMap = userService.userInfoInsert(userVo);
+		
+		//코드로 성공 여부 확인
+		String reString = reMap.get("reCode").toString();
+		if(reString.equals("00")) {
+			System.out.println("회원가입 성공");
 			return "redirect:/";
-		} else {
-			System.out.println("회원가입 실패");
+		}else if(reString.equals("01")) {
+			System.out.println("필수값 오류");
+			return "redirect:/";
+		}else {
+			System.out.println("관리자 확인이 필요합니다.");
 			return "redirect:/";
 		}
 	}
 
-	// 로그인
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	/**
+	 * 로그인
+	 * @param userEmail
+	 * @param userPw
+	 * @param HttpSession session
+	 * @param Map<String, Object>
+	 * @return Login-Join/Login-Join.jsp
+	 * * ------------이력------------
+	 * 2023.10.24 / 정윤지 / 최초 적용
+	 */
+	@RequestMapping(value = "/login/Success", method = RequestMethod.POST)
 	public String login(
-			@RequestParam("user_email") String user_email, 
-			@RequestParam("user_pw") String user_pw,
+			@RequestParam("userEmail") String userEmail, 
+			@RequestParam("userPw") String userPw,
 			HttpSession session) {
-		UserModel loginUser = new UserModel(user_email, user_pw);
-
-		UserModel result = mapper.login(loginUser);
-
-		if (result != null) {
-			// 세션(HttpSession)에 회원정보를 저장
-			session.setAttribute("result", result);
-
+		
+		
+		Map<String, Object> loginMap = userService.userLogin(userEmail.toString(), userPw.toString());
+		
+		String reString = loginMap.get("loginCode").toString();
+		if(reString.equals("11")) {
+			System.out.println("로그인 성공");
+			session.setAttribute("loginMap", loginMap);
 			return "redirect:/";
-		} else {
-			System.out.println("로그인 실패");
+		}else if(reString.equals("01")) {
+			System.out.println("필수값 오류");
 			return "redirect:/";
+		}else {
+			System.out.println("관리자 확인이 필요합니다.");
+			return "redirect:/";
+			
 		}
 	}
-
-	// 로그아웃
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:/";
-	}
-
-	// 회원정보수정
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(
-			@ModelAttribute UserModel m, 
+	
+	/**
+	 * 회원정보 수정
+	 * @param UserVO userVo
+	 * @param HttpSession session
+	 * @param Map<String, Object>
+	 * @return Map<String, Object>
+	 * * ------------이력------------
+	 * 2023.10.24 / 정윤지 / 최초 적용
+	 */
+	@RequestMapping(value = "/login/modify", method = RequestMethod.POST)
+	public Map<String, Object> modify(
+			@ModelAttribute UserVO userVo, 
 			HttpSession session) {
-
-		UserModel modifyUser = (UserModel) session.getAttribute("loginUser");
-
-		m.setUser_email(modifyUser.getUser_email());
-
-		int cnt = mapper.update(m);
-
-		if (cnt > 0) { // 수정성공
-			session.setAttribute("loginUser", m);
-			return "redirect:/";
-		} else { // 수정실패
-			return "redirect:/";
+		
+		Map<String, Object> updateReMap = userService.userInfoUpdate(userVo);
+		
+		String reString = updateReMap.get("updateReCode").toString();
+		if(reString.equals("22")) {
+			System.out.println("회원수정 성공");
+		}else if(reString.equals("01")) {
+			System.out.println("필수값 오류");
+		}else {
+			System.out.println("관리자 확인이 필요합니다.");
 		}
+		return updateReMap;
 	}
-
-	// 비밀번호찾기
-
-	// 이메일 보내기
-    @Transactional
-    @RequestMapping(method = RequestMethod.POST, path = "/sendEmail")
-    public String sendEmail(@RequestParam("memberEmail") String memberEmail){
-    	
-    	MailService ms = new MailService();
-    	
-        MailModel dto = ms.createMailAndChangePassword(memberEmail);
-        ms.mailSend(dto);
-
-        return "redirect:/";
-    }
-
+	
+//	// 초기화면
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public ModelAndView index(Authentication auth) {
+//		ModelAndView model = new ModelAndView("index");
+//		LoginInfoVO userInfo = (LoginInfoVO) auth.getPrincipal();
+//		model.addObject("user", userInfo);
+//		return model;
+//	}
+	
 }
