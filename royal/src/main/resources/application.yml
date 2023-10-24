@@ -1,21 +1,16 @@
 
 
 server:
-  # context-path
-  servlet:
-    context-path: /shine
-    
-  # tomcat port
   port: 8582
 
 spring:
   # JSP 경로 설정
   mvc:
     view:
-      prefix: /WEB-INF/views/Mypage/
+      prefix: /WEB-INF/views
       suffix: .jsp
       
-      # DB 연결정보
+  # DB 연결정보
   datasource:
     url: jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe
     username: royal
@@ -24,9 +19,9 @@ spring:
 
   mail:
     host: smtp.gmail.com
-    port: 587
-    username: gganesstock002@gmail.com
-    password: sstockggame1313
+    port: 465
+    username: shineweb1110@gmail.com
+    password: shinesmhrd1110
     properties:
       mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.enable: true
