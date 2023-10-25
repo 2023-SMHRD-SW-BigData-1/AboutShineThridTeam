@@ -557,12 +557,12 @@
               <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-sm-row mb-4">
                   <li class="nav-item">
-                    <a class="nav-link active" href="/user/login/uerProfile"><i class="ti-xs ti ti-user-check me-1"></i>
-                      Profile</a>
+                    <a class="nav-link active" href="/user/login/uerProfile"><i 
+                    class="ti-xs ti ti-user-check me-1"></i>Profile</a>
                   </li>
                   <li class="nav-item" >
-                    <a class="nav-link" href="/user/login/userProfile/modify"><i class="ti-xs ti ti-link me-1"></i>
-                      Account</a>
+                    <a class="nav-link" href="/user/login/userProfile/modify"><i 
+                    class="ti-xs ti ti-link me-1"></i>Account</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/user/login/userProfile/email"><i
