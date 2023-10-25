@@ -10,6 +10,6 @@ public class MainController {
 	@GetMapping(value="/")
 	public String home() {
 		
-		return "Mypage/modification";
+		return "mainPage/index";
 	}
 }
