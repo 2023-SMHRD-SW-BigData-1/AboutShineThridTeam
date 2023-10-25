@@ -39,8 +39,8 @@ public class UserController {
 	 * @param HttpSession session
 	 * @param Map<String, Object>
 	 * @return Login-Join/Login-Join.jsp
-	 * 
-	 *         ------------이력------------ 2023.10.24 / 정윤지 / 최초 적용
+	 * ------------이력------------ 
+	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
 	@RequestMapping(value = "/login/join", method = RequestMethod.POST)
 	public String join(@ModelAttribute UserVO userVo, HttpSession session) {
@@ -71,8 +71,9 @@ public class UserController {
 	 * @param userPw
 	 * @param HttpSession session
 	 * @param Map<String, Object>
-	 * @return Login-Join/Login-Join.jsp * ------------이력------------ 2023.10.24 /
-	 *         정윤지 / 최초 적용
+	 * @return Login-Join/Login-Join.jsp 
+	 * ------------이력------------ 
+	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
 	@RequestMapping(value = "/login/Success", method = RequestMethod.POST)
 	public String login(@RequestParam("userEmail") String userEmail, @RequestParam("userPw") String userPw,
@@ -113,8 +114,9 @@ public class UserController {
 	 * @param UserVO      userVo
 	 * @param HttpSession session
 	 * @param Map<String, Object>
-	 * @return Map<String, Object> * ------------이력------------ 2023.10.24 / 정윤지 /
-	 *         최초 적용
+	 * @return Map<String, Object> 
+	 * ------------이력------------ 
+	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
 	@RequestMapping(value = "/login/modify", method = RequestMethod.POST)
 	public Map<String, Object> modify(@ModelAttribute UserVO userVo, HttpSession session) {
@@ -137,8 +139,9 @@ public class UserController {
 	 * 
 	 * @param UserVO      userVo
 	 * @param Map<String, Object>
-	 * @return Map<String, Object> ------------이력------------ 2023.10.24 / 정윤지 / 최초
-	 *         적용
+	 * @return Map<String, Object> 
+	 * ------------이력------------ 
+	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
 	@RequestMapping(value = "/login/userDelete/{userEmail}")
 	public Map<String, Object> delete(@ModelAttribute UserVO userVo) {
@@ -167,8 +170,9 @@ public class UserController {
 	 * 
 	 * @param UserVO      userVo
 	 * @param Map<String, Object>
-	 * @return Map<String, Object> ------------이력------------ 2023.10.24 / 정윤지 / 최초
-	 *         적용
+	 * @return Map<String, Object> 
+	 * ------------이력------------ 
+	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
 	@RequestMapping(value = "/login/findPw", method = RequestMethod.POST)
 	public Map<String, Object> findPw(@ModelAttribute UserVO userVo) {
