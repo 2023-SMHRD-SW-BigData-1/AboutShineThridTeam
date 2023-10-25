@@ -671,59 +671,8 @@
                   </div>
                   <!-- /Account -->
                 </div>
-
-                <!-- Change Password -->
-                <div class="card mb-4">
-                  <h5 class="card-header">Change Password</h5>
-                  <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
-                      <div class="row">
-                        <div class="mb-3 col-md-6 form-password-toggle">
-                          <label class="form-label" for="currentPassword">Current Password</label>
-                          <div class="input-group input-group-merge">
-                            <input class="form-control" type="password" name="currentPassword" id="currentPassword"
-                              placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                            <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="mb-3 col-md-6 form-password-toggle">
-                          <label class="form-label" for="newPassword">New Password</label>
-                          <div class="input-group input-group-merge">
-                            <input class="form-control" type="password" id="newPassword" name="newPassword"
-                              placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                            <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                          </div>
-                        </div>
-
-                        <div class="mb-3 col-md-6 form-password-toggle">
-                          <label class="form-label" for="confirmPassword">Confirm New Password</label>
-                          <div class="input-group input-group-merge">
-                            <input class="form-control" type="password" name="confirmPassword" id="confirmPassword"
-                              placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                            <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                          </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                          <h6>Password Requirements:</h6>
-                          <ul class="ps-3 mb-0">
-                            <li class="mb-1">Minimum 8 characters long - the more, the better</li>
-                            <li class="mb-1">At least one lowercase character</li>
-                            <li>At least one number, symbol, or whitespace character</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                          <button type="reset" class="btn btn-label-secondary">Cancel</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <!--/ Change Password -->
-
-                <!-- Two-steps verification -->
+                <!--
+                //Two-steps verification 
                 <div class="card mb-4">
                   <h5 class="card-header">Two-steps verification</h5>
                   <div class="card-body">
@@ -738,8 +687,11 @@
                     </button>
                   </div>
                 </div>
-                <!-- Modal -->
-                <!-- Enable OTP Modal -->
+                //Modal 
+                -->
+
+                <!--
+                 Enable OTP Modal
                 <div class="modal fade" id="enableOTP" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-simple modal-enable-otp modal-dialog-centered">
                     <div class="modal-content p-3 p-md-5">
@@ -773,8 +725,10 @@
                     </div>
                   </div>
                 </div>
-                <!--/ Enable OTP Modal -->
+                Enable OTP Modal 
+                -->
 
+                <!--
                 <div class="card">
                   <h5 class="card-header">Delete Account</h5>
                   <div class="card-body">
@@ -798,36 +752,8 @@
               </div>
             </div>
           </div>
+          -->
           <!--/ Content -->
-
-          <!-- Footer -->
-          <footer class="content-footer footer bg-footer-theme">
-            <div class="container-xxl">
-              <div
-                class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
-                <div>
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , made with ❤️ by <a href="https://pixinvent.com" target="_blank" class="fw-medium">Pixinvent</a>
-                </div>
-                <div class="d-none d-lg-inline-block">
-                  <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                    target="_blank">License</a>
-                  <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
-                    Themes</a>
-
-                  <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/" target="_blank"
-                    class="footer-link me-4">Documentation</a>
-
-                  <a href="https://pixinvent.ticksy.com/" target="_blank"
-                    class="footer-link d-none d-sm-inline-block">Support</a>
-                </div>
-              </div>
-            </div>
-          </footer>
-          <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
         </div>
