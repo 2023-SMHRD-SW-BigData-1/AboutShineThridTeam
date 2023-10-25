@@ -639,14 +639,13 @@
                       fill="#7367F0" />
                   </svg>
                 </span>
-                <span class="app-brand-text demo text-body fw-bold ms-1">Vuexy</span>
+                <span class="app-brand-text demo text-body fw-bold ms-1">Shine</span>
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-1 pt-2">Welcome to Vuexy! 👋</h4>
-            <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
-            <form id="formAuthentication" class="mb-3" action="/user/login/Success" method="POST">
+            <h4 class="mb-1 pt-2">어서오세요.👋</h4>
+            <p class="mb-4">계정으로 로그인하세요!!!</p>
+            <form id="formAuthentication" class="mb-3" style="width:400px;" action="/user/login/Success" method="POST">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id="email" name="userEmail"
@@ -664,12 +663,6 @@
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                     aria-describedby="password" />
                   <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                </div>
-              </div>
-              <div class="mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="remember-me" />
-                  <label class="form-check-label" for="remember-me"> Remember Me </label>
                 </div>
               </div>
               <div class="mb-3">
@@ -716,23 +709,25 @@
                       fill="#7367F0" />
                   </svg>
                 </span>
-                <span class="app-brand-text demo text-body fw-bold ms-1">Vuexy</span>
+                <span class="app-brand-text demo text-body fw-bold ms-1">Shine</span>
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-1 pt-2">Adventure starts here 🚀</h4>
-            <p class="mb-4">Make your app management easy and fun!</p>
+            <h4 class="mb-1 pt-2">환영합니다 🚀</h4>
+            <p class="mb-4">계정에 로그인하여 다음 단계로 진행하세요</p>
 
-            <form id="formAuthentication" class="mb-3" action="/user/login/join" method="POST">
+            <form id="formAuthentication" class="mb-3" style="width:400px;" action="/user/login/join" method="POST">
               <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="userNick" placeholder="Enter your nickname"
+                <label for="username" class="form-label">별명</label>
+                <input type="text" class="form-control" id="username" name="userNick" placeholder="별명을 입력해주세요"
                   autofocus />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id="email" name="userEmail" placeholder="Enter your email" />
               </div>
+              
+              
               <div class="mb-3 form-password-toggle">
                 <label class="form-label" for="password">Password</label>
                 <div class="input-group input-group-merge">
