@@ -613,7 +613,7 @@
                   </div>
                   <hr class="my-0" />
                   <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
+                    <form action="/user/login/modify" id="formAccountSettings" method="POST" onsubmit="return false">
                       <div class="row">
                         <div class="mb-3 col-md-6">
                           <label for="firstName" class="form-label">별명</label>
