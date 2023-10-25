@@ -13,7 +13,7 @@ public interface UserDAO {
 	List<UserVO> userSelectList(String userNick);
 
 	// 사용자 로그인
-	List<UserVO> userLogin(String userEmail, String userPw);
+	UserVO userLogin(UserVO userVo);
 
 	// 사용자 등록
 	int userInfoInsert(UserVO userVo);

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -50,12 +52,19 @@ public class UserServiceImp implements UserService {
 
 	// 사용자 로그인
 	@Override
-	public Map<String, Object> userLogin(String userEmail, String userPw) {
+	public Map<String, Object> userLogin(UserVO userVo) {
+		
 		Map<String, Object> loginMap = new HashMap<String, Object>();
-		if (userEmail != null && userPw != null) {
-			System.out.println(userEmail);
-			List<UserVO> loginData = userDao.userLogin(userEmail.toString(), userPw.toString());
+		if (userVo.getUserEmail() != null && userVo.getUserPw() != null) {
+			
+			System.out.println(userVo.getUserEmail());
+			System.out.println(userVo.getUserPw());
+			UserVO loginData = userDao.userLogin(userVo);
+			System.out.println(loginData);
+			
+			
 			if (loginData != null) {
+				loginMap.put("loginEmail", userVo.getUserEmail());
 				loginMap.put("loginMsg", "로그인 완료");
 				loginMap.put("loginCode", "11");
 			} else {

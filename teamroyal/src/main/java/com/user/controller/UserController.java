@@ -1,6 +1,5 @@
 package com.user.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,9 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
 import com.user.service.UserService;
 import com.user.vo.UserVO;
 
@@ -62,7 +59,6 @@ public class UserController {
 			return "redirect:/";
 		}
 	}
-	
 
 	/**
 	 * 로그인
@@ -79,7 +75,8 @@ public class UserController {
 	public String login(@RequestParam("userEmail") String userEmail, @RequestParam("userPw") String userPw,
 			HttpSession session) {
 
-		Map<String, Object> loginMap = userService.userLogin(userEmail.toString(), userPw.toString());
+		UserVO userVo = new UserVO(userEmail, userPw);
+		Map<String, Object> loginMap = userService.userLogin(userVo);
 
 		String reString = loginMap.get("loginCode").toString();
 		if (reString.equals("11")) {
@@ -199,7 +196,7 @@ public class UserController {
 	// 상세 email 페이지 이동
 	@RequestMapping(value = "/login/userProfile/notification", method = RequestMethod.GET)
 	public String userProfileNotification() {
-		return "/myPage/app-email";
+		return "/myPage/pages-account-settings-notifications";
 	}
 
 	// 상세 email 페이지 이동
@@ -214,9 +211,9 @@ public class UserController {
 		return "/myPage/pages-profile-projects";
 	}
 
-	// 관리자 email 페이지 이동
+	// 관리자 manager 페이지 이동
 	@RequestMapping(value = "/login/userProfile/Manager", method = RequestMethod.GET)
 	public String userProfileManager() {
-		return "/myPage/pages-profile-projects";
+		return "/myPage/app-user-list";
 	}
 }

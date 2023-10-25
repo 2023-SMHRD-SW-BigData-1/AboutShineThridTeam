@@ -24,7 +24,7 @@
 		</if>
 	</select>
 	
-	<select id="userLogin" parameterType="String" resultType="com.user.vo.UserVO">
+	<select id="userLogin" parameterType="com.user.vo.UserVO" resultType="com.user.vo.UserVO">
 		SELECT *
 		FROM ROYAL.TB_USER
 		WHERE USER_EMAIL=#{userEmail} AND USER_PW=#{userPw}
