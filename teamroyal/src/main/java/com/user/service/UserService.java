@@ -20,9 +20,10 @@ public interface UserService {
 	Map<String, Object> userInfoUpdate(UserVO userVo);
 	
 	//사용자 삭제
+	Map<String, Object> userInfoDelete(UserVO userVo);
 	
 	//사용자 비밀번호 초기화
-	Map<String, Object> userPw(UserVO userVo);
+	Map<String, Object> userFindPw(UserVO userVo);
 	
 	//
 	

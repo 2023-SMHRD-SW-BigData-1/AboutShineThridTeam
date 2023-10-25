@@ -611,41 +611,41 @@
               <h4 class="py-3 mb-4"><span class="text-muted fw-light">User Profile /</span> Projects</h4>
 
               <!-- Navbar pills -->
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="nav nav-pills flex-column flex-sm-row mb-4">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="pages-profile-user.html"><i class="ti-xs ti ti-user-check me-1"></i>
-                        Profile</a>
-                    </li>
-                    <li class="nav-item" >
-                      <a class="nav-link" href="pages-account-settings-account.html"><i class="ti-xs ti ti-link me-1"></i>
-                        Account</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="app-email.html"><i
-                          class="ti-xs ti ti-mail me-1"></i> email</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-account-settings-notifications.html"><i
-                          class="ti-xs ti ti-bell me-1"></i> notification</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-teams.html"><i 
-                        class="ti-xs ti ti-users me-1"></i> Teams</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-projects.html"><i 
-                        class="ti-xs ti ti-layout-grid me-1"></i>Projects</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="app-user-list.html"><i 
-                        class="ti-xs ti ti-map-pins me-1"></i>Manager</a>
-                    </li>
-                  </ul>
-                </div>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-pills flex-column flex-sm-row mb-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/user/login/userProfile"><i class="ti-xs ti ti-user-check me-1"></i>
+                      Profile</a>
+                  </li>
+                  <li class="nav-item" >
+                    <a class="nav-link" href="/user/login/userProfile/modify"><i class="ti-xs ti ti-link me-1"></i>
+                      Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/email"><i
+                        class="ti-xs ti ti-mail me-1"></i> email</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/notification"><i
+                        class="ti-xs ti ti-bell me-1"></i> notification</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/Teams"><i 
+                      class="ti-xs ti ti-users me-1"></i> Teams</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/Projects"><i 
+                      class="ti-xs ti ti-layout-grid me-1"></i>Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/Manager"><i 
+                      class="ti-xs ti ti-map-pins me-1"></i>Manager</a>
+                  </li>
+                </ul>
               </div>
-              <!--/ Navbar pills -->
+            </div>
+            <!--/ Navbar pills -->
 
               <!-- Project Cards -->
               <div class="row g-4">

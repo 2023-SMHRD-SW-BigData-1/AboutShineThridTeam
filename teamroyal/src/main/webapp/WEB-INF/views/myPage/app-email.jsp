@@ -7,7 +7,7 @@
   class="light-style layout-menu-fixed layout-compact"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../../../assets/"
+  data-assets-path="/assets/"
   data-template="horizontal-menu-template">
   <head>
     <meta charset="utf-8" />
@@ -20,7 +20,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,34 +30,34 @@
       rel="stylesheet" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/tabler-icons.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../../assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/libs/node-waves/node-waves.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/quill/katex.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/quill/editor.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/quill/katex.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/quill/editor.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/select2/select2.css" />
 
     <!-- Page CSS -->
 
-    <link rel="stylesheet" href="../../../assets/vendor/css/pages/app-email.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/pages/app-email.css" />
 
     <!-- Helpers -->
-    <script src="../../../assets/vendor/js/helpers.js"></script>
+    <script src="/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="../../../assets/vendor/js/template-customizer.js"></script>
+    <script src="/assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../../../assets/js/config.js"></script>
+    <script src="/assets/js/config.js"></script>
   </head>
 
   <body>
@@ -300,7 +300,7 @@
                           <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
-                                <img src="../../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                <img src="/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                               </div>
                             </div>
                             <div class="flex-grow-1">
@@ -344,7 +344,7 @@
                           <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
-                                <img src="../../../assets/img/avatars/2.png" alt class="h-auto rounded-circle" />
+                                <img src="/assets/img/avatars/2.png" alt class="h-auto rounded-circle" />
                               </div>
                             </div>
                             <div class="flex-grow-1">
@@ -390,7 +390,7 @@
                           <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
-                                <img src="../../../assets/img/avatars/9.png" alt class="h-auto rounded-circle" />
+                                <img src="/assets/img/avatars/9.png" alt class="h-auto rounded-circle" />
                               </div>
                             </div>
                             <div class="flex-grow-1">
@@ -436,7 +436,7 @@
                           <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
-                                <img src="../../../assets/img/avatars/5.png" alt class="h-auto rounded-circle" />
+                                <img src="/assets/img/avatars/5.png" alt class="h-auto rounded-circle" />
                               </div>
                             </div>
                             <div class="flex-grow-1">
@@ -458,7 +458,7 @@
                           <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
-                                <img src="../../../assets/img/avatars/6.png" alt class="h-auto rounded-circle" />
+                                <img src="/assets/img/avatars/6.png" alt class="h-auto rounded-circle" />
                               </div>
                             </div>
                             <div class="flex-grow-1">
@@ -517,7 +517,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                      <img src="/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -526,7 +526,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                              <img src="/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -615,38 +615,42 @@
               <h4 class="py-3 mb-4"><span class="text-muted fw-light">User Profile /</span> Account</h4>
             
 
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="nav nav-pills flex-column flex-sm-row mb-4">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="pages-profile-user.html"><i class="ti-xs ti ti-user-check me-1"></i>
-                        Profile</a>
-                    </li>
-                    <li class="nav-item" >
-                      <a class="nav-link" href="pages-account-settings-account.html"><i class="ti-xs ti ti-link me-1"></i>
-                        Account</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="app-email.html"><i
-                          class="ti-xs ti ti-mail me-1"></i> email</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-account-settings-notifications.html"><i
-                          class="ti-xs ti ti-bell me-1"></i> notification</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-teams.html"><i 
-                        class="ti-xs ti ti-users me-1"></i> Teams</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="pages-profile-projects.html"><i 
-                        class="ti-xs ti ti-layout-grid me-1"></i>Projects</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="app-user-list.html"><i 
-                        class="ti-xs ti ti-map-pins me-1"></i>Manager</a>
-                    </li>
-                  </ul>
+              <!-- Navbar pills -->
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-pills flex-column flex-sm-row mb-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/user/login/userProfile"><i class="ti-xs ti ti-user-check me-1"></i>
+                      Profile</a>
+                  </li>
+                  <li class="nav-item" >
+                    <a class="nav-link" href="/user/login/userProfile/modify"><i class="ti-xs ti ti-link me-1"></i>
+                      Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/email"><i
+                        class="ti-xs ti ti-mail me-1"></i> email</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/notification"><i
+                        class="ti-xs ti ti-bell me-1"></i> notification</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/Teams"><i 
+                      class="ti-xs ti ti-users me-1"></i> Teams</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/Projects"><i 
+                      class="ti-xs ti ti-layout-grid me-1"></i>Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login/userProfile/Manager"><i 
+                      class="ti-xs ti ti-map-pins me-1"></i>Manager</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--/ Navbar pills -->
             <!-- Content -->
 
             
@@ -880,7 +884,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/1.png"
+                                src="/assets/img/avatars/1.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -917,7 +921,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/2.png"
+                                src="/assets/img/avatars/2.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -990,7 +994,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/3.png"
+                                src="/assets/img/avatars/3.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -1027,7 +1031,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/4.png"
+                                src="/assets/img/avatars/4.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -1098,7 +1102,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/5.png"
+                                src="/assets/img/avatars/5.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -1135,7 +1139,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/6.png"
+                                src="/assets/img/avatars/6.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -1208,7 +1212,7 @@
                               <i
                                 class="email-list-item-bookmark ti ti-star ti-sm d-sm-inline-block d-none cursor-pointer ms-2 me-3"></i>
                               <img
-                                src="../../../assets/img/avatars/9.png"
+                                src="/assets/img/avatars/9.png"
                                 alt="user-avatar"
                                 class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
                                 height="32"
@@ -1372,7 +1376,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                           <div class="d-flex align-items-center mb-sm-0 mb-3">
                             <img
-                              src="../../../assets/img/avatars/2.png"
+                              src="/assets/img/avatars/2.png"
                               alt="user-avatar"
                               class="flex-shrink-0 rounded-circle me-3"
                               height="40"
@@ -1441,7 +1445,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                           <div class="d-flex align-items-center mb-sm-0 mb-3">
                             <img
-                              src="../../../assets/img/avatars/1.png"
+                              src="/assets/img/avatars/1.png"
                               alt="user-avatar"
                               class="flex-shrink-0 rounded-circle me-3"
                               height="40"
@@ -1746,28 +1750,28 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 
-    <script src="../../../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../../../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../../../assets/vendor/js/bootstrap.js"></script>
-    <script src="../../../assets/vendor/libs/node-waves/node-waves.js"></script>
-    <script src="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../../../assets/vendor/libs/hammer/hammer.js"></script>
-    <script src="../../../assets/vendor/libs/i18n/i18n.js"></script>
-    <script src="../../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
-    <script src="../../../assets/vendor/js/menu.js"></script>
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
+    <script src="/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="/assets/vendor/js/menu.js"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../../assets/vendor/libs/quill/katex.js"></script>
-    <script src="../../../assets/vendor/libs/quill/quill.js"></script>
-    <script src="../../../assets/vendor/libs/select2/select2.js"></script>
-    <script src="../../../assets/vendor/libs/block-ui/block-ui.js"></script>
+    <script src="/assets/vendor/libs/quill/katex.js"></script>
+    <script src="/assets/vendor/libs/quill/quill.js"></script>
+    <script src="/assets/vendor/libs/select2/select2.js"></script>
+    <script src="/assets/vendor/libs/block-ui/block-ui.js"></script>
 
     <!-- Main JS -->
-    <script src="../../../assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="../../../assets/js/app-email.js"></script>
+    <script src="/assets/js/app-email.js"></script>
   </body>
 </html>
