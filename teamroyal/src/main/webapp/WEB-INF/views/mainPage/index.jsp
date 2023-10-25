@@ -360,14 +360,14 @@
               </li>
               <!-- / Style Switcher-->
 
-<<<<<<< HEAD
+
               <!-- User --> <!-- Sh-slide-profile-thumb -->
               <a href="/user/login/userProfile">
               <li class="nav-item navbar-dropdown dropdown-user dropdown ">
-=======
+
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown Sh-slide-profile-thumb">
->>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
+
                 <div class="avatar avatar-online">
                   <img src="/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                 </div>
