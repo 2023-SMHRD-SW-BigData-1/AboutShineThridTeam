@@ -360,8 +360,8 @@
               </li>
               <!-- / Style Switcher-->
 
-              <!-- User --> <!-- Sh-slide-profile-thumb -->
-              <li class="nav-item navbar-dropdown dropdown-user dropdown ">
+              <!-- User -->
+              <li class="nav-item navbar-dropdown dropdown-user dropdown Sh-slide-profile-thumb">
                 <div class="avatar avatar-online">
                   <img src="/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                 </div>
@@ -604,8 +604,6 @@
       </div>
     </div>
     <!-- slide-comm-->
-<<<<<<< HEAD
-=======
     <!-- slide-profile -->
     <div id="Sh-slide-profile" class="w-100 vh-100 top-0 justify-content-center align-items-center">
       <div id="Sh-slideBox-profile">
@@ -1017,9 +1015,10 @@
         <button id="sh-slideClose-profile" class="top-0 left-0">&times;</button>
       </div>
     </div>
->>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
   </div>
-  
+
+
+  <!--sldie-profile-->
   <!-- Modal-Login/Register -->
   <div id="modal-login" class="w-100 vh-100 top-0 left-0 justify-content-center align-items-center">
     <div id="modalBox-login">
