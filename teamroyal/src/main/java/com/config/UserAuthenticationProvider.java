@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	PasswordEncoder passwordEncoder;
+	private PasswordEncoder passwordEncoder;
 
 	@Autowired
 	private UserService userService;

@@ -40,7 +40,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
         		.authorizeRequests()
-    			.antMatchers("/user/**","/assets/**").permitAll()
+    			.antMatchers("/user/**","/assets/**","/api/**").permitAll()
     			.anyRequest()
     			.authenticated()
     			.and()
