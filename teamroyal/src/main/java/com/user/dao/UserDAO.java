@@ -20,5 +20,11 @@ public interface UserDAO {
 
 	// 사용자 수정
 	int userInfoUpdate(UserVO userVo);
+	
+	// 사용자 삭제
+	int userInfoDelete(UserVO userVo);
+	
+	// 사용자 비밀번호 조회
+	List<UserVO> userFindPw(UserVO userVo);
 
 }

@@ -13,35 +13,35 @@ import com.user.vo.UserVO;
 
 @Service
 public class UserServiceImp implements UserService {
-	
+
 	@Autowired
 	private PasswordEncoder passencoder;
-	
+
 	@Autowired
 	private UserDAO userDao;
 
-	//사용자 조회
+	// 사용자 조회
 	@Override
 	public List<UserVO> userSelectList(String userNick) {
 		return userDao.userSelectList(userNick);
 	}
-	
-	//사용자 등록
+
+	// 사용자 등록
 	@Override
 	public Map<String, Object> userInfoInsert(UserVO userVo) {
 		Map<String, Object> reMap = new HashMap<String, Object>();
-		if(userVo.getUserEmail() != null && userVo.getUserPw() != null) {
+		if (userVo.getUserEmail() != null && userVo.getUserPw() != null) {
 			userVo.setUserPw(passencoder.encode(userVo.getUserPw().toString()));
 			System.out.println(userVo.getUserPw().toString());
 			int dataCnt = userDao.userInfoInsert(userVo);
-			if(dataCnt == 1) {
+			if (dataCnt == 1) {
 				reMap.put("reMsg", "등록 완료");
 				reMap.put("reCode", "00");
-			}else {
+			} else {
 				reMap.put("reMsg", "등록 실패");
 				reMap.put("reCode", "99");
 			}
-		}else {
+		} else {
 			reMap.put("reMsg", "필수값 오류");
 			reMap.put("reCode", "01");
 		}
@@ -52,17 +52,17 @@ public class UserServiceImp implements UserService {
 	@Override
 	public Map<String, Object> userLogin(String userEmail, String userPw) {
 		Map<String, Object> loginMap = new HashMap<String, Object>();
-		if(userEmail != null && userPw != null) {
+		if (userEmail != null && userPw != null) {
 			System.out.println(userEmail);
 			List<UserVO> loginData = userDao.userLogin(userEmail.toString(), userPw.toString());
-			if(loginData != null) {
+			if (loginData != null) {
 				loginMap.put("loginMsg", "로그인 완료");
 				loginMap.put("loginCode", "11");
-			}else {
+			} else {
 				loginMap.put("loginMsg", "로그인 실패");
 				loginMap.put("loginCode", "88");
 			}
-		}else {
+		} else {
 			loginMap.put("loginMsg", "필수값 오류");
 			loginMap.put("loginCode", "01");
 		}
@@ -71,45 +71,76 @@ public class UserServiceImp implements UserService {
 
 	// 사용자 수정
 	@Override
-	public Map<String, Object> userInfoUpdate(UserVO userVo){
+	public Map<String, Object> userInfoUpdate(UserVO userVo) {
 		Map<String, Object> updateMap = new HashMap<String, Object>();
-		if(userVo.getUserEmail() != null && userVo.getUserPw() != null) {
-			System.out.println(userVo.getUserEmail()+"회원정보수정");
+		if (userVo.getUserEmail() != null && userVo.getUserPw() != null) {
+			System.out.println(userVo.getUserNick() + "회원정보수정");
 			int updateDataCnt = userDao.userInfoUpdate(userVo);
-			if(updateDataCnt == 1) {
+			if (updateDataCnt == 1) {
 				updateMap.put("updateReMsg", "수정 완료");
 				updateMap.put("updateReCode", "22");
-			}else {
+			} else {
 				updateMap.put("updateReMsg", "수정 실패");
 				updateMap.put("updateReCode", "77");
 			}
-		}else {
+		} else {
 			updateMap.put("updateReMsg", "필수값 오류");
 			updateMap.put("updateReCode", "01");
 		}
 		return updateMap;
 	}
-	
-	//사용자 비밀번호 초기화
+
+	// 사용자 삭제
 	@Override
-	public Map<String, Object> userPw(UserVO userVo) {
-		Map<String, Object> reMap = new HashMap<String, Object>();
+	public Map<String, Object> userInfoDelete(UserVO userVo) {
+		Map<String, Object> deleteMap = new HashMap<String, Object>();
+		if (userVo.getUserEmail() != null && userVo.getUserRole() != null) {
+			System.out.println(userVo.getUserNick() + "회원삭제");
+			int deleteDataCnt = userDao.userInfoDelete(userVo);
+			if (deleteDataCnt == 1) {
+				deleteMap.put("deleteReMsg", "삭제 완료");
+				deleteMap.put("deleteReCode", "33");
+			} else {
+				deleteMap.put("deleteReMsg", "삭제 실패");
+				deleteMap.put("deleteReCode", "66");
+			}
+		} else {
+			deleteMap.put("deleteReMsg", "필수값 오류");
+			deleteMap.put("deleteReCode", "01");
+		}
+		return deleteMap;
+	}
+
+	// 사용자 비밀번호 초기화
+	@Override
+	public Map<String, Object> userFindPw(UserVO userVo) {
+		Map<String, Object> findMap = new HashMap<String, Object>();
 		if(userVo.getUserNick() != null) {
-			String pwSt = "455345";
 			
+			String pwSt = "";
+			
+			char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+	                'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+	        int idx = 0;
+	        for (int i = 0; i < 6; i++) {
+	            idx = (int) (charSet.length * Math.random());
+	            pwSt += charSet[idx];
+	        }
+	        
 			userVo.setUserPw(passencoder.encode(pwSt));
-			int dataCnt = userDao.userInfoUpdate(userVo);
-			if(dataCnt == 1) {
-				reMap.put("reMsg", "등록 완료");
-				reMap.put("reCode", "00");
+			int findDataCnt = userDao.userInfoUpdate(userVo);
+			if(findDataCnt == 1) {
+				findMap.put("findReMsg", "비밀번호 조회 완료");
+				findMap.put("findReCode", "44");
 			}else {
-				reMap.put("reMsg", "등록 실패");
-				reMap.put("reCode", "99");
+				findMap.put("findReMsg", "비밀번호 조회 실패");
+				findMap.put("findReCode", "55");
 			}
 		}else {
-			reMap.put("reMsg", "필수값 오류");
-			reMap.put("reCode", "01");
+			findMap.put("findReMsg", "필수값 오류");
+			findMap.put("findReCode", "01");
 		}
-		return reMap;
+		return findMap;
 	}
 }

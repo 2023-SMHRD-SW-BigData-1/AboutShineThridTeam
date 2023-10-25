@@ -153,14 +153,6 @@ table {
   }
   
   /* reset */
-  
-  * {
-    list-style: none;
-    text-decoration: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
   .clearfix:after {
     content: '';
     display: block;
@@ -184,21 +176,6 @@ table {
 
 
   /***********************************comm-content**************************/
-  html {
-	font-family: "Noto Sans KR", sans-serif;
-}
-
-/* 노말라이즈 */
-body, ul, li, h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-a:link {
-	color: lightblue;
-}
-
 /* 라이브러리 */
 .con {
 	margin: 0 auto;
@@ -441,6 +418,10 @@ html, body {
 .Sh-notice {
   width: 1100px;
 }
+.Sh-slide-container {
+  max-width: 1800px;
+}
+
 
 
 
@@ -449,29 +430,17 @@ html, body {
   margin: 0 auto;
 }
 
-.Sh-title-num {
-  width: 50px;
+.Sh-title-inner {
+  width: 40%;
+  border: 1px solid #000;
 }
-.Sh-title-tit {
-  text-align-last: left;
-  width: 500px;
-  border: 1px solid blue;
-}
-
 
 .Sh-title {
-
-  width: 50px;
-  }
+  width: 100%;
+  border: 1px solid #000;
+}
 .Sh-title-input {
   width: 100%;
-  background-color: transparent;
-  border: none;
-}
-
-.Sh-title-input:hover {
-  background-color: #ccc;
-  border-radius: 5px;
 }
 
 
@@ -483,20 +452,27 @@ html, body {
   border-bottom: 1px solid #bbb;
 }
 
-.Sh-fa-user, .Sh-fa-clock {
-  font-size: 1.2rem;
+.Sh-fa-imot {
+  color: #333;
 }
 
-.Sh-comm-head > .Sh-comm-head-ctt2 {
+.Sh-comm-head-ctt2 {
   width: 35%;
   display: flex;
+}
+.Sh-comm-head-ctt2-a1:hover, 
+.Sh-comm-head-ctt2-a2:hover, 
+.Sh-comm-head-ctt2-a3:hover {
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .Sh-ctt-pagination {
   margin-left: 45%;
 }
 
 .Sh-comm-ctt-box {
-  background-color: gray;
+  background-color: #ccc;
   opacity: 0.7;
   overflow: scroll;
   padding: 10px;
@@ -515,7 +491,7 @@ html, body {
   font-size: 1rem;
 }
 .Sh-comm-ctt-comment-input:hover {
-  background-color: #e7e7e7;
+  background-color: #ccc;
 }
 .Sh-comment-ctt-box {
   width: 90%;
@@ -528,5 +504,61 @@ html, body {
   color: #000;
 }
 /***********************************comm-comment**************************/
+/***********************************modal- chat, email**************************/
+
+
+#modal-chat {
+  position: fixed; 
+  background: rgba(0,0,0,.6); 
+  display: none; 
+}
+#modalBox-chat {
+  width: 90%; max-width: 1000px; 
+  background: #fff; 
+  padding: 20px; 
+  position: relative;
+}
+#modalClose-chat { 
+  position: absolute; 
+  transform:translate(50%,-50%) scale(1.5);cursor: pointer;
+  width: 2rem; height: 2rem; 
+  background: #000; 
+  border: 2px solid #fff;
+  font-size: 1.2rem;
+  border-radius: 50%; 
+  color: #fff; 
+}
+
+
+#modal-email {
+  position: fixed; 
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.6); 
+  display: none; 
+  justify-content: center; align-items: center;
+}
+#modalBox-email {
+  width: 90%; max-width: 1000px; 
+  background: #fff; 
+  padding: 20px; 
+  position: relative;
+}
+#modalClose-email { 
+  position: absolute; 
+  top: 0; right: 0; 
+  transform:translate(50%,-50%) scale(1.5);cursor: pointer;
+  width: 2rem; height: 2rem; 
+  font-size: 1.2rem;
+  background: #000; 
+  border: 2px solid #fff;
+  border-radius: 50%; 
+  color: #fff; 
+}
+
+
+
+
+/***********************************modal**************************/
 
 
