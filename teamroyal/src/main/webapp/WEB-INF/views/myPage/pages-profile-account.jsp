@@ -630,7 +630,7 @@
                             placeholder="john.doe@example.com" />
                         </div>
                         <div class="mb-3 col-md-6 form-password-toggle">
-                          <label class="form-label" for="newPassword">New Password</label>
+                          <label class="form-label" for="newPassword">새로운 비밀번호</label>
                           <div class="input-group input-group-merge">
                             <input class="form-control" type="password" id="newPassword" name="newPassword"
                               placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
@@ -638,7 +638,7 @@
                           </div>
                         </div>
                         <div class="mb-3 col-md-6 form-password-toggle">
-                          <label class="form-label" for="confirmPassword">Confirm New Password</label>
+                          <label class="form-label" for="confirmPassword">비밀번호 체크</label>
                           <div class="input-group input-group-merge">
                             <input class="form-control" type="password" name="confirmPassword" id="confirmPassword"
                               placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
