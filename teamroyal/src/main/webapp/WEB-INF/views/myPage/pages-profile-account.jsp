@@ -557,7 +557,7 @@
               <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-sm-row mb-4">
                   <li class="nav-item">
-                    <a class="nav-link active" href="/user/login/uerProfile"><i 
+                    <a class="nav-link active" href="/user/login/userProfile"><i 
                     class="ti-xs ti ti-user-check me-1"></i>Profile</a>
                   </li>
                   <li class="nav-item" >
