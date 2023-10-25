@@ -361,11 +361,13 @@
               <!-- / Style Switcher-->
 
               <!-- User --> <!-- Sh-slide-profile-thumb -->
+              <a href="/user/login/userProfile">
               <li class="nav-item navbar-dropdown dropdown-user dropdown ">
                 <div class="avatar avatar-online">
                   <img src="/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                 </div>
               </li>
+              </a>
               <!--/ User -->
               <!--/ Login, LogOut -->
               <li>
