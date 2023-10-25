@@ -617,26 +617,39 @@
                       <div class="row">
                         <div class="mb-3 col-md-6">
                           <label for="firstName" class="form-label">별명</label>
-                          <input class="form-control" type="text" id="firstName" name="firstName" placeholder="별명"
+                          <input class="form-control" type="text" id="firstName" name="userNick" placeholder="별명"
                             autofocus />
                         </div>
                         <div class="mb-3 col-md-6">
                           <label for="lastName" class="form-label">이름</label>
-                          <input class="form-control" type="text" name="lastName" id="lastName" placeholder="이름" />
+                          <input class="form-control" type="text" name="userNm" id="lastName" placeholder="이름" />
                         </div>
                         <div class="mb-3 col-md-6">
                           <label for="email" class="form-label">E-mail</label>
-                          <input class="form-control" type="text" id="email" name="email" placeholder="Shine@example.com"
+                          <input class="form-control" type="text" id="email" name="userEmail" placeholder="Shine@example.com"
                             placeholder="john.doe@example.com" />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                          <label for="address" class="form-label">주소</label>
+                          <input type="text" class="form-control" id="address" name="userAdd" placeholder="주소" />
                         </div>
                         <div class="mb-3 col-md-6 form-password-toggle">
                           <label class="form-label" for="newPassword">New Password</label>
                           <div class="input-group input-group-merge">
-                            <input class="form-control" type="password" id="newPassword" name="newPassword"
+                            <input class="form-control" type="password" id="newPassword" name="userPw"
                               placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                           </div>
                         </div>
+                        <div class="mb-3 col-md-6">
+                          <label class="form-label" for="phoneNumber">핸드폰번호</label>
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text">KR (+82)</span>
+                            <input type="text" id="phoneNumber" name="userPhone" class="form-control"
+                              placeholder="202 555 0111" />
+                          </div>
+                        </div>
+                        <!-- 
                         <div class="mb-3 col-md-6 form-password-toggle">
                           <label class="form-label" for="confirmPassword">Confirm New Password</label>
                           <div class="input-group input-group-merge">
@@ -645,23 +658,7 @@
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                           </div>
                         </div>
-                        <div class="mb-3 col-md-6">
-                          <label for="address" class="form-label">주소</label>
-                          <input type="text" class="form-control" id="address" name="address" placeholder="주소" />
-                        </div>
-                        <div class="mb-3 col-md-6">
-                          <label class="form-label" for="phoneNumber">핸드폰번호</label>
-                          <div class="input-group input-group-merge">
-                            <span class="input-group-text">KR (+82)</span>
-                            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control"
-                              placeholder="202 555 0111" />
-                          </div>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                          <label for="zipCode" class="form-label">우편번호</label>
-                          <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="231465"
-                            maxlength="6" />
-                        </div>
+                         -->
                       </div>
                       <div class="mt-2">
                         <button type="submit" class="btn btn-primary me-2">Save changes</button>
