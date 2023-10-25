@@ -102,9 +102,9 @@ public class UserController {
 	// 회원정보 수정 페이지로 이동
 	@RequestMapping(value = "/login/userProfile/modify", method = RequestMethod.GET)
 	public String userProfileModify() {
-		return "/myPage/pages-account-settings-account";
+		return "/myPage/pages-profile-account";
 	}
-
+	
 	/**
 	 * 회원정보 수정
 	 * 
@@ -190,13 +190,12 @@ public class UserController {
 	// 상세 email 페이지 이동
 	@RequestMapping(value = "/login/userProfile/email", method = RequestMethod.GET)
 	public String userProfileEmail() {
-		return "/myPage/app-email";
+		return "/myPage/pages-profile-email";
 	}
-
 	// 상세 email 페이지 이동
 	@RequestMapping(value = "/login/userProfile/notification", method = RequestMethod.GET)
 	public String userProfileNotification() {
-		return "/myPage/pages-account-settings-notifications";
+		return "/myPage/pages-profile-notifications";
 	}
 
 	// 상세 email 페이지 이동
@@ -214,6 +213,6 @@ public class UserController {
 	// 관리자 manager 페이지 이동
 	@RequestMapping(value = "/login/userProfile/Manager", method = RequestMethod.GET)
 	public String userProfileManager() {
-		return "/myPage/app-user-list";
+		return "/myPage/pages-profile-list";
 	}
 }
