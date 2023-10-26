@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.user.vo.LoginInfoVO;
+import com.user.vo.UserVO;
 
 @Configuration
 public class LoginInterceptor  implements HandlerInterceptor {
@@ -19,9 +20,10 @@ public class LoginInterceptor  implements HandlerInterceptor {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			if(authentication != null && authentication.getPrincipal() instanceof LoginInfoVO) {
 				LoginInfoVO loginUserVo = (LoginInfoVO) authentication.getPrincipal();
-				loginUserVo.setPassword("");
-				loginUserVo.setUsername(loginUserVo.getUserNick());
+				loginUserVo.setPassword(loginUserVo.getPassword());
+				loginUserVo.setUsername(loginUserVo.getUserEmail());
 				request.setAttribute("user", loginUserVo);
+				System.out.println(loginUserVo);
 			}
 	        
 	        return HandlerInterceptor.super.preHandle(request, response, handler);

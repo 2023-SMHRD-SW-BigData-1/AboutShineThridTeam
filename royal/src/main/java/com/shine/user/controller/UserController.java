@@ -63,40 +63,6 @@ public class UserController {
 	}
 
 	/**
-	 * 로그인
-	 * @param userEmail
-	 * @param userPw
-	 * @param HttpSession session
-	 * @param Map<String, Object>
-	 * @return Login-Join/Login-Join.jsp
-	 * * ------------이력------------
-	 * 2023.10.24 / 정윤지 / 최초 적용
-	 */
-	@RequestMapping(value = "/login/Success", method = RequestMethod.POST)
-	public String login(
-			@RequestParam("userEmail") String userEmail, 
-			@RequestParam("userPw") String userPw,
-			HttpSession session) {
-		
-		
-		Map<String, Object> loginMap = userService.userLogin(userEmail.toString(), userPw.toString());
-		
-		String reString = loginMap.get("loginCode").toString();
-		if(reString.equals("11")) {
-			System.out.println("로그인 성공");
-			session.setAttribute("loginMap", loginMap);
-			return "redirect:/";
-		}else if(reString.equals("01")) {
-			System.out.println("필수값 오류");
-			return "redirect:/";
-		}else {
-			System.out.println("관리자 확인이 필요합니다.");
-			return "redirect:/";
-			
-		}
-	}
-	
-	/**
 	 * 회원정보 수정
 	 * @param UserVO userVo
 	 * @param HttpSession session
