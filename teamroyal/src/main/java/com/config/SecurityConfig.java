@@ -40,13 +40,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
         		.authorizeRequests()
-    			.antMatchers("/user/**","/assets/**","/api/**").permitAll()
+    			.antMatchers("/user/**","/assets/**").permitAll()
     			.anyRequest()
     			.authenticated()
     			.and()
     		.formLogin()
     			.loginPage("/user/login")
-    			.loginProcessingUrl("/user/login")
+    			.loginProcessingUrl("/user/login/Success")
     			.successHandler(loginSuccessHandler)
     			.failureHandler(loginFailureHandler())
     			.usernameParameter("securedUsername")

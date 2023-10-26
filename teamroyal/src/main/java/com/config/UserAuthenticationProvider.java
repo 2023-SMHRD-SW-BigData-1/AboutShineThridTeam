@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+	PasswordEncoder passwordEncoder;
 
 	@Autowired
 	private UserService userService;
@@ -44,9 +44,11 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 		System.out.println(userId + "로그인 시도를 하였습니다.");
 		
 		List<UserVO> userList = userService.userSelectList(userId);
+		
+		System.out.println("userList >>>" + userList);
 
 		if(userList == null || userList.size() < 1) {
-			throw new UsernameNotFoundException(messages.getMessage("userMapper.selectUserList.notFound",new Object[] { userId }, "{0} 사용자가 존재하지 않습니다."));
+			throw new UsernameNotFoundException(messages.getMessage("User.notFound",new Object[] { userId }, "{0} 사용자가 존재하지 않습니다."));
 		}
 		
 		UserVO userVo = userList.get(0);

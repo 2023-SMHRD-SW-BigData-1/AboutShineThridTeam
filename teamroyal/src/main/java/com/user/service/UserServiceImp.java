@@ -24,8 +24,8 @@ public class UserServiceImp implements UserService {
 
 	// 사용자 조회
 	@Override
-	public List<UserVO> userSelectList(String userNick) {
-		return userDao.userSelectList(userNick);
+	public List<UserVO> userSelectList(String userEmail) {
+		return userDao.userSelectList(userEmail);
 	}
 
 	// 사용자 등록
