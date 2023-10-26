@@ -20,6 +20,7 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
@@ -113,38 +114,87 @@ class main_fm : Fragment() {
     }
 
 
-
     // [라인 그래프]
-    //라인 차트 설정
+    // 라인 차트 설정 및 초기화
+    private fun initLineChart(lineChart: LineChart) {
+        lineChart.setDrawGridBackground(false)
+        lineChart.setBackgroundColor(Color.WHITE)
+        lineChart.legend.isEnabled = false
 
-    private  fun initChart(){
-        lineChart.run {
-            setDrawGridBackground(false)
-            setBackgroundColor(Color.WHITE)
-            legend.isEnabled = false
-        }
-
-        val xAxis =lineChart.xAxis
+        val xAxis = lineChart.xAxis
         xAxis.setDrawLabels(true)
+        xAxis.axisMaximum = 6f  // x축 최대값
+        xAxis.axisMinimum = 0f  // x축 최소값
+        xAxis.labelCount = 7 // x축 라벨 수
+        xAxis.textColor = Color.YELLOW
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.setDrawLabels(false)
+        xAxis.setDrawAxisLine(false)
+
+        val yLAxis = lineChart.axisLeft
+        yLAxis.axisMaximum = 10f // y축 최대값
+        yLAxis.axisMinimum = 0f   // y축 최소값
+
+        val yRAxis = lineChart.axisRight
+        yRAxis.setDrawLabels(false)
+        yRAxis.setDrawAxisLine(false)
+        yRAxis.setDrawGridLines(false)
 
 
-        }
+        val entries = ArrayList<Entry>()
 
+        // x, y 좌표값을 추가
+        entries.add(Entry(0f, 2f))
+        entries.add(Entry(1f, 4f))
+        entries.add(Entry(2f, 6f))
+        entries.add(Entry(3f, 8f))
+        entries.add(Entry(4f, 10f))
+        entries.add(Entry(5f, 8f))
+        entries.add(Entry(6f, 6f))
+
+        val dataSet = LineDataSet(entries, "Sample Data")
+
+        lineChart.data = LineData(dataSet)
+
+        lineChart.description.isEnabled = false
+
+    }
 
     // 라인 차트 데이터 설정
-    private fun initCharData() {
-        chartData.add(Entry(-240f,0f))
-        chartData.add(Entry((1200).toFloat(),0f))
+    private fun initLineChartData() {
+        // 임의의 데이터 생성 (X, Y 값)
+        val dataPoints = listOf(
+            Pair(0f, 1f),
+            Pair(1f, 2f),
+            Pair(2f, 3f),
+            Pair(3f, 4f),
+            Pair(4f, 2f),
+            Pair(5f, 8f),
+            Pair(6f, 5f)
+        )
 
-        var set = LineDataSet(chartData,"set1")
+        for ((x, y) in dataPoints) {
+            chartData.add(Entry(x, y))
+        }
+        val set = LineDataSet(chartData, "LineGraph")
+        set.color = Color.parseColor("#FFA500")  // 주황색
+        set.valueTextColor = Color.parseColor("#FFA500")  // 텍스트 컬러를 주황색으로 변경
+        set.setCircleColor(Color.parseColor("#FFA500")) // 마커 색상 주황색
+
+        set.setDrawValues(false)
+        set.highLightColor = Color.TRANSPARENT
+
         lineDataSet.add(set)
         linedata = LineData(lineDataSet)
 
-        set.lineWidth = 2F
+        set.lineWidth = 2f
         set.setDrawValues(false)
         set.highLightColor = Color.TRANSPARENT
-        set.mode = LineDataSet.Mode.STEPPED
 
+
+        lineChart.data = linedata
+
+        lineChart.invalidate()
     }
 
 
@@ -157,6 +207,11 @@ class main_fm : Fragment() {
         barChart = mainV.findViewById(R.id.chart)
         initBarChart(barChart)
         setData(barChart)
+
+
+        lineChart = mainV.findViewById(R.id.chart2)
+        initLineChart(lineChart)  // 라인 그래프 설정 초기화
+        initLineChartData()       // 라인 그래프 데이터 초기화
 
         return mainV
     }

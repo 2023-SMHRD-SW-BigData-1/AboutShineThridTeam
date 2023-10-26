@@ -40,7 +40,7 @@
                         android:id="@+id/textView11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="REC 13,250원/rec"
+                        android:text="원/rec"
                         app:layout_constraintEnd_toEndOf="@+id/textView10"
                         app:layout_constraintStart_toStartOf="@+id/textView10"
                         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -50,7 +50,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="SMP 102.1원/kwh"
+                        android:text="원/kwh"
                         app:layout_constraintEnd_toEndOf="@+id/textView"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -79,7 +79,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/totalPrice"
+                        android:id="@+id/tv_totalP"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginEnd="16dp"
@@ -95,24 +95,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:text="현 총 발전량 752kwh"
+                        android:text="kwh"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/totalPrice" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_totalP" />
 
                     <TextView
-                        android:id="@+id/textView19"
+                        android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2023년 10월 16일"
                         android:textColor="#777571"
                         android:textSize="13sp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/textView5"
-                        app:layout_constraintStart_toStartOf="@+id/textView5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                        app:layout_constraintEnd_toEndOf="@+id/tv_Ippt"
+                        app:layout_constraintStart_toStartOf="@+id/tv_Ippt"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_Ippt" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/tv_Ippt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="28dp"
@@ -123,6 +123,60 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="SMP"
+                        app:layout_constraintEnd_toStartOf="@+id/textView24"
+                        app:layout_constraintStart_toStartOf="@+id/textView23"
+                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="REC"
+                        app:layout_constraintEnd_toStartOf="@+id/textView25"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:text="현 총 발전량"
+                        app:layout_constraintEnd_toStartOf="@+id/textView26"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_totalP" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="101.1"
+                        app:layout_constraintEnd_toStartOf="@+id/textView10"
+                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="13,250"
+                        app:layout_constraintEnd_toStartOf="@+id/textView11"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="752"
+                        app:layout_constraintEnd_toStartOf="@+id/textView"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_totalP" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -159,7 +213,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="200dp"
                                 app:layout_constraintTop_toBottomOf="@+id/button5"
-                                tools:layout_editor_absoluteX="0dp" />
+                                tools:layout_editor_absoluteX="-156dp" />
 
                             <TextView
                                 android:id="@+id/textView14"
@@ -169,6 +223,7 @@
                                 android:text="예측 총 수익금 100,120원"
                                 android:textSize="15sp"
                                 app:layout_constraintEnd_toEndOf="@+id/textView13"
+                                app:layout_constraintHorizontal_bias="0.0"
                                 app:layout_constraintStart_toStartOf="@+id/textView13"
                                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -356,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="44dp"
                         android:layout_marginEnd="60dp"
-                        android:text="0건"
+                        android:text="1건"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

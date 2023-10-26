@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "443941587781",
+    "project_id": "pushh-a6e64",
+    "storage_bucket": "pushh-a6e64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443941587781:android:380f17b7473d3c48c38c2c",
+        "android_client_info": {
+          "package_name": "com.example.shine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxwGmU1YPIrGZqV2DtGLEvxAefznTMbB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

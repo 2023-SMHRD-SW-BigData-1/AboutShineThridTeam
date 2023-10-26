@@ -1,5 +1,6 @@
 package com.example.shine
 
+import android.app.Activity
 import android.content.ContextParams
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -59,16 +60,17 @@ class JoinActivity : AppCompatActivity() {
             // object :  무명객체 ( 일회성의 객체 생성할때 쓰는 키워드)
             val request = object :StringRequest(
                 Request.Method.POST, //요청 메서드
-                "http://172.30.1.46:8582/shine/join", // 요청경로
+                "http://172.30.1.46:8582/api/apijoin", // 요청경로
                 {
                     res ->
                     Log.d("JoinRes", res.toString())
-                    if(res=="Success"){
+                    if(res=="00"){
                         Toast.makeText(this,"회원가입 성공",Toast.LENGTH_SHORT).show()
                         //loginactivity로 전환
-                        var intent = Intent(this, LoginActivity::class.java)
+                        val intent = Intent(this, LoginActivity::class.java)
+
                         startActivity(intent)
-                    }else{
+                    }else if(res=="01"){
                         Toast.makeText(this,"회원가입 실패",Toast.LENGTH_SHORT).show()
                     }
 
@@ -81,7 +83,7 @@ class JoinActivity : AppCompatActivity() {
                 }
 
             ){// 요청 파라미터 담아서 보내기 위한
-                // StringRequest객체의  getParams라는 메서드 원하는것(6가지)만 보내기 위해 재정의(override!)
+                // StringRequest객체의  getParams라는 메서드 원 하는것(6가지)만 보내기 위해 재정의(override!)
                 override fun getParams(): MutableMap<String,String> {
                     //(map , list) -> interface
                     //(hashmap, arraylist) -> class --> 실제 구현하는 애
