@@ -60,12 +60,6 @@ public class UserController {
 		}
 	}
 	
-	// 로그아웃
-	@RequestMapping("/login/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:/";
-	}
 
 	// 회원정보 페이지로 이동
 	@RequestMapping(value = "/login/userProfile", method = RequestMethod.GET)
