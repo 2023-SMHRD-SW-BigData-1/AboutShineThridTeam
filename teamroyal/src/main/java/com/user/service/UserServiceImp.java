@@ -1,5 +1,6 @@
 package com.user.service;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.user.controller.UserController;
 import com.user.dao.UserDAO;
 import com.user.vo.UserVO;
 
@@ -21,6 +23,7 @@ public class UserServiceImp implements UserService {
 
 	@Autowired
 	private UserDAO userDao;
+	
 
 	// 사용자 조회
 	@Override
@@ -55,16 +58,16 @@ public class UserServiceImp implements UserService {
 	public Map<String, Object> userLogin(UserVO userVo) {
 		
 		Map<String, Object> loginMap = new HashMap<String, Object>();
-		if (userVo.getUserEmail() != null && userVo.getUserPw() != null) {
+		if (userVo.getUserNick() != null && userVo.getUserPw() != null) {
 			
-			System.out.println(userVo.getUserEmail());
+			System.out.println(userVo.getUserNick());
 			System.out.println(userVo.getUserPw());
 			UserVO loginData = userDao.userLogin(userVo);
 			System.out.println(loginData);
 			
 			
 			if (loginData != null) {
-				loginMap.put("loginEmail", userVo.getUserEmail());
+				loginMap.put("loginEmail", userVo.getUserNick());
 				loginMap.put("loginMsg", "로그인 완료");
 				loginMap.put("loginCode", "11");
 			} else {
@@ -81,8 +84,10 @@ public class UserServiceImp implements UserService {
 	// 사용자 수정
 	@Override
 	public Map<String, Object> userInfoUpdate(UserVO userVo) {
+		
 		Map<String, Object> updateMap = new HashMap<String, Object>();
-		if (userVo.getUserEmail() != null && userVo.getUserPw() != null) {
+		
+		if (userVo.getUserNick() != null && userVo.getUserPw() != null) {
 			System.out.println(userVo.getUserNick() + "회원정보수정");
 			int updateDataCnt = userDao.userInfoUpdate(userVo);
 			if (updateDataCnt == 1) {
@@ -98,7 +103,7 @@ public class UserServiceImp implements UserService {
 		}
 		return updateMap;
 	}
-
+	
 	// 사용자 삭제
 	@Override
 	public Map<String, Object> userInfoDelete(UserVO userVo) {
