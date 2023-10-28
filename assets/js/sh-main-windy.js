@@ -25,3 +25,6 @@ windyInit(options, windyAPI => {
         .setContent('Hello World')
         .openOn(map);
 });
+
+
+

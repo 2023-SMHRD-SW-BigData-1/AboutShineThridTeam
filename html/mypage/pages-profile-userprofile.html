@@ -40,6 +40,13 @@
 
   <!-- Page CSS -->
 
+  <!-- High Chart-->
+  <script src="/assets/code/highcharts.js"></script>
+  <script src="/assets/code/modules/data.js"></script>
+  <script src="/assets/code/modules/exporting.js"></script>
+  <script src="/assets/code/modules/export-data.js"></script>
+  <script src="/assets/code/modules/accessibility.js"></script>
+
   <!-- shine-CSS-->
   <link rel="stylesheet" href="/assets/vendor/css/shine/sh-main.css">
 
@@ -157,7 +164,7 @@
                           <ul
                             class="list-inline mb-0 mx-4 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
                             <li class="list-inline-item d-flex gap-1">
-                              <a href="/html/mypage/pages-profile-account.html" class="btn btn-primary">
+                              <a href="/html/main/forgot-password.html" class="btn btn-primary">
                                 <i class="ti ti-link me-1"></i>보안설정
                               </a>
                             </li>
@@ -173,7 +180,7 @@
                   </div>
                 </div>
               </div><!--/ Header -->
-              
+
 
               <!-- Content -->
               <div class="row">
@@ -208,254 +215,256 @@
                     </div>
                   </div> <!-- Agout User-->
                   <!-- chat-->
-                    <div class="card card-action mb-4">
-                      <!-- min Chatt-->
-                      <div class="card-header align-items-center">
-                        <h5 class="card-action-title mb-0">채팅</h5>
-                        <div class="card-action-element">
-                          <div class="dropdown">
-                            <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
-                              aria-expanded="false">
-                              <i class="ti ti-dots-vertical text-muted"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                              <li><a class="dropdown-item" href="javascript:void(0);">Share connections</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
-                              <li>
-                                <hr class="dropdown-divider" />
-                              </li>
-                              <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
-                            </ul>
-                          </div>
+                  <div class="card card-action mb-4">
+                    <!-- min Chatt-->
+                    <div class="card-header align-items-center">
+                      <h5 class="card-action-title mb-0">채팅</h5>
+                      <div class="card-action-element">
+                        <div class="dropdown">
+                          <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical text-muted"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="javascript:void(0);">Share connections</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
+                            <li>
+                              <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
+                          </ul>
                         </div>
                       </div>
-
-                      <div class="card-body">
-                        <ul class="list-unstyled mb-0">
-                          <li class="mb-3">
-                            <div class="d-flex align-items-start">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/avatars/2.png" alt="Avatar" class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">김민준</h6>
-                                  <small class="text-muted">45 Connections</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-message ti-xs"></i>
-                                </button>
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-mail ti-xs"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-start">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">박예은</h6>
-                                  <small class="text-muted">1.32k Connections</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-message ti-xs"></i>
-                                </button>
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-mail ti-xs"></i>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-start">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/avatars/10.png" alt="Avatar" class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">장환익</h6>
-                                  <small class="text-muted">125 Connections</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-message ti-xs"></i>
-                                </button>
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-mail ti-xs"></i>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-start">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">정병인</h6>
-                                  <small class="text-muted">456 Connections</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-message ti-xs"></i>
-                                </button>
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-mail ti-xs"></i>
-                              </div>
-                            </div>
-                          </li>
-
-                          <li class="mb-3">
-                            <div class="d-flex align-items-start">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/avatars/12.png" alt="Avatar" class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">정윤지</h6>
-                                  <small class="text-muted">1.2k Connections</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-message ti-xs"></i>
-                                </button>
-                                <button class="btn btn-label-primary btn-icon btn-sm">
-                                  <i class="ti ti-mail ti-xs"></i>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="text-center">
-                            <a href="javascript:;">View all connections</a>
-                          </li>
-                        </ul>
-                      </div>
                     </div>
-                    <!--/ min Chatt-->
-                    <!--/ min POWER-->
-                    <div class="card card-action mb-4 ">
-                      <div class="card-header align-items-center">
-                        <h5 class="card-action-title mb-0">내 발전소</h5>
-                        <div class="card-action-element">
-                          <div class="dropdown">
-                            <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
-                              aria-expanded="false">
-                              <i class="ti ti-dots-vertical text-muted"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                              <li><a class="dropdown-item" href="javascript:void(0);">Share teams</a></li>
-                              <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
-                              <li>
-                                <hr class="dropdown-divider" />
-                              </li>
-                              <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
-                            </ul>
+
+                    <div class="card-body">
+                      <ul class="list-unstyled mb-0">
+                        <li class="mb-3">
+                          <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/avatars/2.png" alt="Avatar" class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">김민준</h6>
+                                <small class="text-muted">45 Connections</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="/html/community/chat.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-message ti-xs"></i>
+                              </a>
+                              <a href="/html/mypage/pages-profile-email.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-mail ti-xs"></i>
+                              </a>
+                            </div>
                           </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">박예은</h6>
+                                <small class="text-muted">1.32k Connections</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="/html/community/chat.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-message ti-xs"></i>
+                              </a>
+                              <a href="/html/mypage/pages-profile-email.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-mail ti-xs"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/avatars/10.png" alt="Avatar" class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">장환익</h6>
+                                <small class="text-muted">125 Connections</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="/html/community/chat.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-message ti-xs"></i>
+                              </a>
+                              <a href="/html/mypage/pages-profile-email.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-mail ti-xs"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">정병인</h6>
+                                <small class="text-muted">456 Connections</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="/html/community/chat.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-message ti-xs"></i>
+                              </a>
+                              <a href="/html/mypage/pages-profile-email.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-mail ti-xs"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/avatars/12.png" alt="Avatar" class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">정윤지</h6>
+                                <small class="text-muted">1.2k Connections</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="/html/community/chat.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-message ti-xs"></i>
+                              </a>
+                              <a href="/html/mypage/pages-profile-email.html" class="btn btn-label-primary btn-icon btn-sm">
+                                <i class="ti ti-mail ti-xs"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="text-center">
+                          <a href="/html/community/chat.html">View all connections</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--/ min Chatt-->
+                  <!--/ min POWER-->
+                  <div class="card card-action mb-4 ">
+                    <div class="card-header align-items-center">
+                      <h5 class="card-action-title mb-0">내 발전소</h5>
+                      <div class="card-action-element">
+                        <div class="dropdown">
+                          <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="ti ti-dots-vertical text-muted"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="javascript:void(0);">Share teams</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
+                            <li>
+                              <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
+                          </ul>
                         </div>
                       </div>
-                      <div class="card-body">
-                        <ul class="list-unstyled mb-0">
-                          <li class="mb-3">
-                            <div class="d-flex align-items-center">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/icons/brands/react-label.png" alt="Avatar"
-                                    class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">React Developers</h6>
-                                  <small class="text-muted">72 Members</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <a href="javascript:;"><span class="badge bg-label-danger">Developer</span></a>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-center">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/icons/brands/support-label.png" alt="Avatar"
-                                    class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">Support Team</h6>
-                                  <small class="text-muted">122 Members</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <a href="javascript:;"><span class="badge bg-label-primary">Support</span></a>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-center">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/icons/brands/figma-label.png" alt="Avatar"
-                                    class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">UI Designers</h6>
-                                  <small class="text-muted">7 Members</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <a href="javascript:;"><span class="badge bg-label-info">Designer</span></a>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-center">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/icons/brands/vue-label.png" alt="Avatar"
-                                    class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">Vue.js Developers</h6>
-                                  <small class="text-muted">289 Members</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <a href="javascript:;"><span class="badge bg-label-danger">Developer</span></a>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="mb-3">
-                            <div class="d-flex align-items-center">
-                              <div class="d-flex align-items-start">
-                                <div class="avatar me-2">
-                                  <img src="/assets/img/icons/brands/twitter-label.png" alt="Avatar"
-                                    class="rounded-circle" />
-                                </div>
-                                <div class="me-2 ms-1">
-                                  <h6 class="mb-0">Digital Marketing</h6>
-                                  <small class="text-muted">24 Members</small>
-                                </div>
-                              </div>
-                              <div class="ms-auto">
-                                <a href="javascript:;"><span class="badge bg-label-secondary">Marketing</span></a>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="text-center">
-                            <a href="javascript:;">View all teams</a>
-                          </li>
-                        </ul>
-                      </div>
                     </div>
-                  
+                    <div class="card-body">
+                      <ul class="list-unstyled mb-0">
+                        <li class="mb-3">
+                          <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/icons/brands/react-label.png" alt="Avatar"
+                                  class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">React Developers</h6>
+                                <small class="text-muted">72 Members</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="javascript:;"><span class="badge bg-label-danger">Developer</span></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/icons/brands/support-label.png" alt="Avatar"
+                                  class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">Support Team</h6>
+                                <small class="text-muted">122 Members</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="javascript:;"><span class="badge bg-label-primary">Support</span></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/icons/brands/figma-label.png" alt="Avatar"
+                                  class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">UI Designers</h6>
+                                <small class="text-muted">7 Members</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="javascript:;"><span class="badge bg-label-info">Designer</span></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/icons/brands/vue-label.png" alt="Avatar" class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">Vue.js Developers</h6>
+                                <small class="text-muted">289 Members</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="javascript:;"><span class="badge bg-label-danger">Developer</span></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-3">
+                          <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-start">
+                              <div class="avatar me-2">
+                                <img src="/assets/img/icons/brands/twitter-label.png" alt="Avatar"
+                                  class="rounded-circle" />
+                              </div>
+                              <div class="me-2 ms-1">
+                                <h6 class="mb-0">Digital Marketing</h6>
+                                <small class="text-muted">24 Members</small>
+                              </div>
+                            </div>
+                            <div class="ms-auto">
+                              <a href="javascript:;"><span class="badge bg-label-secondary">Marketing</span></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="text-center">
+                          <a href="/html/power/power-plant.html">View More Power Plant</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
                   <!--/ min POWER-->
                 </div> <!-- Left side -->
 
@@ -532,7 +541,7 @@
                   <!-- min profit -->
                   <div class="card card-action mb-4 ">
                     <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">알림</h5>
+                      <h5 class="card-action-title mb-0">내 발전량</h5>
                       <div class="card-action-element">
                         <div class="dropdown">
                           <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
@@ -551,65 +560,32 @@
                       </div>
                     </div>
                     <div class="card-body pb-0">
-                      <ul class="timeline ms-1 mb-0">
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-primary"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">박예은님이 메시지를 보내셨습니다</h6>
-                              <small class="text-muted">Today</small>
-                            </div>
-                            <p class="mb-2">저기요? 왜 저 신고하셨어요? @10:15am</p>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-success"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">관리자님이 메시지를 보내셨습니다</h6>
-                              <small class="text-muted">2 Day Ago</small>
-                            </div>
-                            <p class="mb-0">발전소 등록이 완료되었습니다 환영합....</p>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                          <span class="timeline-point timeline-point-danger"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">관리자님이 메시지를 보내셨습니다</h6>
-                              <small class="text-muted">6 Day Ago</small>
-                            </div>
-                            <p class="mb-0">경고: 패널 이상이 감지 되었습니다</p>
-                          </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent border-transparent">
-                          <span class="timeline-point timeline-point-info"></span>
-                          <div class="timeline-event">
-                            <div class="timeline-header">
-                              <h6 class="mb-0">관리자님이 메시지를 보내셨습니다</h6>
-                              <small class="text-muted">10 Day Ago</small>
-                            </div>
-                            <p class="mb-0">Shine에 오신걸 환영합니다</p>
-                          </div>
-                        </li>
-                      </ul>
+                      <figure class="highcharts-figure">
+                        <div id="container"></div>
+                      </figure>
+                      <div class="ld-row">
+                        <label class="ld-label">
+                          Enable Polling
+                        </label>
+                        <input type="checkbox" checked="checked" id="enablePolling" />
+                      </div>
+                      <div class="ld-row">
+                        <label class="ld-label">
+                          Polling Time (Seconds)
+                        </label>
+                        <input class="ld-time-input" type="number" value="2" id="pollingTime" />
+                      </div>
+                      <div class="ld-row">
+                        <label class="ld-label">
+                          CSV URL
+                        </label>
+                        <input class="ld-url-input" type="text" id="fetchURL" />
+                      </div>
                     </div>
                   </div> <!--/ min profit -->
                 </div> <!--/ right side-->
               </div> <!--/ content-->
             </div> <!--/ container box-->
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl">
@@ -630,7 +606,7 @@
           </div><!--/ Content -->
         </div><!--/ Content wrapper -->
       </div><!--/ Layout container -->
-    </div><!--/ Layout container --> 
+    </div><!--/ Layout container -->
   </div><!--/ Layout Warpper -->
   <!-- Overlay -->
   <div class="layout-overlay layout-menu-toggle"></div>
@@ -659,8 +635,11 @@
 
   <!-- Main JS -->
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/sh-highChart-liveData.js"></script>
+
 
   <!-- Page JS -->
+  <script type="text/javascript"></script>
 </body>
 
 </html>
