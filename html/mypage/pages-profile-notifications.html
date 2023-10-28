@@ -109,10 +109,6 @@
                     <a class="nav-link active" href="./pages-profile-userprofile.html"><i class="ti-xs ti ti-user-check me-1"></i>
                       Profile</a>
                   </li>
-                  <li class="nav-item" >
-                    <a class="nav-link" href="./pages-profile-account.html"><i class="ti-xs ti ti-link me-1"></i>
-                      Account</a>
-                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="./pages-profile-email.html"><i
                         class="ti-xs ti ti-mail me-1"></i> email</a>
@@ -139,102 +135,73 @@
             <!--/ Navbar pills -->
 
             <!--content -->
-             <div class="card">
+             <div class="card card-action mb-4 bdr">
               <!-- Notifications -->
-              <h5 class="card-header pb-1">Recent Devices</h5>
-              <div class="card-body">
-                <span
-                  >We need permission from your browser to show notifications.
-                  <span class="notificationRequest"><span class="fw-medium">Request Permission</span></span></span
-                >
-                <div class="error"></div>
+              <div class="card-header align-items-center">
+                <h5 class="card-action-title mb-0">알림</h5>
+                <div class="card-action-element">
+                  <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <i class="ti ti-dots-vertical text-muted"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="javascript:void(0);">Share timeline</a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div class="table-responsive">
-                <table class="table table-striped border-top">
-                  <thead>
-                    <tr>
-                      <th class="text-nowrap">Type</th>
-                      <th class="text-nowrap text-center">Email</th>
-                      <th class="text-nowrap text-center">Browser</th>
-                      <th class="text-nowrap text-center">App</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="text-nowrap">New for you</td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck1" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck2" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck3" checked />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-nowrap">Account activity</td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck4" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck5" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck6" checked />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-nowrap">A new browser used to sign in</td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck7" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck8" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck9" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-nowrap">A new device is linked</td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck10" checked />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck11" />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-check d-flex justify-content-center">
-                          <input class="form-check-input" type="checkbox" id="defaultCheck12" />
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+
+              <div class="card-body pb-0">
+                <ul class="timeline ms-1 mb-0">
+                  <li class="timeline-item timeline-item-transparent">
+                    <span class="timeline-point timeline-point-primary"></span>
+                    <div class="timeline-event">
+                      <div class="timeline-header">
+                        <h6 class="mb-0">박예은님이 메시지를 보내셨습니다</h6>
+                        <small class="text-muted">Today</small>
+                      </div>
+                      <p class="mb-2">저기요? 왜 저 신고하셨어요? @10:15am</p>
+                    </div>
+                  </li>
+                  <li class="timeline-item timeline-item-transparent">
+                    <span class="timeline-point timeline-point-success"></span>
+                    <div class="timeline-event">
+                      <div class="timeline-header">
+                        <h6 class="mb-0">관리자님이 메시지를 보내셨습니다</h6>
+                        <small class="text-muted">2 Day Ago</small>
+                      </div>
+                      <p class="mb-0">발전소 등록이 완료되었습니다 환영합....</p>
+                    </div>
+                  </li>
+                  <li class="timeline-item timeline-item-transparent">
+                    <span class="timeline-point timeline-point-danger"></span>
+                    <div class="timeline-event">
+                      <div class="timeline-header">
+                        <h6 class="mb-0">관리자님이 메시지를 보내셨습니다</h6>
+                        <small class="text-muted">6 Day Ago</small>
+                      </div>
+                      <p class="mb-0">경고: 패널 이상이 감지 되었습니다</p>
+                    </div>
+                  </li>
+                  <li class="timeline-item timeline-item-transparent border-transparent">
+                    <span class="timeline-point timeline-point-info"></span>
+                    <div class="timeline-event">
+                      <div class="timeline-header">
+                        <h6 class="mb-0">관리자님이 메시지를 보내셨습니다</h6>
+                        <small class="text-muted">10 Day Ago</small>
+                      </div>
+                      <p class="mb-0">Shine에 오신걸 환영합니다</p>
+                    </div>
+                  </li>
+                </ul>
               </div>
+              
               <div class="card-body">
                 <h6>When should we send you notifications?</h6>
                 <form action="javascript:void(0);">
