@@ -45,7 +45,7 @@
 
     <!-- Shin-CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/shine/sh-main.css">
-
+    <link rel="stylesheet" href="/assets/vendor/css/shine/sh-comm.css">
     <!-- Helpers -->
     <script src="/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -53,24 +53,6 @@
     <script src="/assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/js/config.js"></script>
-
-    <style>
-        
-        #example_previous {
-            background-color: #f8ad5d;
-        }
-        #example_next {
-            background-color: #f8ad5d;
-        }
-        #example_previous:hover {
-            background-color: #f19a3c;
-        }
-        #example_next:hover {
-            background-color: #f19a3c;
-        }
-        
-    
-    </style>
   </head>
 
   <body>
@@ -120,15 +102,10 @@
             
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-                <div class="card text-end mb-3">
-                    <div class="card-body">
-                      <a href="community-form.html" class="btn btn-primary waves-effect waves-light">글쓰기</a>
-                    </div>
-                </div>
-              <!-- Invoice List Table -->
-              <div class="card">
-                <div class="card-datatable table-responsives">
-                  <table id="example" class="display" style="width:100%">
+                <!-- Invoice List Table -->
+                <div class="card w-100">
+                    <div class="card-datatable table-responsives">
+                        <table id="example" class="display w-100 sh-comm-table" >
                     <thead>
                         <tr>
                             <th>num</th>
@@ -668,9 +645,10 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
-              </div>
+                <a href="community-form.html" class="btn btn-primary waves-effect waves-light sh-comm-wright">글쓰기</a>
             </div>
+        </div>
+    </div>
             <!--/ Content -->
 
             <!-- Footer -->
