@@ -6783,6 +6783,9 @@ a.invert-bg-dark:hover, a.invert-bg-dark:focus {
 .btn:not([class*=btn-]) {
   box-shadow: none !important;
 }
+.btn-no-boxshadow {
+  box-shadow: none !important;
+}
 .btn.disabled, .btn:disabled {
   cursor: default;
 }
