@@ -50,6 +50,7 @@
   <!-- shine-CSS-->
   <link rel="stylesheet" href="/assets/vendor/css/shine/sh-main.css">
   <link rel="stylesheet" href="/assets/vendor/css/shine/sh-highcart-pages-main.css">
+  <link rel="stylesheet" href="/assets/vendor/css/shine/sh-pages-myprofile.css">
 
   <!-- Helpers -->
   <script src="/assets/vendor/js/helpers.js"></script>
@@ -74,10 +75,11 @@
 
           <div class="collapse navbar-collapse" id="navbar-ex-5">
             <div class="navbar-nav me-auto">
-              <a class="nav-item nav-link" href="../main/main.html">MAIN</a>
-              <a class="nav-item nav-link active" href="../community/community.html">COMMUNITY</a>
-              <a class="nav-item nav-link" href="../community/chat.html">CHAT</a>
-              <a class="nav-item nav-link" href="../power/power-plant.html">POWER PLANT</a>
+              <a class="nav-item nav-link" href="/html/main/index.html">MAIN</a>
+              <a class="nav-item nav-link" href="/html/community/community.html">COMMUNITY</a>
+              <a class="nav-item nav-link" href="/html/community/chat.html">CHAT</a>
+              <a class="nav-item nav-link" href="/html/community/community-mail.html">MAIL</a>
+              <a class="nav-item nav-link" href="/html/power/power-plant.html">POWER PLANT</a>
             </div>
             <ul class="navbar-nav ms-lg-auto">
               <li class="nav-item">
@@ -110,21 +112,21 @@
                       Profile</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./pages-profile-email.html"><i class="ti-xs ti ti-mail me-1"></i>
-                      email</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="./pages-profile-notifications.html"><i class="ti-xs ti ti-bell me-1"></i>
                       notification</a>
-                  </li>
-                  <li class="nav-item">
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="./pages-profile-email.html"><i class="ti-xs ti ti-mail me-1"></i>
+                        email</a>
+                    </li> -->
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="./pages-profile-teams.html"><i class="ti-xs ti ti-users me-1"></i>
                       Teams</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="./pages-profile-projects.html"><i
                         class="ti-xs ti ti-layout-grid me-1"></i>Projects</a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                     <a class="nav-link" href="./pages-profile-magnager.html"><i
                         class="ti-xs ti ti-map-pins me-1"></i>Manager</a>
@@ -137,7 +139,7 @@
               <!-- Header -->
               <div class="col-12">
                 <div class="card mb-4">
-                  <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
+                  <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-end mb-4">
                     <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
                       <img src="/assets/img/avatars/12.png" alt="user image"
                         class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img" />
@@ -174,7 +176,7 @@
                               <!-- Button trigger modal -->
                               <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#modalCenter">
-                                <i class="ti ti-link me-1"></i>보안설정
+                                <i class="ti ti-link me-1"></i>비밀번호 변경
                               </button>
                               <!-- Modal -->
                               <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
@@ -193,39 +195,24 @@
                                               <!-- Logo -->
                                               <div class="app-brand justify-content-center mb-4 mt-2">
                                                 <a href="index.html" class="app-brand-link gap-2">
-                                                  <span class="app-brand-logo demo">
-                                                    <svg width="32" height="22" viewBox="0 0 32 22" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z"
-                                                        fill="#7367F0" />
-                                                      <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z"
-                                                        fill="#161616" />
-                                                      <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z"
-                                                        fill="#161616" />
-                                                      <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z"
-                                                        fill="#7367F0" />
-                                                    </svg>
+                                                  <span class="app-brand-logo demo" style="width: 60px; height: 60px;">
+                                                    <img src="/assets/img/branding/shinelogosm.png" class="w-100" alt="">
                                                   </span>
-                                                  <span class="app-brand-text demo text-body fw-bold">Vuexy</span>
+                                                  <span class="app-brand-text demo text-body fw-bold">SHINE</span>
                                                 </a>
                                               </div>
                                               <!-- /Logo -->
-                                              <h4 class="mb-1 pt-2">Forgot Password? 🔒</h4>
-                                              <p class="mb-4">Enter your email and we'll send you instructions to reset
-                                                your password
+                                              <h4 class="mb-1 pt-2">비밀번호를 잊으셨습니까? 🔒</h4>
+                                              <p class="mb-4">이메일을 입력하세요
                                               </p>
                                               <form id="formAuthentication" class="mb-3"
                                                 action="/html/mypage/pages-profile-account.html" method="GET">
                                                 <div class="mb-3">
                                                   <label for="email" class="form-label">Email</label>
                                                   <input type="text" class="form-control" id="email" name="email"
-                                                    placeholder="Enter your email" autofocus />
+                                                    placeholder="이메일을 입력하세요" autofocus />
                                                 </div>
-                                                <button class="btn btn-primary d-grid w-100">Send Reset Link</button>
+                                                <button class="btn btn-primary d-grid w-100">비밀번호 찾기</button>
                                               </form>
                                             </div>
                                           </div>
@@ -236,12 +223,7 @@
                                   </div>
                                 </div>
                               </div>
-
                             </li>
-
-
-
-
                             <li class="list-inline-item d-flex gap-1">
                               <a href="/html/power/power-plant.html" class="btn btn-primary">
                                 <i class="ti ti-check me-1"></i>발전소 등록
@@ -291,8 +273,12 @@
                   <!-- chat-->
                   <div class="card card-action mb-4">
                     <!-- min Chatt-->
-                    <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">채팅</h5>
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <div>
+                        <a href="/html/community/chat.html">
+                          <h5 class="card-action-title mb-0 sh-profile-card-header">채팅</h5>
+                        </a>
+                      </div>
                       <div class="card-action-element">
                         <div class="dropdown">
                           <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
@@ -423,7 +409,7 @@
                             </div>
                           </div>
                         </li>
-                        <li class="text-center">
+                        <li class="text-end">
                           <a href="/html/community/chat.html">View all connections</a>
                         </li>
                       </ul>
@@ -432,8 +418,12 @@
                   <!--/ min Chatt-->
                   <!--/ min POWER-->
                   <div class="card card-action mb-4 ">
-                    <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">내 발전소</h5>
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <div>
+                        <a href="/html/power/power-plant.html">
+                          <h5 class="card-action-title mb-0 sh-profile-card-header">내 발전소</h5>
+                        </a>
+                      </div>
                       <div class="card-action-element">
                         <div class="dropdown">
                           <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
@@ -537,24 +527,27 @@
                             </div>
                           </div>
                         </li>
-                        <li class="text-center">
+                        <li class="text-end">
                           <a href="/html/power/power-plant.html">View More Power Plant</a>
                         </li>
                       </ul>
                     </div>
                   </div>
-
                   <!--/ min POWER-->
                 </div> <!-- Left side -->
 
 
 
                 <!-- right side-->
-                <div class="col-xl-8 col-lg-7 col-md-7">
+                <div class="col-xl-8 col-lg-7 col-md-7 ">
                   <!-- min notification -->
-                  <div class="card card-action mb-4 ">
-                    <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">알림</h5>
+                  <div class="card card-action mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <div>
+                        <a href="/html/mypage/pages-profile-notifications.html">
+                          <h5 class="card-action-title mb-0 sh-profile-card-header">알림</h5>
+                        </a>
+                      </div>
                       <div class="card-action-element">
                         <div class="dropdown">
                           <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
@@ -614,22 +607,237 @@
                             <p class="mb-0">Shine에 오신걸 환영합니다</p>
                           </div>
                         </li>
+                        <li class="text-end mb-4">
+                          <a href="/html/power/power-plant.html">View More Power Plant</a>
+                        </li>
                       </ul>
                     </div>
                   </div> <!--/ min notification -->
                   <!-- min profit -->
                   <div class="card card-action mb-4 ">
-                    <div class="card-header align-items-center">
-                      <h5 class="card-action-title mb-0">내 발전량</h5>
+                    <div class="card-header d-flex justify-content-between align-items-center sh-profile-card-header">
+                      <div>
+                          <a href="/html/community/community-mail.html">
+                            <h5 class="card-action-title mb-0 sh-profile-card-header">이메일</h5>
+                          </a>
+                      </div>
                       <div class="card-action-element">
                         <div class="dropdown">
                           <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="ti ti-dots-vertical text-muted"></i>
-                          </button>
-                          <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="javascript:void(0);">Share timeline</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
+                          aria-expanded="false">
+                          <i class="ti ti-dots-vertical text-muted"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="javascript:void(0);">Share timeline</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
+                          
+                            <li>
+                              <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">Report bug</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body pb-0">
+                      <div class="email-list pt-0">
+                        <ul class="list-unstyled m-0">
+                          <li
+                            class="email-list-item"
+                            data-starred="true"
+                            data-bs-toggle="sidebar"
+                            data-target="#app-email-view">
+                            <div class="d-flex align-items-center">
+                              <img
+                                src="/assets/img/avatars/1.png"
+                                alt="user-avatar"
+                                class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
+                                height="32"
+                                width="32" />
+                              <div class="email-list-item-content ms-2 ms-sm-0 me-2">
+                                <span class="h6 email-list-item-username me-2">Chandler Bing</span>
+                                <span class="email-list-item-subject d-xl-inline-block d-block">
+                                  Focused impactful open issues from the project of GitHub</span
+                                >
+                              </div>
+                              <div class="email-list-item-meta ms-auto d-flex align-items-center">
+                                <span
+                                  class="email-list-item-label badge badge-dot bg-danger d-none d-md-inline-block me-2"
+                                  data-label="private"></span>
+                                <small class="email-list-item-time text-muted">08:40 AM</small>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            class="email-list-item email-marked-read"
+                            data-sent="true"
+                            data-bs-toggle="sidebar"
+                            data-target="#app-email-view">
+                            <div class="d-flex align-items-center">
+                            
+                              <img
+                                src="/assets/img/avatars/2.png"
+                                alt="user-avatar"
+                                class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
+                                height="32"
+                                width="32" />
+                              <div class="email-list-item-content ms-2 ms-sm-0 me-2">
+                                <span class="h6 email-list-item-username me-2">Ross Geller</span>
+                                <span class="email-list-item-subject d-xl-inline-block d-block">
+                                  Hey Katy, Dessert soufflé tootsie roll soufflé carrot cake halvah jelly.</span
+                                >
+                              </div>
+                              <div class="email-list-item-meta ms-auto d-flex align-items-center">
+                                <span
+                                  class="email-list-item-label badge badge-dot bg-info d-none d-md-inline-block me-2"
+                                  data-label="important"></span>
+                                <small class="email-list-item-time text-muted">10:12 AM</small>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            class="email-list-item"
+                            data-draft="true"
+                            data-bs-toggle="sidebar"
+                            data-target="#app-email-view">
+                            <div class="d-flex align-items-center">
+                              <div class="avatar avatar-sm d-block flex-shrink-0 me-sm-3 me-2">
+                                <span class="avatar-initial rounded-circle bg-label-success">BS</span>
+                              </div>
+                              <div class="email-list-item-content ms-2 ms-sm-0 me-2">
+                                <span class="h6 email-list-item-username me-2">Barney Stinson</span>
+                                <span class="email-list-item-subject d-xl-inline-block d-block">
+                                  Hey Katy, Soufflé apple pie caramels soufflé tiramisu bear claw.</span
+                                >
+                              </div>
+                              <div class="email-list-item-meta ms-auto d-flex align-items-center">
+                                <span
+                                  class="email-list-item-attachment ti ti-paperclip ti-xs cursor-pointer me-2 float-end float-sm-none"></span>
+                                <span
+                                  class="email-list-item-label badge badge-dot bg-primary d-none d-md-inline-block me-2"
+                                  data-label="company"></span>
+                                <small class="email-list-item-time text-muted">12:44 AM</small>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            class="email-list-item email-marked-read"
+                            data-starred="true"
+                            data-bs-toggle="sidebar"
+                            data-target="#app-email-view">
+                            <div class="d-flex align-items-center">
+                              
+                              <img
+                                src="/assets/img/avatars/3.png"
+                                alt="user-avatar"
+                                class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
+                                height="32"
+                                width="32" />
+                              <div class="email-list-item-content ms-2 ms-sm-0 me-2">
+                                <span class="h6 email-list-item-username me-2">Pheobe Buffay</span>
+                                <span class="email-list-item-subject d-xl-inline-block d-block">
+                                  Hey Katy, Tart croissant jujubes gummies macaroon Icing sweet.</span
+                                >
+                              </div>
+                              <div class="email-list-item-meta ms-auto d-flex align-items-center">
+                                <span
+                                  class="email-list-item-label badge badge-dot bg-success d-none d-md-inline-block me-2"
+                                  data-label="work"></span>
+                                <small class="email-list-item-time text-muted">Yesterday</small>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            class="email-list-item email-marked-read"
+                            data-spam="true"
+                            data-bs-toggle="sidebar"
+                            data-target="#app-email-view">
+                            <div class="d-flex align-items-center">
+                              <img
+                                src="/assets/img/avatars/4.png"
+                                alt="user-avatar"
+                                class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
+                                height="32"
+                                width="32" />
+                              <div class="email-list-item-content ms-2 ms-sm-0 me-2">
+                                <span class="h6 email-list-item-username me-2">Ted Mosby</span>
+                                <span class="email-list-item-subject d-xl-inline-block d-block">
+                                  Hey Katy, I love Pudding cookie chocolate sweet tiramisu jujubes I love danish.</span
+                                >
+                              </div>
+                              <div class="email-list-item-meta ms-auto d-flex align-items-center">
+                                <span
+                                  class="email-list-item-label badge badge-dot bg-primary d-none d-md-inline-block me-2"
+                                  data-label="company"></span>
+                                <small class="email-list-item-time text-muted">Yesterday</small>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            class="email-list-item email-marked-read"
+                            data-trash="true"
+                            data-bs-toggle="sidebar"
+                            data-target="#app-email-view">
+                            <div class="d-flex align-items-center">
+                              <img
+                                src="/assets/img/avatars/9.png"
+                                alt="user-avatar"
+                                class="d-block flex-shrink-0 rounded-circle me-sm-3 me-2"
+                                height="32"
+                                width="32" />
+                              <div class="email-list-item-content ms-2 ms-sm-0 me-2">
+                                <span class="h6 email-list-item-username me-2">Alistair Crowley </span>
+                                <span class="email-list-item-subject d-xl-inline-block d-block">
+                                  Hey Katy, I love danish. Cupcake I love carrot cake sugar plum I love.</span
+                                >
+                              </div>
+                              <div class="email-list-item-meta ms-auto d-flex align-items-center">
+                                <span
+                                  class="email-list-item-label badge badge-dot bg-primary d-none d-md-inline-block me-2"
+                                  data-label="company"></span>
+                                <small class="email-list-item-time text-muted">25 Feb</small>
+                                
+                              </div>
+                            </div>
+                          </li>
+                          <li class="text-end mb-4">
+                            <a href="/html/power/power-plant.html">View More Power Plant</a>
+                          </li>
+                        </ul>
+                        <ul class="list-unstyled m-0">
+                          <li class="email-list-empty text-end d-none">No items found.</li>
+                        </ul>
+                      </div>
+
+
+                      
+                    </div>
+                  </div> <!--/ min profit -->
+
+
+                  <!-- min profit -->
+                  <div class="card card-action mb-4 ">
+                    <div class="card-header d-flex justify-content-between align-items-center sh-profile-card-header">
+                      <div>
+                          <a href="/html/power/power-plant.html">
+                        <h5 class="card-action-title mb-0 sh-profile-card-header">내 발전량</h5>
+                          </a>
+                      </div>
+                      <div class="card-action-element">
+                        <div class="dropdown">
+                          <button type="button" class="btn dropdown-toggle hide-arrow p-0" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          <i class="ti ti-dots-vertical text-muted"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="javascript:void(0);">Share timeline</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0);">Suggest edits</a></li>
+                          
                             <li>
                               <hr class="dropdown-divider" />
                             </li>
@@ -660,8 +868,14 @@
                         </label>
                         <input class="ld-url-input" type="text" id="fetchURL" />
                       </div>
+                      
+                    </div>
+                    <div class="text-end mb-4">
+                      <a href="/html/power/power-plant.html">View More Power Plant</a>
                     </div>
                   </div> <!--/ min profit -->
+
+                  
                 </div> <!--/ right side-->
               </div> <!--/ content-->
             </div> <!--/ container box-->
