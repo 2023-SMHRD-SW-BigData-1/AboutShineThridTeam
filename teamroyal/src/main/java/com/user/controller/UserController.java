@@ -1,5 +1,6 @@
 package com.user.controller;
 
+import java.security.Principal;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +27,11 @@ public class UserController {
 	// 로그인 화면 조회
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session, HttpServletResponse response) {
+		return "/mainPage/index-non-member";
+	}
+	
+	@RequestMapping(value = "/login/Success", method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginSuccess(Model model, HttpSession session, HttpServletResponse response) {
 		return "/mainPage/index";
 	}
 
@@ -60,6 +66,12 @@ public class UserController {
 		}
 	}
 	
+	// 로그아웃
+	@RequestMapping("/login/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
 
 	// 회원정보 페이지로 이동
 	@RequestMapping(value = "/login/userProfile", method = RequestMethod.GET)
@@ -83,11 +95,12 @@ public class UserController {
 	 * ------------이력------------ 
 	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
-	@RequestMapping(value = "/login/modify", method = RequestMethod.POST)
+	@RequestMapping(value = "/login/userProfile/modify/success", method = RequestMethod.POST)
 	public Map<String, Object> modify(@ModelAttribute UserVO userVo, HttpSession session) {
-
+		
+		System.out.println("회원수정진입");
 		Map<String, Object> updateReMap = userService.userInfoUpdate(userVo);
-
+		
 		String reString = updateReMap.get("updateReCode").toString();
 		if (reString.equals("22")) {
 			System.out.println("회원수정 성공");
@@ -161,19 +174,19 @@ public class UserController {
 		return "/myPage/pages-profile-email";
 	}
 
-	// 상세 email 페이지 이동
+	// 상세 notification 페이지 이동
 	@RequestMapping(value = "/login/userProfile/notification", method = RequestMethod.GET)
 	public String userProfileNotification() {
 		return "/myPage/pages-profile-notifications";
 	}
 
-	// 상세 email 페이지 이동
+	// 상세 Teams 페이지 이동
 	@RequestMapping(value = "/login/userProfile/Teams", method = RequestMethod.GET)
 	public String userProfileTeams() {
 		return "/myPage/pages-profile-teams";
 	}
 
-	// 상세 email 페이지 이동
+	// 상세 Projects 페이지 이동
 	@RequestMapping(value = "/login/userProfile/Projects", method = RequestMethod.GET)
 	public String userProfileProjects() {
 		return "/myPage/pages-profile-projects";

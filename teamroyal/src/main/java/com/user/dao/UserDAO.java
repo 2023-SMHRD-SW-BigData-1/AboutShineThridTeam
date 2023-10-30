@@ -10,7 +10,7 @@ import com.user.vo.UserVO;
 public interface UserDAO {
 
 	// 사용자 조회
-	List<UserVO> userSelectList(String userEmail);
+	List<UserVO> userSelectList(String userNick);
 
 	// 사용자 로그인
 	UserVO userLogin(UserVO userVo);

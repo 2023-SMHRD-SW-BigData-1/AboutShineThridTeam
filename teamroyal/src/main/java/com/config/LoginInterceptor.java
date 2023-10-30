@@ -2,6 +2,7 @@ package com.config;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
@@ -21,8 +22,13 @@ public class LoginInterceptor  implements HandlerInterceptor {
 			if(authentication != null && authentication.getPrincipal() instanceof LoginInfoVO) {
 				LoginInfoVO loginUserVo = (LoginInfoVO) authentication.getPrincipal();
 				loginUserVo.setPassword(loginUserVo.getPassword());
-				loginUserVo.setUsername(loginUserVo.getUserEmail());
+				loginUserVo.setUsername(loginUserVo.getUserNick());
+				
 				request.setAttribute("user", loginUserVo);
+				
+				HttpSession session =  request.getSession();
+				session.setAttribute("user", loginUserVo);
+				
 				System.out.println(loginUserVo);
 			}
 	        

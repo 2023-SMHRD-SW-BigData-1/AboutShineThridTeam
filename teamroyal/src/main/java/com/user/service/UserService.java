@@ -8,7 +8,7 @@ import com.user.vo.UserVO;
 public interface UserService {
 
 	//사용자 조회
-	List<UserVO> userSelectList(String userEmail);
+	List<UserVO> userSelectList(String userNick);
 	
 	// 사용자 로그인
 	Map<String, Object> userLogin(UserVO userVo);
@@ -24,5 +24,6 @@ public interface UserService {
 	
 	//사용자 비밀번호 초기화
 	Map<String, Object> userFindPw(UserVO userVo);
+	
 	
 }

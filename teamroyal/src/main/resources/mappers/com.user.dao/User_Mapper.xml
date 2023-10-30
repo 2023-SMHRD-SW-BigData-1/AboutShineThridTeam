@@ -3,6 +3,7 @@
     
 <mapper namespace="com.user.dao.UserDAO">
 	
+	<!-- 회원 조회 -->
 	<select id="userSelectList" parameterType="String" resultType="com.user.vo.UserVO">
 		SELECT 
 			USER_NICK AS userNick
@@ -24,12 +25,14 @@
 		</if>
 	</select>
 	
+	<!-- 로그인 -->
 	<select id="userLogin" parameterType="com.user.vo.UserVO" resultType="com.user.vo.UserVO">
 		SELECT *
 		FROM ROYAL.TB_USER
-		WHERE USER_EMAIL=#{userEmail} AND USER_PW=#{userPw}
+		WHERE USER_NICK=#{userNick} AND USER_PW=#{userPw}
 	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="userInfoInsert" parameterType="com.user.vo.UserVO">
 		INSERT INTO ROYAL.TB_USER (
 			USER_NICK
@@ -60,13 +63,11 @@
 		)
 	</insert>
 	
+	<!-- 회원정보 수정 -->
 	<update id="userInfoUpdate" parameterType="com.user.vo.UserVO">
 		UPDATE ROYAL.TB_USER SET 
 			USER_MODIFY_AT = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
 			, USER_MODIFY_NAME = 'USER'
-			<if test="userEmail != null and userEmail != ''">
-				,USER_EMAIL = #{userEmail}
-			</if>
 			<if test="userPw != null and userPw != ''">
 				,USER_PW = #{userPw}
 			</if>
@@ -79,7 +80,27 @@
 			<if test="userPhone != null and userPhone != ''">
 				,USER_PHONE = #{userPhone}
 			</if>
+			<if test="userEmail != null and userEmail != ''">
+				,USER_EMAIL = #{userEmail}
+			</if>
 		WHERE USER_NICK = #{userNick}
 	</update>
+	
+	<!-- 회원 삭제 -->
+	<delete id="userInfoDelete" parameterType="com.user.vo.UserVO">
+		DELETE FROM ROYAL.TB_USER
+		WHERE USER_NICK = #{userNick};
+	</delete>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="userFindPw" parameterType="com.user.vo.UserVO">
+		SELECT *
+		FROM ROYAL.TB_USER
+		WHERE USER_EMAIL = #{userEmail} AND USER_PHONE = #{userPhone}
+	</select>
+	
+	<select id="getAllMarkers" resultType="com.user.vo.MapMarker">
+        SELECT LAT  as latitude, LOG as longitude FROM SOLAR_POWER_ARIA
+    </select>
 	
 </mapper>    
