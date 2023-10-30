@@ -5,7 +5,7 @@ var defaultData = 'https://demo-live-data.highcharts.com/time-data.csv';
     var pollingInput = document.getElementById('pollingTime');
     
     function createChart() {
-        Highcharts.chart('container', {
+        Highcharts.chart('containers', {
             chart: {
                 type: 'spline'
             },

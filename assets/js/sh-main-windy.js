@@ -21,8 +21,8 @@ windyInit(options, windyAPI => {
     // .map is instance of Leaflet map
 
     L.popup()
-        .setLatLng([50.4, 14.3])
-        .setContent('Hello World')
+        .setLatLng([35.15, 126.85])
+        .setContent('광주광역시')
         .openOn(map);
 });
 
