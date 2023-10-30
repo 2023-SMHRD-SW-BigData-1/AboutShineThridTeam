@@ -12,7 +12,6 @@ import lombok.Setter;
 public class CommuVO {
 	
 	private int commuNo;
-	private String userNick;
 	private String commuTitle;
 	private String commuText;
 	private String commuIsDeleted;
@@ -20,4 +19,15 @@ public class CommuVO {
 	private String commuCreateNm;
 	private String commuModifyAt;
 	private String commuModifyNm;
+	
+	private String loginUser;
+	
+	private int replyNo;
+	private String replyText;
+	private String replyIsDeleted;
+	private String replyCreateNm;
+	private String replyCreateAt;
+	private String replyModifyAt;
+	private String replyModifyNm;
+	
 }

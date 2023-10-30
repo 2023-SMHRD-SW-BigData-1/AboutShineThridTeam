@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,28 +19,28 @@
         rel="stylesheet" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/tabler-icons.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/Shine-Comm.css"/>
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../../assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/Shine-Comm.css"/>
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
     
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/libs/node-waves/node-waves.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/swiper/swiper.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
     <title>comm-list</title>
-    <link rel="stylesheet" href="comm-list.css">
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/Shine-Comm.css">
 
 </head>
 
@@ -79,28 +81,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>3</td>
-                            <th>
-                                <a href="#!">내 생각에는 table 한개에</a>
-                            </th>
-                            <td>박충희</td>
-                            <td>2017.06.15</td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <th><a href="#!">for문 같은거를 써서 </a></th>
-                            <td>박충희</td>
-                            <td>2017.06.15</td>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <th><a href="#!">해야하지 않을까라는 생각을 해봅니다</a></th>
-                            <td>박충희</td>
-                            <td>2017.06.15</td>
-                        </tr>
+                    	<c:forEach items="${listMap }" var="listMap">
+							<tr>
+								<td>${listMap.getCommuNo() }</td>
+								<td><a href="/community/list/detail/${listMap.getCommuNo() }">${listMap.getCommuTitle() }</a></td>
+								<td>${listMap.getCommuCreateNm() }</td>
+								<td>${listMap.getCommuCreateAt() }</td>							
+							</tr>			
+						</c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -132,11 +120,43 @@
             </div>
             <div class="w-25">
                 <div class="d-flex justify-content-end" >
-                    <button style="height: 30px; border-radius: 4px; background-color: #7367F0; border: none; color: #fff;" class="w-50">글쓰기</button>
+                    <a href="/community/list/post" style="height: 30px; border-radius: 4px; background-color: #7367F0; border: none; color: #fff;" class="w-50">글쓰기</a>
                 </div>
+                
             </div>
         </div>
     </section>
+    
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    
+    <script type="text/javascript">
+    
+    var urlData = "/community/list"
+    
+    $.ajax({
+		type : 'post',
+		url : urlData,
+		async : true,
+		haeders : {
+			"Content-Type" : "application/json",
+			"X-HTTP-Method-Override" : "POST"
+		},
+		dataType : 'json',
+		data : JSON.stringify({
+			"no" : commuNo,
+			"name" : commuCreateNm,
+			"title" : commuTitle,
+			"date" : commuCreateAt
+		}),
+		succcess : function(result){
+			window.location.href='http://localhost:8586/community/list';
+		},
+		error : function(request, status, error) { 
+	        console.log(error)
+	    }
+	})
+    
+    </script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,28 +17,28 @@
         rel="stylesheet" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/tabler-icons.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/theme-default.css"class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../../assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/theme-default.css"class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
 
     <!--Shine Css-->
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/Shine-Comm.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/css/scss/Shine-comm-post-colmn.css">
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/Shine-Comm.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/scss/Shine-comm-post-colmn.css">
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/libs/node-waves/node-waves.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/swiper/swiper.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
     <title>comm-ctt</title>
     <link rel="stylesheet" href="comm-list.css">
 
@@ -52,7 +52,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,28 +62,28 @@
         rel="stylesheet" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/tabler-icons.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/theme-default.css"class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../../assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/theme-default.css"class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
     
     <!--Shine-->
-    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/Shine-Comm.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/css/scss/Shine-comm-post-colmn.css">
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/Shine-Comm.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/scss/Shine-comm-post-colmn.css">
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../../assets/vendor/libs/node-waves/node-waves.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/swiper/swiper.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
     <title>comm-ctt</title>
     <link rel="stylesheet" href="comm-list.css">
 
