@@ -17,21 +17,19 @@ public class LoginInterceptor  implements HandlerInterceptor {
 	  
 	  @Override
 	  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-			
+		  
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			
 			if(authentication != null && authentication.getPrincipal() instanceof LoginInfoVO) {
 				LoginInfoVO loginUserVo = (LoginInfoVO) authentication.getPrincipal();
+				
 				loginUserVo.setPassword(loginUserVo.getPassword());
 				loginUserVo.setUsername(loginUserVo.getUserNick());
 				
 				request.setAttribute("user", loginUserVo);
-				
 				HttpSession session =  request.getSession();
 				session.setAttribute("user", loginUserVo);
-				
-				System.out.println(loginUserVo);
 			}
-	        
 	        return HandlerInterceptor.super.preHandle(request, response, handler);
 	  }
 }

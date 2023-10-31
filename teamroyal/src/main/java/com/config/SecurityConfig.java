@@ -38,6 +38,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    	System.out.println("test3333");
         return http
         		.authorizeRequests()
     			.antMatchers("/user/**","/assets/**").permitAll()
@@ -46,10 +47,11 @@ public class SecurityConfig {
     			.and()
     		.formLogin()
     			.loginPage("/user/login")
-    			.loginProcessingUrl("/user/login/Success")
+    			.loginProcessingUrl("/user/Success")
     			.successHandler(loginSuccessHandler)
     			.failureHandler(loginFailureHandler())
     			.usernameParameter("securedUsername")
+    			
     			.passwordParameter("securedPassword")
     			.and()
     		.logout()

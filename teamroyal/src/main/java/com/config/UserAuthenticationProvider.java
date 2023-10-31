@@ -15,6 +15,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityMessageSource;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.user.service.UserService;
@@ -23,6 +24,7 @@ import com.user.vo.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
 
+@Component
 @Slf4j
 @Service
 public class UserAuthenticationProvider implements AuthenticationProvider {
