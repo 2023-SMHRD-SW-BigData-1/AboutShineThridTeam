@@ -27,12 +27,12 @@ public class UserController {
 	// 로그인 화면 조회
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session, HttpServletResponse response) {
-		return "/mainPage/index-non-member";
+		return "/main/index-non";
 	}
 	
 	@RequestMapping(value = "/login/Success", method = { RequestMethod.GET, RequestMethod.POST })
 	public String loginSuccess(Model model, HttpSession session, HttpServletResponse response) {
-		return "/mainPage/index";
+		return "/main/index";
 	}
 
 	/**
