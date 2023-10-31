@@ -1,134 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.community.dao.CommuDAO">
-
-	<!-- 게시글 조회 -->
-	<select id="commuListPost" resultType="com.community.vo.CommuVO" parameterType="com.community.vo.CommuVO">
+    
+<mapper namespace="com.user.dao.UserDAO">
+	
+	<!-- 회원 조회 -->
+	<select id="userSelectList" parameterType="String" resultType="com.user.vo.UserVO">
 		SELECT 
-		COMMU_NO as commuNo
-		, USER_NICK as userNick
-		, COMMU_TITLE as commuTitle
-		, COMMU_TEXT as commuText
-		, COMMU_ISDELETED as commuIsDeleted
-		, COMMU_CRETATE_AT as commuCreateAt
-		, COMMU_CRETATE_NAME as commuCreateNm
-		, COMMU_MODIFY_AT as commuModifyAt
-		, COMMU_MODIFY_NAME as commuModifyNm
-		FROM ROYAL.TB_COMMU
-		ORDER BY COMMU_NO DESC
+			USER_NICK AS userNick
+			, USER_EMAIL AS userEmail
+			, USER_PW AS userPw
+			, USER_NAME AS userNm
+			, USER_ADD AS userAdd
+			, USER_PHONE AS userPhone
+			, USER_ISDELETED AS userIsdeleted
+			, USER_CREATE_AT AS userCreateAt
+			, USER_CREATE_NAME AS userCreateNm
+			, USER_MODIFY_AT AS userModifyAt
+			, USER_MODIFY_NAME AS userModifyNm
+			, USER_ROLE AS userRole
+		FROM ROYAL.TB_USER
+		WHERE 1=1
+		<if test="userNick != null and userNick != ''">
+			AND USER_NICK = #{userNick}
+		</if>
 	</select>
 	
-	<!-- 게시글 작성 -->
-	<insert id="commuWrite" parameterType="com.community.vo.CommuVO">
-		INSERT INTO ROYAL.TB_COMMU (
+	<!-- 로그인 -->
+	<select id="userLogin" parameterType="com.user.vo.UserVO" resultType="com.user.vo.UserVO">
+		SELECT *
+		FROM ROYAL.TB_USER
+		WHERE USER_NICK=#{userNick} AND USER_PW=#{userPw}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="userInfoInsert" parameterType="com.user.vo.UserVO">
+		INSERT INTO ROYAL.TB_USER (
 			USER_NICK
-			<if test="commuTitle != null and commuTitle != ''">
-				,COMMU_TITLE
+			,USER_EMAIL
+			,USER_PW
+			,USER_NAME
+			,USER_ADD
+			,USER_PHONE
+			<if test="userIsdeleted != null and userIsdeleted != ''">
+				, USER_ISDELETED
 			</if>
-			<if test="commuText != null and commuText != ''">
-				,COMMU_TEXT
+			, USER_CREATE_AT
+			, USER_CREATE_NAME
+			,USER_ROLE
+		)VALUES(
+			#{userNick}
+			,#{userEmail}
+			,#{userPw}
+			,#{userNm}
+			,#{userAdd}
+			,#{userPhone}
+			<if test="userIsdeleted != null and userIsdeleted != ''">
+				,#{userIsdeleted}
 			</if>
-			,COMMU_CRETATE_AT
-			,COMMU_CRETATE_NAME
-		) VALUES (
-			#{loginUser}
-			<if test="commuTitle != null and commuTitle != ''">
-				,#{commuTitle}
-			</if>
-			<if test="commuText != null and commuText != ''">
-				,#{commuText}
-			</if>
-			,TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-			,#{loginUser}
+			, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+			, 'USER'
+			,'USER'
 		)
 	</insert>
 	
-	<!-- 게시글 조회 -->
-	<select id="commuListPostDetail" parameterType="com.community.vo.CommuVO" resultType="com.community.vo.CommuVO">
-		SELECT 
-		COMMU_NO as commuNo
-		, USER_NICK as userNick
-		, COMMU_TITLE as commuTitle
-		, COMMU_TEXT as commuText
-		, COMMU_ISDELETED as commuIsDeleted
-		, COMMU_CRETATE_AT as commuCreateAt
-		, COMMU_CRETATE_NAME as commuCreateNm
-		, COMMU_MODIFY_AT as commuModifyAt
-		, COMMU_MODIFY_NAME as commuModifyNm
-		FROM ROYAL.TB_COMMU
-		WHERE
-		<if test="commuNo != null and commuNo != ''">
-			COMMU_NO=#{commuNo}
-		</if>
-	</select>
-	
-	<!-- 게시글 수정 -->
-	<update id="commuModify" parameterType="com.community.vo.CommuVO">
-		UPDATE ROYAL.TB_COMMU
-		SET USER_NICK=#{userNick}
-		<if test="commuTitle != null and commuTitle != ''">
-			,COMMU_TITLE = #{commuTitle}
-		</if>
-		<if test="commuText != null and commuText != ''">
-			,COMMU_TEXT = #{commuText}
-		</if>
-		, COMMU_MODIFY_AT = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-		, COMMU_MODIFY_NAME='USER'
-		WHERE COMMU_NO=#{commuNo};
+	<!-- 회원정보 수정 -->
+	<update id="userInfoUpdate" parameterType="com.user.vo.UserVO">
+		UPDATE ROYAL.TB_USER SET 
+			USER_MODIFY_AT = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+			, USER_MODIFY_NAME = 'USER'
+			<if test="userPw != null and userPw != ''">
+				,USER_PW = #{userPw}
+			</if>
+			<if test="userNm != null and userNm != ''">
+				,USER_NAME = #{userNm}
+			</if>
+			<if test="userAdd != null and userAdd != ''">
+				,USER_ADD = #{userAdd}
+			</if>
+			<if test="userPhone != null and userPhone != ''">
+				,USER_PHONE = #{userPhone}
+			</if>
+			<if test="userEmail != null and userEmail != ''">
+				,USER_EMAIL = #{userEmail}
+			</if>
+		WHERE USER_NICK = #{userNick}
 	</update>
 	
-	<!-- 게시글 삭제 -->
-	<delete id="commuDelete" parameterType="com.community.vo.CommuVO">
-		DELETE FROM ROYAL.TB_COMMU
-		WHERE COMMU_NO=#{commuNo};
+	<!-- 회원 삭제 -->
+	<delete id="userInfoDelete" parameterType="com.user.vo.UserVO">
+		DELETE FROM ROYAL.TB_USER
+		WHERE USER_NICK = #{userNick};
 	</delete>
 	
-	<!-- 댓글 조회 -->
-	<select id="commentListPost" parameterType="String" resultType="com.community.vo.CommuVO">
+	<!-- 비밀번호 찾기 -->
+	<select id="userFindPw" parameterType="com.user.vo.UserVO">
 		SELECT *
-		FROM ROYAL.TB_REPLY
-		WHERE 1=1
-		<if test="replyText != null and replyText  != ''">
-			AND REPLY_NO = #{replyNo}
-		</if>
+		FROM ROYAL.TB_USER
+		WHERE USER_EMAIL = #{userEmail} AND USER_PHONE = #{userPhone}
 	</select>
 	
-	<!-- 댓글 작성 -->
-	<insert id="commentWrite" parameterType="com.community.vo.CommuVO">
-		INSERT INTO ROYAL.TB_REPLY(
-		USER_NICK
-		, REPLY_TEXT
-		, COMMU_NO
-		, REPLY_CREATE_NAME
-		) VALUES (
-		#{userNick}
-		<if test="replyText != null and replyText != ''">
-			, #{replyText}
-		</if>
-		, #{commuNo}
-		, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-		, 'USER'
-		);
-	</insert>
-	
-	<!-- 댓글 수정 -->
-	<update id="commentModify" parameterType="com.community.vo.CommuVO">
-		UPDATE ROYAL.TB_REPLY
-		SET 
-		<if test="replyText != null and replyText != ''">
-			REPLY_TEXT = #{replyText}
-		</if>
-		, REPLY_MODIFY_AT=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-		, REPLY_MODIFY_NAME='USER'
-		WHERE REPLY_NO=#{replyNo}
-	</update>
-	
-	<!-- 댓글 삭제 -->
-	<delete id="commentDelete" parameterType="com.community.vo.CommuVO">
-		DELETE FROM ROYAL.TB_REPLY
-		WHERE REPLY_NO=#{replyNo}
-	</delete>
-
-
-</mapper>
+</mapper>    
