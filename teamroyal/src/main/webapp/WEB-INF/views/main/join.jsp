@@ -79,21 +79,21 @@
             <h3 class="mb-1">회원가입 🚀</h3>
             <p class="mb-4">SHINE에 멤버가 되시는걸 환영합니다!</p>
 
-            <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+            <form id="formAuthentication" class="mb-3" action="/user/login/join" method="POST">
               <div class="mb-3">
                 <label for="username" class="form-label">닉네임</label>
                 <input
                   type="text"
                   class="form-control"
                   id="username"
-                  name="username"
+                  name="userNick"
                   placeholder="닉네임를 입력하세요"
                   autofocus />
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                <input type="text" class="form-control" id="email" name="userEmail" placeholder="Enter your email" />
               </div>
 
 
@@ -104,7 +104,7 @@
                     type="password"
                     id="password"
                     class="form-control"
-                    name="password"
+                    name="userPw"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                     aria-describedby="password" />
                   <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
@@ -117,7 +117,7 @@
                   type="text"
                   class="form-control"
                   id="username"
-                  name="username"
+                  name="userNm"
                   placeholder="이름을 입력하세요e"
                   autofocus />
               </div>
@@ -128,7 +128,7 @@
                   type="text"
                   class="form-control"
                   id="username"
-                  name="username"
+                  name="userAdd"
                   placeholder="주소를 입력하세요"
                   autofocus />
               </div>
@@ -139,7 +139,7 @@
                   type="text"
                   class="form-control"
                   id="username"
-                  name="username"
+                  name="userPhone"
                   placeholder="핸드폰번호를 입력하세요"
                   autofocus />
               </div>
@@ -148,7 +148,7 @@
 
             <p class="text-center">
               <span>회원정보가 있으십니까?</span>
-              <a href="login.html">
+              <a href="/user/login/main">
                 <span>로그인화면</span>
               </a>
             </p>

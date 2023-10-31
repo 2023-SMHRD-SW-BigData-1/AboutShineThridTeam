@@ -23,16 +23,38 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	// 로그인 화면으로 이동
+	@RequestMapping(value = "/login/main", method = RequestMethod.GET)
+	public String loginMain() {
+		return "/main/login";
+	}
 
 	// 로그인 화면 조회
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session, HttpServletResponse response) {
+<<<<<<< HEAD
+=======
+		System.out.println("teste11");
+>>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 		return "/main/index-non";
 	}
 	
-	@RequestMapping(value = "/login/Success", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/Success", method = { RequestMethod.GET, RequestMethod.POST })
 	public String loginSuccess(Model model, HttpSession session, HttpServletResponse response) {
+<<<<<<< HEAD
 		return "/main/index";
+=======
+		System.out.println("teste22");
+		
+		return "/main/index";
+	}
+	
+	// 회원가입 페이지로 이동
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String joinMain() {
+		return "/main/join";
+>>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 	}
 
 	/**
@@ -76,13 +98,13 @@ public class UserController {
 	// 회원정보 페이지로 이동
 	@RequestMapping(value = "/login/userProfile", method = RequestMethod.GET)
 	public String userProfile() {
-		return "/myPage/pages-profile-user";
+		return "/mypage/pages-profile-userprofile";
 	}
 
 	// 회원정보 수정 페이지로 이동
 	@RequestMapping(value = "/login/userProfile/modify", method = RequestMethod.GET)
 	public String userProfileModify() {
-		return "/myPage/pages-profile-account";
+		return "/mypage/pages-profile-account";
 	}
 
 	/**
@@ -112,16 +134,15 @@ public class UserController {
 		return updateReMap;
 	}
 
-	// 회원정보 삭제
 	/**
-	 * 
+	 * 회원정보 삭제
 	 * @param UserVO      userVo
 	 * @param Map<String, Object>
 	 * @return Map<String, Object> 
 	 * ------------이력------------ 
 	 * 2023.10.24 / 정윤지 / 최초 적용
 	 */
-	@RequestMapping(value = "/login/userDelete/{userEmail}")
+	@RequestMapping(value = "/login/userDelete/{userNick}")
 	public Map<String, Object> delete(@ModelAttribute UserVO userVo) {
 
 		Map<String, Object> deleteMap = userService.userInfoDelete(userVo);
@@ -140,7 +161,7 @@ public class UserController {
 	// 비밀번호 찾기 페이지로 이동
 	@RequestMapping(value = "/login/forgotPw", method = RequestMethod.GET)
 	public String forgotPw() {
-		return "/mainPage/auth-forgot-password-cover";
+		return "/main/forgot-password";
 	}
 
 	/**
@@ -168,33 +189,15 @@ public class UserController {
 		return findMap;
 	}
 
-	// 상세 email 페이지 이동
-	@RequestMapping(value = "/login/userProfile/email", method = RequestMethod.GET)
-	public String userProfileEmail() {
-		return "/myPage/pages-profile-email";
-	}
-
 	// 상세 notification 페이지 이동
 	@RequestMapping(value = "/login/userProfile/notification", method = RequestMethod.GET)
 	public String userProfileNotification() {
-		return "/myPage/pages-profile-notifications";
-	}
-
-	// 상세 Teams 페이지 이동
-	@RequestMapping(value = "/login/userProfile/Teams", method = RequestMethod.GET)
-	public String userProfileTeams() {
-		return "/myPage/pages-profile-teams";
-	}
-
-	// 상세 Projects 페이지 이동
-	@RequestMapping(value = "/login/userProfile/Projects", method = RequestMethod.GET)
-	public String userProfileProjects() {
-		return "/myPage/pages-profile-projects";
+		return "/mypage/pages-profile-notifications";
 	}
 
 	// 관리자 manager 페이지 이동
 	@RequestMapping(value = "/login/userProfile/Manager", method = RequestMethod.GET)
 	public String userProfileManager() {
-		return "/myPage/app-user-list";
+		return "/mypage/pages-profile-magnager";
 	}
 }

@@ -30,4 +30,19 @@ public class CommuVO {
 	private String replyModifyAt;
 	private String replyModifyNm;
 	
+	private int commuImgNo;
+	private String commuImgPath;
+	private String commuImgNm;
+	private String commuImgU;
+	private String commuImgEx;
+	private String commuImgSize;
+	private String commuImgCreateAt;
+	private String commuImgCreateNm;
+	private String commuImgModifyAt;
+	private String commuImgModifyNm;
+	
+	private String commuImgIsDeleted;
+	
+	
+	
 }

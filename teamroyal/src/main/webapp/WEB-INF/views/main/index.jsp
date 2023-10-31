@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
+=======
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+>>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-menu-fixed layout-compact"
@@ -60,6 +65,7 @@
 <script src="/assets/js/config.js"></script>
 </head>
 
+<<<<<<< HEAD
 <body>
 	<!-- Layout wrapperx -->
 	<div
@@ -73,6 +79,32 @@
 						data-bs-toggle="collapse" data-bs-target="#navbar-ex-5">
 						<span class="navbar-toggler-icon"></span>
 					</button>
+=======
+            <div class="collapse navbar-collapse" id="navbar-ex-5">
+              <div class="navbar-nav me-auto">
+                <a class="nav-item nav-link active" href="/user/Success">MAIN</a>
+                <a class="nav-item nav-link" href="/community/list">COMMUNITY</a>
+                <a class="nav-item nav-link" href="/community/chat">CHAT</a>
+                <a class="nav-item nav-link" href="/community/email">MAIL</a>
+                <a class="nav-item nav-link" href="/power">POWER PLANT</a>
+              </div>
+              <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/login/userProfile"
+                    ><i class="tf-icons navbar-icon ti ti-user ti-xs me-1"></i> Profile</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"
+                    ><i class="tf-icons navbar-icon ti ti-lock-open ti-xs me-1"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- / Navbar -->
+>>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 
 					<div class="collapse navbar-collapse" id="navbar-ex-5">
 						<div class="navbar-nav me-auto">

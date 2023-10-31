@@ -28,7 +28,7 @@ public interface CommuService {
 	Map<String, Object> commuDelete(CommuVO commuVo);
 	
 	// 게시판 댓글조회
-	List<CommuVO> commentListPost(String replyNo);
+	Map<String,Object> replyList(CommuVO commuVo);
 	
 	// 게시판 댓글쓰기
 	Map<String, Object> commentWrite(CommuVO commuVo);

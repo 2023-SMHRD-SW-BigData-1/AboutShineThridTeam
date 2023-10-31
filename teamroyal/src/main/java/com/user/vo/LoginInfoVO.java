@@ -71,7 +71,7 @@ public class LoginInfoVO implements UserDetails {
 			this.userAdd = userVo.getUserAdd();
 			this.userPhone = userVo.getUserPhone();
 			this.password = userVo.getUserPw();
-			this.username = userVo.getUserEmail();
+			this.username = userVo.getUserNick();
 		}
 
 		

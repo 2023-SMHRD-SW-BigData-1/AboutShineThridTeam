@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 
 <html
@@ -62,13 +64,19 @@
   </head>
 
   <body>
+  
+  <% 
+  	String massage = (String) request.getAttribute("massage");
+  	System.out.println(massage);
+  %>
+  
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
       <div class="layout-container">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-navbar-theme">
           <div class="container-fluid">
-            <a class="navbar-brand" href="main.html">Navbar</a>
+          <a class="navbar-brand" href="/user/Success">Navbar</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -79,20 +87,20 @@
 
             <div class="collapse navbar-collapse" id="navbar-ex-5">
               <div class="navbar-nav me-auto">
-                <a class="nav-item nav-link" href="/html/main/index.html">MAIN</a>
-                <a class="nav-item nav-link" href="/html/community/community.html">COMMUNITY</a>
-                <a class="nav-item nav-link" href="/html/community/chat.html">CHAT</a>
-                <a class="nav-item nav-link" href="/html/community/community-mail.html">MAIL</a>
-                <a class="nav-item nav-link" href="/html/power/power-plant.html">POWER PLANT</a>
+                <a class="nav-item nav-link" href="/user/Success">MAIN</a>
+                <a class="nav-item nav-link" href="/community/list">COMMUNITY</a>
+                <a class="nav-item nav-link" href="/community/chat">CHAT</a>
+                <a class="nav-item nav-link" href="/community/email">MAIL</a>
+                <a class="nav-item nav-link" href="/power">POWER PLANT</a>
               </div>
               <ul class="navbar-nav ms-lg-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="../mypage/pages-profile-userprofile.html"
+                  <a class="nav-link" href="/user/login/userProfile"
                     ><i class="tf-icons navbar-icon ti ti-user ti-xs me-1"></i> Profile</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0);"
+                  <a class="nav-link" href="/logout"
                     ><i class="tf-icons navbar-icon ti ti-lock-open ti-xs me-1"></i> Logout</a
                   >
                 </li>
@@ -117,10 +125,12 @@
                       <div id="collapseDeliveryAddress" class="accordion-collapse collapse show" data-bs-parent="#collapsibleSection">
                         <div class="accordion-body">
                           <div class="row g-3">
+                          <form action="/community/list/post/write" method="post">
                             <div class="col-md-12">
                               <label class="form-label" for="collapsible-fullname">제목</label>
-                              <input type="text" id="collapsible-fullname" class="form-control" placeholder="제목을 입력해주세요" />
+                              <input name="commuTitle" type="text" id="collapsible-fullname" class="form-control" placeholder="제목을 입력해주세요" />
                             </div>
+                            
                             <div class="col-12">
                               <label class="form-label" for="collapsible-address">내용</label>
                               <div class="d-flex justify-content-end">
@@ -136,16 +146,16 @@
                                   </span>
                                 </div>
                               </div>
-                              <textarea name="collapsible-address" class="form-control" id="collapsible-address" rows="20" placeholder="내용을 입력해주세요">
-                              </textarea>
+                              <textarea name="commuText" class="form-control" id="collapsible-address" rows="20" placeholder="내용을 입력해주세요"></textarea>
                             </div>
                             <div class="col-md-3">
                               <label class="form-label" for="collapsible-fullname">사진첨부</label>
-                              <input type="file" id="collapsible-fullname" class="form-control" />
+                              <input name="commuImg" type="file" id="collapsible-fullname" class="form-control" />
                             </div>
                             <div class="col-12">
                               <button type="submit" name="submitButton" class="btn btn-primary waves-effect waves-light">Submit</button>
                             </div>
+                            </form>
                           </div>
                         </div>
                       </div>
@@ -216,6 +226,14 @@
 
     <!-- Page JS-->
     <script src="/assets/js/app-email.js"></script>
+    
+    <script type="text/javascript">
+    	if(massage.toString() == "글쓰기 성공"){
+    		alert("글등록에 성공했습니다.");
+    	} else {
+    		alert("글등록에 실패했습니다.");
+    	}
+    </script>
 
   </body>
 </html>
