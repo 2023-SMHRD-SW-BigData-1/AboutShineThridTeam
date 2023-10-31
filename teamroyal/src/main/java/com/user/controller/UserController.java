@@ -33,18 +33,12 @@ public class UserController {
 	// 로그인 화면 조회
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model, HttpSession session, HttpServletResponse response) {
-<<<<<<< HEAD
-=======
 		System.out.println("teste11");
->>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 		return "/main/index-non";
 	}
 	
 	@RequestMapping(value = "/Success", method = { RequestMethod.GET, RequestMethod.POST })
 	public String loginSuccess(Model model, HttpSession session, HttpServletResponse response) {
-<<<<<<< HEAD
-		return "/main/index";
-=======
 		System.out.println("teste22");
 		
 		return "/main/index";
@@ -54,7 +48,6 @@ public class UserController {
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String joinMain() {
 		return "/main/join";
->>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 	}
 
 	/**
