@@ -61,7 +61,7 @@
 </head>
 
 <body>
-	<!-- Layout wrapper -->
+	<!-- Layout wrapperx -->
 	<div
 		class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
 		<div class="layout-container">
