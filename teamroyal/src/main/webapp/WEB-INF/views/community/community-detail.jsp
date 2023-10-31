@@ -100,13 +100,18 @@
                   <!-- title -->
                   <div class="d-flex justify-content-between align-items-center flex-wrap mb-2 gap-1">
                     <div class="me-1">
-                      <h5 class="mb-1">Title Here</h5>
+                      <h1 class="mb-1"><b>Title Here</h1>
+                    </div>
+                    <div class="me-1 mr-5">
+                      <a href="community-form.html"
+                        class="btn btn-primary bg-transparent border-none btn-no-boxshadow">수정</a>
+                      <a href="community-form.html"
+                        class="btn btn-primary bg-transparent border-none btn-no-boxshadow">삭제</a>
                     </div>
                   </div><!-- title -->
-                  <hr class="my-2" />
                   <!-- user info -->
                   <div class="d-flex justify-content-between align-items-center user-name">
-                    <div class="d-flex">
+                    <div class="d-flex ml-3">
                       <div class="avatar-wrapper">
                         <div class="avatar me-2">
                           <img src="/assets/img/avatars/11.png" alt="Avatar" class="rounded-circle" />
@@ -118,17 +123,14 @@
                       </div>
                     </div>
                     <div class="d-flex align-items-center">
-                      <a href="chat.html" class="d-flex mx-2">
-                        <i class="ti ti-message ti-sm"></i>
-                        <p>채팅</p>
+                      <a href="chat.html" class="d-flex btn btn-primary bg-transparent border-none btn-no-boxshadow">
+                        <i class="ti ti-message ti-sm"></i>채팅
                       </a>
-                      <a href="chat.html" class="d-flex mx-2">
-                        <i class="ti ti-mail ti-sm"></i>
-                        <p>메일</p>
+                      <a href="chat.html" class="d-flex btn btn-primary bg-transparent border-none btn-no-boxshadow">
+                        <i class="ti ti-mail ti-sm"></i>메일
                       </a>
-                      <a href="chat.html" class="d-flex mx-2">
-                        <i class="ti ti-bookmarks ti-sm"></i>
-                        <p>${user}님의 게시글더보기 ></p>
+                      <a href="chat.html" class="d-flex btn btn-primary bg-transparent border-none btn-no-boxshadow">
+                        <i class="ti ti-bookmarks ti-sm"></i>${user}님의 게시글더보기 >
                       </a>
                     </div>
                   </div><!-- user info -->
@@ -163,53 +165,49 @@
                       </p>
 
 
-                      <hr class="mb-4 mt-2" />
-                      <h5 class="mb-2">댓글</h5>
-                      <hr class="mb-4 mt-2" />
+                      <hr class="mb-4 mt-5" />
+                      <h5 class="mb-4">댓글</h5>
+                      
 
 
                       <!-- user info -->
                   <div class="d-flex justify-content-between align-items-center user-name">
-                    <div class="d-flex">
+                    <div class="d-flex w-100">
                       <div class="avatar-wrapper">
                         <div class="avatar me-2">
                           <img src="/assets/img/avatars/11.png" alt="Avatar" class="rounded-circle" />
                         </div>
                       </div>
-                      <div class="d-flex flex-column">
-                        <span class="fw-medium">${user}박충희</span>
+                      <div class="d-flex flex-column w-100">
+                        <div class="d-flex justify-content-between">
+                              <span class="fw-medium">${user}박충희</span>
+                              <span class="fw-medium">
+                                <button class="btn btn-primary border-none bg-transparent btn-no-boxshadow">수정</button>
+                                <button class="btn btn-primary border-none bg-transparent btn-no-boxshadow">삭제</button>
+                              </span>
+                            </div>
+                        
                         <div class="sh-comm-comment w-100">
-                          <p class="border"> 코드에서 왼쪽 class="border"지우고 "댓글은 이 곳" </p>
+                          <p class="border-none"> 코드에서 왼쪽 class="border"지우고 "댓글은 이 곳" </p>
                         </div>
                         <small class="text-muted">2023.10.17<span class="mx-2">18:00</span></small>
                       </div>
                     </div>
                   </div><!-- user info -->
-
-
-
-
                       <div class="border mt-5">
-
-
                         <div class="d-flex flex-column pl-3">
                           <span class="fw-medium fw-bolder">박충희</span>
                         </div>
-
-
                         <textarea name="collapsible-address" class="form-control border-none" id="collapsible-address" rows="2"
-                          placeholder="내용을 입력해주세요"></textarea>
-
-
+                          placeholder="내용을 입력해주세요">
+                         </textarea>
                         <div class="w-100">
                           <div class="ml-auto w-10">
-                            <button class="w-100 p-2 bg-transparent border-none" style="color: gray;">댓글등록</button>
+                            <button class="w-100 p-2 btn btn-primary bg-transparent border-none btn-no-boxshadow"
+                              style="color: gray;">댓글등록</button>
                           </div>
                         </div>
-
                       </div>
-
-                      
                     </div>
                   </div>
                 </div>
