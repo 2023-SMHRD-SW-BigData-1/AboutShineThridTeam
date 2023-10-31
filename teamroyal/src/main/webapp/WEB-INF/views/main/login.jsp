@@ -101,41 +101,41 @@
             <!-- /Logo -->
             <h3 class="mb-1">Welcome to Shine! 👋</h3>
             <p class="mb-4">SHINE에 오신걸 환영합니다</p>
-            <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+            <form id="formAuthentication" class="mb-3" action="/user/Success" method="POST">
               <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="text" class="form-label">Nickname</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="email"
-                  name="email-username"
-                  placeholder="이메일을 입력해주세요"
+                  id="securedUsername"
+                  name="securedUsername"
+                  placeholder="닉네임을 입력해주세요"
                   autofocus />
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
                   <label class="form-label" for="password">비밀번호</label>
-                  <a href="forgot-password.html">
+                  <a href="/login/forgotPw">
                     <small>Forgot Password?</small>
                   </a>
                 </div>
                 <div class="input-group input-group-merge">
                   <input
                     type="password"
-                    id="password"
+                    id="securedPassword"
                     class="form-control"
-                    name="password"
+                    name="securedPassword"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                     aria-describedby="password" />
                   <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                 </div>
               </div>
-              <button class="btn btn-primary d-grid w-100">로그인</button>
+              <button type="submit" class="btn btn-primary d-grid w-100">로그인</button>
             </form>
 
             <p class="text-center">
               <span>회원이 아니신가요?</span>
-              <a href="join.html">
+              <a href="/user/join">
                 <span>회원가입</span>
               </a>
             </p>

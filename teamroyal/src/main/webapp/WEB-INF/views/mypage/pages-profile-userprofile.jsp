@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
@@ -70,29 +71,31 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg bg-navbar-theme">
         <div class="container-fluid">
-          <a class="navbar-brand" href="main.html">Navbar</a>
+          <a class="navbar-brand" href="/user/Success">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-5">
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbar-ex-5">
             <div class="navbar-nav me-auto">
-              <a class="nav-item nav-link" href="/html/main/index.html">MAIN</a>
-              <a class="nav-item nav-link" href="/html/community/community.html">COMMUNITY</a>
-              <a class="nav-item nav-link" href="/html/community/chat.html">CHAT</a>
-              <a class="nav-item nav-link" href="/html/community/community-mail.html">MAIL</a>
-              <a class="nav-item nav-link" href="/html/power/power-plant.html">POWER PLANT</a>
-            </div>
+							<a class="nav-item nav-link" href="/user/Success">MAIN</a> <a
+								class="nav-item nav-link" href="/community/list">COMMUNITY</a> <a
+								class="nav-item nav-link" href="/community/chat">CHAT</a> <a
+								class="nav-item nav-link" href="/community/email">MAIL</a> <a
+								class="nav-item nav-link" href="/power">POWER PLANT</a>
+						</div>
             <ul class="navbar-nav ms-lg-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="../mypage/pages-profile-userprofile.html"><i
-                    class="tf-icons navbar-icon ti ti-user ti-xs me-1"></i> Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i
-                    class="tf-icons navbar-icon ti ti-lock-open ti-xs me-1"></i> Logout</a>
-              </li>
-            </ul>
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/login/userProfile"
+                    ><i class="tf-icons navbar-icon ti ti-user ti-xs me-1"></i> Profile</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"
+                    ><i class="tf-icons navbar-icon ti ti-lock-open ti-xs me-1"></i> Logout</a
+                  >
+                </li>
+              </ul>
           </div>
         </div>
       </nav>
@@ -150,7 +153,7 @@
                       <div
                         class="w-50 d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start flex-md-row flex-column">
                         <div class="user-profile-info mx-4">
-                          <h4>John Doe</h4>
+                          <h4><sec:authentication property="principal.userNick"/></h4>
                           <ul
                             class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
                             <li class="list-inline-item d-flex gap-1">
@@ -251,23 +254,23 @@
                       <ul class="list-unstyled mb-4 mt-3">
                         <li class="d-flex align-items-center mb-3">
                           <i class="ti ti-user text-heading"></i><span class="fw-medium mx-2 text-heading">별명:</span>
-                          <span>샤인</span>
+                          <span><sec:authentication property="principal.userNick"/></span>
                         </li>
                         <li class="d-flex align-items-center mb-3">
                           <i class="ti ti-check text-heading"></i><span class="fw-medium mx-2 text-heading">이름:</span>
-                          <span>박충희</span>
+                          <span><sec:authentication property="principal.userNm"/></span>
                         </li>
                         <li class="d-flex align-items-center mb-3">
                           <i class="ti ti-mail"></i><span class="fw-medium mx-2 text-heading">Email:</span>
-                          <span>Shine@example.com</span>
+                          <span><sec:authentication property="principal.userEmail"/></span>
                         </li>
                         <li class="d-flex align-items-center mb-3">
                           <i class="ti ti-flag text-heading"></i><span class="fw-medium mx-2 text-heading">주소:</span>
-                          <span>광주광역시</span>
+                          <span><sec:authentication property="principal.userAdd"/></span>
                         </li>
                         <li class="d-flex align-items-center mb-3">
                           <i class="ti ti-phone-call"></i><span class="fw-medium mx-2 text-heading">연락처:</span>
-                          <span>010-1456-7890</span>
+                          <span><sec:authentication property="principal.userPhone"/></span>
                         </li>
                       </ul>
                     </div>

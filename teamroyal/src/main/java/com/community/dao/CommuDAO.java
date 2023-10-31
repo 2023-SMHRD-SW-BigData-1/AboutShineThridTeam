@@ -16,6 +16,9 @@ public interface CommuDAO {
 	// 게시판 글등록
 	int commuWrite(CommuVO commuVo);
 	
+	// 게시판 글등록
+	int commuWriteMap(CommuVO commuVo);
+	
 	// 게시판 글수정
 	int commuModify(CommuVO commuVo);
 	
@@ -26,7 +29,7 @@ public interface CommuDAO {
 	CommuVO commuListPostDetail(int commuNo);
 	
 	// 게시판 댓글조회
-	List<CommuVO> commentListPost(String replyNo);
+	Map<String,Object> replyList(CommuVO commuVo);
 	
 	// 게시판 댓글등록
 	int commentWrite(CommuVO commuVo);

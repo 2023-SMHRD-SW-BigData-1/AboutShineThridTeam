@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 
 <html
@@ -64,7 +65,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-navbar-theme">
           <div class="container-fluid">
-            <a class="navbar-brand" href="main.html">Navbar</a>
+           <a class="navbar-brand" href="/user/Success">Navbar</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -75,20 +76,20 @@
 
             <div class="collapse navbar-collapse" id="navbar-ex-5">
               <div class="navbar-nav me-auto">
-                <a class="nav-item nav-link" href="/html/main/index.html">MAIN</a>
-                <a class="nav-item nav-link" href="/html/community/community.html">COMMUNITY</a>
-                <a class="nav-item nav-link" href="/html/community/chat.html">CHAT</a>
-                <a class="nav-item nav-link" href="/html/community/community-mail.html">MAIL</a>
-                <a class="nav-item nav-link" href="/html/power/power-plant.html">POWER PLANT</a>
-              </div>
+							<a class="nav-item nav-link" href="/user/Success">MAIN</a> <a
+								class="nav-item nav-link" href="/community/list">COMMUNITY</a> <a
+								class="nav-item nav-link" href="/community/chat">CHAT</a> <a
+								class="nav-item nav-link" href="/community/email">MAIL</a> <a
+								class="nav-item nav-link" href="/power">POWER PLANT</a>
+						</div>
               <ul class="navbar-nav ms-lg-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="../mypage/pages-profile-userprofile.html"
+                  <a class="nav-link" href="/user/login/userProfile"
                     ><i class="tf-icons navbar-icon ti ti-user ti-xs me-1"></i> Profile</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0);"
+                  <a class="nav-link" href="/logout"
                     ><i class="tf-icons navbar-icon ti ti-lock-open ti-xs me-1"></i> Logout</a
                   >
                 </li>

@@ -28,7 +28,11 @@ public class CommuServiceImp implements CommuService {
 		Map<String, Object> writeMap = new HashMap<String, Object>();
 		if (commuVo.getCommuTitle() != null) {
 			System.out.println(commuVo.getLoginUser()+","+commuVo.getCommuTitle() + "글 등록");
+			
 			int WriteDataCnt = commuDao.commuWrite(commuVo);
+			
+			System.out.println("==>>" + commuVo.getCommuNo());
+			
 			if (WriteDataCnt == 1) {
 				writeMap.put("writeMsg", "글등록 완료");
 				writeMap.put("writeCode", "20");
@@ -99,8 +103,8 @@ public class CommuServiceImp implements CommuService {
 
 	// 게시판 댓글조회
 	@Override
-	public List<CommuVO> commentListPost(String replyNo) {
-		return commuDao.commentListPost(replyNo);
+	public Map<String,Object> replyList(CommuVO commuVo) {
+		return commuDao.replyList(commuVo);
 	}
 
 	// 게시판 댓글쓰기

@@ -75,16 +75,16 @@
             <!-- /Logo -->
             <h4 class="mb-1 pt-2">비밀번호를 잊으셨습니까? 🔒</h4>
             <p class="mb-4">이메일을 입력하세요</p>
-            <form id="formAuthentication" class="mb-3" action="/html/mypage/pages-profile-account.html" method="GET">
+            <form id="formAuthentication" class="mb-3" action="/user/findPw" method="POST">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요"
+                <input type="text" class="form-control" id="email" name="userEmail" placeholder="이메일을 입력하세요"
                   autofocus />
               </div>
               <button class="btn btn-primary d-grid w-100">비밀번호 찾기</button>
             </form>
             <div class="text-center">
-              <a href="login.html" class="d-flex align-items-center justify-content-center">
+              <a href="/user/login/main" class="d-flex align-items-center justify-content-center">
                 <i class="ti ti-chevron-left scaleX-n1-rtl"></i>
                 Back to login
               </a>

@@ -17,6 +17,6 @@ public class MainController {
 		System.out.println(principal.getName().toString());
 		System.out.println("============================");
 		
-		return "/mainPage/index-non-member";
+		return "/main/index-non";
 	}
 }

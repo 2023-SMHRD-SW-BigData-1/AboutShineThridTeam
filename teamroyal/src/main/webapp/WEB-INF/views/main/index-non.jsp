@@ -87,7 +87,7 @@
                   >
                 </li> -->
                 <li class="nav-item">
-                  <a class="nav-link" href="login.html"
+                  <a class="nav-link" href="/user/login/main"
                     ><i class="tf-icons navbar-icon ti ti-lock-open-off ti-xs me-1"></i> Login</a
                   >
                 </li>

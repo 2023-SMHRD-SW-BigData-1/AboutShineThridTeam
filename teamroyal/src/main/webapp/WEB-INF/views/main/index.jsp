@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <html
@@ -74,25 +75,20 @@
 
             <div class="collapse navbar-collapse" id="navbar-ex-5">
               <div class="navbar-nav me-auto">
-                <a class="nav-item nav-link active" href="/html/main/index.html">MAIN</a>
-                <a class="nav-item nav-link" href="/html/community/community.html">COMMUNITY</a>
-                <a class="nav-item nav-link" href="/html/community/chat.html">CHAT</a>
-                <a class="nav-item nav-link" href="/html/community/community-mail.html">MAIL</a>
-                <a class="nav-item nav-link" href="/html/power/power-plant.html">POWER PLANT</a>
+                <a class="nav-item nav-link active" href="/user/Success">MAIN</a>
+                <a class="nav-item nav-link" href="/community/list">COMMUNITY</a>
+                <a class="nav-item nav-link" href="/community/chat">CHAT</a>
+                <a class="nav-item nav-link" href="/community/email">MAIL</a>
+                <a class="nav-item nav-link" href="/power">POWER PLANT</a>
               </div>
               <ul class="navbar-nav ms-lg-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/html/mypage/pages-profile-userprofile.html"
+                  <a class="nav-link" href="/user/login/userProfile"
                     ><i class="tf-icons navbar-icon ti ti-user ti-xs me-1"></i> Profile</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.html"
-                    ><i class="tf-icons navbar-icon ti ti-lock-open-off ti-xs me-1"></i> Login</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html"
+                  <a class="nav-link" href="/logout"
                     ><i class="tf-icons navbar-icon ti ti-lock-open ti-xs me-1"></i> Logout</a
                   >
                 </li>

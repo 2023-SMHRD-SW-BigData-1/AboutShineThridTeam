@@ -1,17 +1,13 @@
 package com.user.service;
 
-import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.user.controller.UserController;
 import com.user.dao.UserDAO;
 import com.user.vo.UserVO;
 
@@ -27,8 +23,8 @@ public class UserServiceImp implements UserService {
 
 	// 사용자 조회
 	@Override
-	public List<UserVO> userSelectList(String userEmail) {
-		return userDao.userSelectList(userEmail);
+	public List<UserVO> userSelectList(String userNick) {
+		return userDao.userSelectList(userNick);
 	}
 
 	// 사용자 등록
