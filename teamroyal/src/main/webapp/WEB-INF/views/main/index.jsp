@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
-=======
-    pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
->>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-menu-fixed layout-compact"
@@ -65,7 +61,6 @@
 <script src="/assets/js/config.js"></script>
 </head>
 
-<<<<<<< HEAD
 <body>
 	<!-- Layout wrapperx -->
 	<div
@@ -104,7 +99,6 @@
           </div>
         </nav>
         <!-- / Navbar -->
->>>>>>> branch 'royal' of https://github.com/2023-SMHRD-SW-BigData-1/RoyalTeam.git
 
 					<div class="collapse navbar-collapse" id="navbar-ex-5">
 						<div class="navbar-nav me-auto">
