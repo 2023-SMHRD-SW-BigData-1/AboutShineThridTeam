@@ -116,6 +116,8 @@ class LoginActivity : AppCompatActivity() {
                 .parseClaimsJws(jwtToken)
                 .body
 
+
+
             // 아이디 값을 가져오기
             val userId = claims["userNickNm"] as String
 
