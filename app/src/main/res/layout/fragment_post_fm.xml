@@ -28,40 +28,45 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
-
     <Button
         android:id="@+id/btnAllPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F4F4F4"
+        android:shadowColor="#DF3636"
+
         android:text="전체글"
         android:textColor="#0E0909"
-
+        android:textColorHighlight="#CA5151"
         app:cornerRadius="0dp"
+        app:layoutDescription="@xml/backup_rules"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#D11E1E"
+        app:strokeColor="#E16666" />
 
     <Button
         android:id="@+id/btnPopPost"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F4F4F4"
         android:text="인기글"
         android:textColor="#201F1F"
         android:textColorHint="#D61717"
-        app:cornerRadius="0dp"
 
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/btnAllPost"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.545" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="37dp" />
 
     <ImageView
         android:id="@+id/imgSearch"

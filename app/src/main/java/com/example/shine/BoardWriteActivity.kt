@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.MultiAutoCompleteTextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shine.Adapter.BoardAdapter
+import com.example.shine.VO.BaordVO
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -34,6 +37,8 @@ class BoardWriteActivity : AppCompatActivity() {
         btnUpload = findViewById(R.id.btnUpload)
         btnGellery = findViewById(R.id.btnGellery)
        // reqQueue= Volley.newRequestQueue(this)
+
+
 
         imgAdd.setOnClickListener {
             //Emulator는 카메라르 가지고 있지 않아서

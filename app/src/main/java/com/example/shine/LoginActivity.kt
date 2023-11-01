@@ -1,17 +1,25 @@
 package com.example.shine
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.shine.VO.LoginMember
 import com.google.gson.Gson
+import io.jsonwebtoken.Claims
+import io.jsonwebtoken.Jwts
+import io.jsonwebtoken.security.Keys
+import org.json.JSONObject
+import java.nio.charset.Charset
+import android.util.Base64
+
 //import com.blacklog.fragmentdata.databinding.ActivityMainBinding
 class LoginActivity : AppCompatActivity() {
 
@@ -21,11 +29,9 @@ class LoginActivity : AppCompatActivity() {
     lateinit var  btn_login: Button
 
     lateinit var  reqQueue: RequestQueue
-//    lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        val view = binding.root
+
         setContentView(R.layout.activity_login)
 
         loginEmail = findViewById(R.id.loginEmail)
@@ -33,6 +39,8 @@ class LoginActivity : AppCompatActivity() {
         btn_login = findViewById(R.id.btn_login)
 
         reqQueue = Volley.newRequestQueue(this@LoginActivity)
+
+
 
         btn_login.setOnClickListener {
 
@@ -42,56 +50,81 @@ class LoginActivity : AppCompatActivity() {
 
             val request = object: StringRequest(
                 Request.Method.POST,// 요청메서드
-                "http://172.30.1.46:8582/api/apilogin",
+                "http://172.30.1.46:8582/auth/login",
+
                 {
                         response ->
-                    Log.d("response", response.toString()) // "식별", 넘어오는 값
-                    Toast.makeText(this,"로그인 성공", Toast.LENGTH_SHORT).show()
-                    if(response=="11"){
+                    Log.d("Logres", response.toString()) // "식별", 넘어오는 값
 
+                    var jsonResponse = JSONObject(response)
+                    var token = jsonResponse.getString("token")
+                    // JWT 토큰을 디코드하여 아이디 추출
+                    val userNickNm = decodeJwtToken(token)
+
+                    Log.d("token", "token: $token")
+                    Log.d("userNickNm", "userNickNm: $userNickNm")
+
+                    if(response==response){
                         val intent = Intent(this,MainActivity::class.java)
-//                        intent.putExtra("email", inputEmail)
-   //                     startActivityForResult(intent,101)
-//                        val bundle : Bundle = Bundle()
-//                        bundle.putString("email", inputEmail)
-//                        val mypagefm = mypage_fm()
-//                        mypagefm.arguments=bundle
                         startActivity(intent)
+                        Toast.makeText(this,"로그인 성공", Toast.LENGTH_SHORT).show()
 
-                    }else if(response == "01"){
-                        Toast.makeText(this,"로그인 실패", Toast.LENGTH_SHORT).show()
+                    }else {
+                        Toast.makeText(this,"아이디 없어여", Toast.LENGTH_SHORT).show()
                     }
                 },
                 {
                         error ->
-                    Log.d("error", error.toString())
+                    Log.d("Logerr", error.toString())
                     Toast.makeText(this,"error발생", Toast.LENGTH_SHORT).show()
                 }
             ){
-
-                override fun getParams(): MutableMap<String,String> {
-                    val params: MutableMap<String,String> = HashMap<String,String>()
-
-                    val smv:ShineMember = ShineMember("",inputEmail,"","",inputPw,"")
-
-                    params.put("ShineMember2", Gson().toJson(smv)) // json 형태의 문자로 바꿔줘야 통신 할때 편함 => gson라이브러리가 해줌 -> 설치
-
-                    return params
-
-
+                override fun getBodyContentType(): String {
+                    return "application/json; charset=utf-8"
                 }
+
+                override fun getBody(): ByteArray {
+                    val lm = LoginMember(inputEmail, inputPw)
+                    val json = Gson().toJson(lm)
+                    return json.toByteArray(Charset.forName("UTF-8"))
+                }
+
+//                override fun getParams(): MutableMap<String,String> {
+//                    val params: MutableMap<String,String> = HashMap<String,String>()
+//
+//                    val lm: LoginMember = LoginMember(inputEmail,inputPw)
+//
+//                    params.put("securedUsername", inputEmail)
+//                    params.put("securedPassword", inputPw)
+//                    return params
+
+
+//                }
             }
-
             reqQueue.add(request)
-
-
         }
-
-
-
-
-
-
-
     }
+
+    fun decodeJwtToken(jwtToken: String): String? {
+        val signingKey = "lLz0wjFXoLhdj4xfGX4gc192O29JBRkcSF9DmPkyYVOn6gCAUa"
+        val signingKeyBytes: ByteArray = Base64.decode(signingKey, Base64.DEFAULT)
+
+        try {
+            val claims: Claims = Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(signingKeyBytes))
+                .build()
+                .parseClaimsJws(jwtToken)
+                .body
+
+            // 아이디 값을 가져오기
+            val userId = claims["userNickNm"] as String
+
+            return userId
+        } catch (e: Exception) {
+            // JWT 디코드 중 오류 발생 시 처리
+            e.printStackTrace()
+            return null
+        }
+    }
+
 }

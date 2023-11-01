@@ -1,17 +1,22 @@
 package com.example.shine
 
 import android.graphics.Color
-import android.icu.text.AlphabeticIndex.Bucket.LabelType
 import android.os.Bundle
-import android.util.Range
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TableRow
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
-import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.BarData
@@ -20,9 +25,9 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import org.json.JSONObject
+import java.util.Calendar
 
 
 class main_fm : Fragment() {
@@ -93,7 +98,7 @@ class main_fm : Fragment() {
         val valueList = ArrayList<BarEntry>()
         val title = ""
 
-        // 임의 데이터
+        // 임의 데이터 -> api 로 받아온 데이터
         for (i in 6 until 20) {
             valueList.add(BarEntry(i.toFloat(), i * 100f))
         }
@@ -198,11 +203,67 @@ class main_fm : Fragment() {
     }
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         var mainV = inflater.inflate(R.layout.fragment_main_fm, container, false)
+
+        var tv_ipptNm : TextView =mainV.findViewById(R.id.tv_Ippt)
+        var tv_date : TextView =mainV.findViewById(R.id.tv_date)
+        var tv_total : TextView =mainV.findViewById(R.id.tv_total)
+        var tv_power : TextView =mainV.findViewById(R.id.tv_power)
+        var tv_smp: TextView =mainV.findViewById(R.id.tv_smp)
+        var tv_rec : TextView =mainV.findViewById(R.id.tv_rec)
+        var tv_PrePower : TextView =mainV.findViewById(R.id.tv_PrePower)
+        var tv_PreTotal : TextView =mainV.findViewById(R.id.tv_PreTotal)
+        var tr : TableRow = mainV.findViewById(R.id.tr)
+        var tv_d : TextView =mainV.findViewById(R.id.tv_d)
+        var tv_w : TextView =mainV.findViewById(R.id.tv_w)
+
+        // Calendar 객체 생성
+        val today = Calendar.getInstance()
+        val year = today.get(Calendar.YEAR)
+        val month = today.get(Calendar.MONTH)+1
+        val day = today.get(Calendar.DAY_OF_MONTH)
+
+        val date= "$year"+"년"+"$month"+"월"+"$day"+"일"
+        tv_date.text= date
+
+        val reqQueue: RequestQueue = Volley.newRequestQueue(requireContext())
+
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.POST,
+            "http://172.30.1.46:8582/api/power", null,
+            Response.Listener<JSONObject> { response ->
+                try {
+
+                    // JSON 응답을 파싱
+                    val ipptNm = response.getString("ipptNm")// 발전소 이름
+                    val Qsum = response.getString("Qsum")// 하루 총 발전량
+
+                    tv_ipptNm.text = "$ipptNm"// 발전소 이름
+                   // tv_date.text= date
+                    tv_total.text = "$"
+                    tv_power.text = "$Qsum"// 하루 총 발전량
+//                    tv_smp.text = "$userPhone"
+//                    tv_rec.text = "$userPhone"
+//                    tv_PrePower.text = "$userAdd"
+//                    tv_PreTotal.text = "$userPhone"
+
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            },
+            Response.ErrorListener { error ->
+                // 에러 처리
+                Log.e("Error", error.message.toString())
+            })
+
+
+        reqQueue.add(jsonObjectRequest)
 
         barChart = mainV.findViewById(R.id.chart)
         initBarChart(barChart)
