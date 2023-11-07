@@ -1,7 +1,6 @@
 package com.example.shine.Adapter
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shine.R
 import com.example.shine.VO.BaordVO
-import com.example.shine.mypost_fm
-import com.example.shine.postdetail_fm
+import com.example.shine.Fragment.postdetail_fm
+import com.example.shine.VO.CommuVO
 
-class BoardAdapter(val context: Context, val layout : Int, val boardList: ArrayList<BaordVO>)
+class BoardAdapter(val context: Context, val layout : Int, val boardList: ArrayList<CommuVO>)
     : RecyclerView.Adapter<BoardAdapter.ViewHolder>(){
 
         val inflater = LayoutInflater.from(context)
@@ -45,20 +44,21 @@ class BoardAdapter(val context: Context, val layout : Int, val boardList: ArrayL
     //3.
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.tvTitle.text = boardList[position].title
-        holder.tvWriter.text = boardList[position].writer
-        holder.tvTime.text = boardList[position].date
-        holder.img.setImageResource(boardList[position].img)
+        holder.tvTitle.text = boardList[position].commuTitle
+        holder.tvWriter.text = boardList[position].userNick
+//        holder.tvTime.text = boardList[position].date
+       // holder.img.setImageResource(boardList[position].img)
 
         holder.itemView.setOnClickListener {
             val selectedBoard = boardList[position] // 선택된 게시물 정보
             val fragment = postdetail_fm()
 
             val bundle = Bundle()
-            bundle.putString("title", selectedBoard.title)
-            bundle.putString("writer", selectedBoard.writer)
-            bundle.putString("date",selectedBoard.date)
-            bundle.putInt("img",selectedBoard.img)
+            bundle.putString("commuTitle", selectedBoard.commuTitle)
+            bundle.putString("userNick", selectedBoard.userNick)
+            bundle.putString("commuText",selectedBoard.commuText)
+            //bundle.putString("date",selectedBoard.date)
+            //bundle.putInt("img",selectedBoard.img)
 
             fragment.arguments = bundle
 

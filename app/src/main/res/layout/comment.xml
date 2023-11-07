@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_margin="16dp"
-        android:background="#eeeeee"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/cimg"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            app:srcCompat="@drawable/person" />
 
-            <ImageView
-                android:id="@+id/cimg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/person" />
+        <TextView
+            android:id="@+id/ctv_writer"
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="작성자"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/ctv_writer"
-                android:layout_width="253dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="작성자"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/ctv_date"
@@ -38,7 +42,9 @@
         android:layout_weight="1"
         android:gravity="start"
         android:text="날짜"
-        android:textSize="13sp" />
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/ctv_comment"
@@ -46,6 +52,16 @@
         android:layout_height="wrap_content"
         android:text="댓글 내용"
         android:textColor="#333333"
-        android:textSize="15sp" />
-</LinearLayout>
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/ctv_date"
+        app:layout_constraintStart_toStartOf="@+id/ctv_date"
+        app:layout_constraintTop_toBottomOf="@+id/ctv_date" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 

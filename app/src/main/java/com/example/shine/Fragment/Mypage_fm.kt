@@ -1,4 +1,4 @@
-package com.example.shine
+package com.example.shine.Fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,19 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.JsonRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.shine.VO.ShineMember
-import com.google.gson.Gson
-import org.json.JSONArray
-import org.json.JSONException
+import com.example.shine.MypageModifyActivity
+import com.example.shine.R
 import org.json.JSONObject
 
 

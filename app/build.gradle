@@ -51,9 +51,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+//
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.1'
+
+
 //    implementation 'com.google.firebase:firebase-admin:6.8.1'
 //    implementation group: 'com.squareup.okhttp3', name:'okhttp3', version:'4.2.2'
 
@@ -62,7 +65,7 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.9'
 //
 //    // firebase auth
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.8'
+//    implementation 'com.google.firebase:firebase-auth-ktx:21.0.8'
 //
 //   //firebase messaging
 //    implementation 'com.google.firebase:firebase-messaging-ktx:23.3.0'

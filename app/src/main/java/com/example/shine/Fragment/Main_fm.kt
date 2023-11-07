@@ -1,4 +1,4 @@
-package com.example.shine
+package com.example.shine.Fragment
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,8 +12,13 @@ import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.shine.R
+import com.example.shine.VO.CommuVO
+import com.example.shine.VO.PowerVO
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
@@ -26,6 +31,9 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import com.google.gson.Gson
+import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
 import java.util.Calendar
 
@@ -96,8 +104,9 @@ class main_fm : Fragment() {
         barChart.setScaleEnabled(false)
 
         val valueList = ArrayList<BarEntry>()
-        val title = ""
 
+        val title = ""
+////////////////////////////////////////////////////////////////////-----------------------------------
         // 임의 데이터 -> api 로 받아온 데이터
         for (i in 6 until 20) {
             valueList.add(BarEntry(i.toFloat(), i * 100f))
@@ -155,7 +164,7 @@ class main_fm : Fragment() {
         entries.add(Entry(3f, 8f))
         entries.add(Entry(4f, 10f))
         entries.add(Entry(5f, 8f))
-        entries.add(Entry(6f, 6f))
+        entries.add(Entry(6f, 660f))
 
         val dataSet = LineDataSet(entries, "Sample Data")
 
@@ -167,9 +176,10 @@ class main_fm : Fragment() {
 
     // 라인 차트 데이터 설정
     private fun initLineChartData() {
+        ////---------------------------------------------------------------
         // 임의의 데이터 생성 (X, Y 값)
         val dataPoints = listOf(
-            Pair(0f, 1f),
+            Pair(0f, 1f),    // (3,1)
             Pair(1f, 2f),
             Pair(2f, 3f),
             Pair(3f, 4f),
@@ -210,60 +220,75 @@ class main_fm : Fragment() {
     ): View? {
         var mainV = inflater.inflate(R.layout.fragment_main_fm, container, false)
 
-        var tv_ipptNm : TextView =mainV.findViewById(R.id.tv_Ippt)
-        var tv_date : TextView =mainV.findViewById(R.id.tv_date)
-        var tv_total : TextView =mainV.findViewById(R.id.tv_total)
-        var tv_power : TextView =mainV.findViewById(R.id.tv_power)
-        var tv_smp: TextView =mainV.findViewById(R.id.tv_smp)
-        var tv_rec : TextView =mainV.findViewById(R.id.tv_rec)
-        var tv_PrePower : TextView =mainV.findViewById(R.id.tv_PrePower)
-        var tv_PreTotal : TextView =mainV.findViewById(R.id.tv_PreTotal)
+        var tv_ipptNm : TextView =mainV.findViewById(R.id.tv_Ippt) // 발전소 이름
+        var tv_date : TextView =mainV.findViewById(R.id.tv_date) // 날짜
+        var tv_total : TextView =mainV.findViewById(R.id.tv_total) // 총 수익금
+        var tv_power : TextView =mainV.findViewById(R.id.tv_power) // 현 총 발전량
+        var tv_smp: TextView =mainV.findViewById(R.id.tv_smp) // smp
+        var tv_rec : TextView =mainV.findViewById(R.id.tv_rec) // rec
+        var tv_PrePower : TextView =mainV.findViewById(R.id.tv_PrePower) // 예측 총 발전량
+        var tv_PreTotal : TextView =mainV.findViewById(R.id.tv_PreTotal) //예측 총 수익금
         var tr : TableRow = mainV.findViewById(R.id.tr)
         var tv_d : TextView =mainV.findViewById(R.id.tv_d)
         var tv_w : TextView =mainV.findViewById(R.id.tv_w)
 
-        // Calendar 객체 생성
+        val reqQueue: RequestQueue = Volley.newRequestQueue(requireContext())
+
+
+
         val today = Calendar.getInstance()
         val year = today.get(Calendar.YEAR)
         val month = today.get(Calendar.MONTH)+1
         val day = today.get(Calendar.DAY_OF_MONTH)
-
         val date= "$year"+"년"+"$month"+"월"+"$day"+"일"
-        tv_date.text= date
-
-        val reqQueue: RequestQueue = Volley.newRequestQueue(requireContext())
-
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.POST,
-            "http://172.30.1.46:8582/api/power", null,
-            Response.Listener<JSONObject> { response ->
-                try {
-
-                    // JSON 응답을 파싱
-                    val ipptNm = response.getString("ipptNm")// 발전소 이름
-                    val Qsum = response.getString("Qsum")// 하루 총 발전량
-
-                    tv_ipptNm.text = "$ipptNm"// 발전소 이름
-                   // tv_date.text= date
-                    tv_total.text = "$"
-                    tv_power.text = "$Qsum"// 하루 총 발전량
-//                    tv_smp.text = "$userPhone"
-//                    tv_rec.text = "$userPhone"
-//                    tv_PrePower.text = "$userAdd"
-//                    tv_PreTotal.text = "$userPhone"
 
 
-                } catch (e: Exception) {
-                    e.printStackTrace()
+        val url = "http://172.30.1.46:8582/power/barchart"
+
+        val valueList = ArrayList<BarEntry>()
+
+        val jsonArrayRequest = JsonArrayRequest(Request.Method.GET, url, null,
+            Response.Listener { response ->
+
+                // JSON 데이터를 파싱하여 valueList에 데이터 추가
+                for (i in 0 until response.length()) {
+                    val jsonObject = response.getJSONObject(i)
+                    val value = jsonObject.getInt("value") // 서버에서 받아온 데이터 필드명에 따라 수정
+                    valueList.add(BarEntry(i.toFloat(), value.toFloat()))
                 }
+
+                // BarDataSet 및 BarData를 업데이트
+                val barDataSet = BarDataSet(valueList, "")
+                barDataSet.setColors(/* 설정할 색상 */)
+
+                val data = BarData(barDataSet)
+                barChart.data = data
+                barChart.invalidate()
+
+
             },
             Response.ErrorListener { error ->
                 // 에러 처리
-                Log.e("Error", error.message.toString())
             })
 
+        reqQueue.add(jsonArrayRequest)
 
-        reqQueue.add(jsonObjectRequest)
+        //tv_ipptNm.text = "$"
+        tv_date.text= date
+        //tv_total.text = "$"+"원"
+        //tv_smp.text = "$"
+        //tv_rec.text ="$"
+        // tv_PrePower.text = "예측 총 발전량 "+"$"+"kwh"
+        //tv_PreTotal.text = "예측 총 수익금 "+"$"+"원"
+
+
+
+
+        //val ipptNm = response.getString("ipptNm")// 발전소 이름
+        // val Qsum = response.getString("Qsum")// 하루 총 발전량
+
+
+
 
         barChart = mainV.findViewById(R.id.chart)
         initBarChart(barChart)

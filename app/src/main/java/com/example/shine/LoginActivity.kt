@@ -1,6 +1,8 @@
 package com.example.shine
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -61,6 +63,13 @@ class LoginActivity : AppCompatActivity() {
                     // JWT 토큰을 디코드하여 아이디 추출
                     val userNickNm = decodeJwtToken(token)
 
+                    // 서버에서 받아온 토큰 정보를 SharedPreferences 기능을 사용하여 저장
+                    val preferences = getSharedPreferences("Mypreferences", Context.MODE_PRIVATE)
+                    val editor = preferences.edit()
+                    editor.putString("token", "$token")
+                    editor.putString("userNickNm","$userNickNm")
+                    editor.apply()
+
                     Log.d("token", "token: $token")
                     Log.d("userNickNm", "userNickNm: $userNickNm")
 
@@ -70,15 +79,15 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this,"로그인 성공", Toast.LENGTH_SHORT).show()
 
                     }else {
-                        Toast.makeText(this,"아이디 없어여", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"일치하지 않아요", Toast.LENGTH_SHORT).show()
                     }
                 },
                 {
                         error ->
                     Log.d("Logerr", error.toString())
-                    Toast.makeText(this,"error발생", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"로그인 실패", Toast.LENGTH_SHORT).show()
                 }
-            ){
+            ) {
                 override fun getBodyContentType(): String {
                     return "application/json; charset=utf-8"
                 }
@@ -88,6 +97,11 @@ class LoginActivity : AppCompatActivity() {
                     val json = Gson().toJson(lm)
                     return json.toByteArray(Charset.forName("UTF-8"))
                 }
+            }
+            reqQueue.add(request)
+        }
+    }
+
 
 //                override fun getParams(): MutableMap<String,String> {
 //                    val params: MutableMap<String,String> = HashMap<String,String>()
@@ -100,10 +114,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 //                }
-            }
-            reqQueue.add(request)
-        }
-    }
+
 
     fun decodeJwtToken(jwtToken: String): String? {
         val signingKey = "lLz0wjFXoLhdj4xfGX4gc192O29JBRkcSF9DmPkyYVOn6gCAUa"

@@ -9,7 +9,7 @@
     tools:context=".BoardWriteActivity">
 
     <EditText
-        android:id="@+id/etTitle"
+        android:id="@+id/etTitle2"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:background="@android:color/transparent"
@@ -22,6 +22,22 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#F4F4F4"
+        android:backgroundTintMode="add"
+        android:ems="10"
+        android:hint="게시글을 입력하세요"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Ippt"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="@+id/tv_Ippt"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Ippt" />
 
     <ImageView
         android:id="@+id/imgAdd"
@@ -52,27 +68,11 @@
         android:id="@+id/tv_Ippt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="내용"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/etTitle"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etTitle"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
-
-    <MultiAutoCompleteTextView
-        android:id="@+id/ctContent"
-        android:layout_width="350dp"
-        android:layout_height="180dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="#F4F4F4"
-        android:backgroundTintMode="add"
-        android:hint="게시내용을 작성하세요"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Ippt" />
+        app:layout_constraintStart_toStartOf="@+id/etTitle2"
+        app:layout_constraintTop_toBottomOf="@+id/etTitle2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -85,14 +85,14 @@
         android:id="@+id/btnUpload"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="@color/mainColor"
         android:text="등록"
         android:textSize="20dp"
         app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/ctContent"
-        app:layout_constraintStart_toStartOf="@+id/ctContent"
-        app:layout_constraintTop_toBottomOf="@+id/ctContent" />
+        app:layout_constraintEnd_toEndOf="@+id/etContent"
+        app:layout_constraintStart_toStartOf="@+id/etContent"
+        app:layout_constraintTop_toBottomOf="@+id/etContent" />
 
     <Button
         android:id="@+id/button3"
@@ -102,8 +102,10 @@
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView7"

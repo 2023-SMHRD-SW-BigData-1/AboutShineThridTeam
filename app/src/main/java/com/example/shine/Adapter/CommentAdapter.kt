@@ -40,10 +40,11 @@ class CommentAdapter(val context : Context, val layout : Int, val commentList : 
     //3
     override fun onBindViewHolder(holder: CommentAdapter.ViewHolder, position: Int) {
 
-        holder.ctv_date.text = commentList[position].date
-        holder.ctv_writer.text = commentList[position].writer
-        holder.ctv_comment.text = commentList[position].comment
-        holder. cimg.setImageResource(commentList[position].img)
+//        holder.ctv_date.text = commentList[position].date
+//        holder. cimg.setImageResource(commentList[position].img)
+        holder.ctv_writer.text = commentList[position].userNick
+        holder.ctv_comment.text = commentList[position].replyText
+
 
 
     }

@@ -11,8 +11,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 //import com.google.firebase.database.core.Tag
 //import com.google.firebase.messaging.FirebaseMessaging
 //import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import android.widget.Toast
+import com.example.shine.Fragment.chat_fm
+import com.example.shine.Fragment.main_fm
+import com.example.shine.Fragment.mypage_fm
+import com.example.shine.Fragment.post_fm
+import com.example.shine.Fragment.postdetail_fm
 //import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 

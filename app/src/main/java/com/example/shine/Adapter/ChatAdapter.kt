@@ -3,12 +3,14 @@ package com.example.shine.Adapter
 import com.example.shine.VO.ChatVO
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shine.ChatDetailActivity
 import com.example.shine.R
 
 
@@ -49,6 +51,17 @@ class ChatAdapter(val context : Context, val layout : Int, val chatList : ArrayL
         holder.tv_name.text = chatList[position].name
         holder.tv_msg.text = chatList[position].content
         holder.img_profile.setImageResource(chatList[position].img)
+
+        holder.itemView.setOnClickListener {
+
+            val intent = Intent(context, ChatDetailActivity::class.java)
+            intent.putExtra("content", chatList.get(position).content)
+            intent.putExtra("name", chatList.get(position).name)
+            intent.putExtra("time", chatList.get(position).time)
+            intent.putExtra("img", chatList.get(position).img)
+            context.startActivity(intent)
+
+        }
 
     }
     //4

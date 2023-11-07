@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
     <uses-permission
         android:name="android.permission.POST_NOTIFICATIONS"
         android:minSdkVersion="33" />
@@ -58,7 +59,7 @@
             android:name=".AlarmActivity"
             android:exported="false" />
         <activity
-            android:name=".mypost_fm"
+            android:name=".Fragment.mypost_fm"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

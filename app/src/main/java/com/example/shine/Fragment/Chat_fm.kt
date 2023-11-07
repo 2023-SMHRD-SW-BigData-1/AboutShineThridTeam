@@ -1,4 +1,4 @@
-package com.example.shine
+package com.example.shine.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shine.Adapter.BoardAdapter
 import com.example.shine.Adapter.ChatAdapter
-import com.example.shine.VO.BaordVO
+import com.example.shine.R
 import com.example.shine.VO.ChatVO
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".postdetail_fm">
+    tools:context=".Fragment.postdetail_fm">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -119,19 +119,10 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/comment_layout"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
                     android:layout_width="match_parent"
-                    android:layout_height="98dp"
-                    android:background="#F8F3F3"
-                    android:orientation="vertical"
-                    android:padding="8dp" >
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </LinearLayout>
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
         </ScrollView>
