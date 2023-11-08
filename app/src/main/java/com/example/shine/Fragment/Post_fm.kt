@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -20,11 +21,16 @@ import com.example.shine.Adapter.BoardAdapter
 import com.example.shine.BoardWriteActivity
 import com.example.shine.R
 import com.example.shine.VO.CommuVO
+import com.example.shine.VO.LoginMember
+import com.example.shine.VO.ParamsVO
+import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONException
+import java.nio.charset.Charset
 
 class post_fm : Fragment() {
 
+    lateinit var board : CommuVO
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,10 +57,24 @@ class post_fm : Fragment() {
 
             val apiUrl = "http://172.30.1.46:8582/commu/search"
 
-            val request = StringRequest(Request.Method.GET, apiUrl,
+
+           Log.v("test", "포스트화면")
+
+            val request = object : StringRequest(
+                Request.Method.POST,
+                apiUrl,
                 { response ->
+
                     // 서버로부터의 응답을 JSON 파싱하고 데이터를 게시글 목록에 추가
-                    val boardList = parseBoardList(response)
+                    val boardList: ArrayList<CommuVO> = parseBoardList(response)
+
+                    Log.d("ppost", response.toString())
+
+                    // 날짜를 기준으로 최신순으로 정렬
+                    boardList.sortByDescending { it.commuCreateAt }
+
+                    val layoutManager = LinearLayoutManager(requireContext())
+                    rvBoard.layoutManager = layoutManager
 
                     val adapter = BoardAdapter(requireContext(), R.layout.board_list, boardList)
                     rvBoard.adapter = adapter
@@ -62,9 +82,20 @@ class post_fm : Fragment() {
                 { error ->
 
                 }
-            )
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers["Authorization"] = "Bearer $savedToken"
+                    return headers
+                }
+                override fun getBodyContentType(): String {
+                    return "application/json; charset=utf-8"
+                }
 
-            requestQueue.add(request)
+            }
+
+                requestQueue.add(request)
 
 
 
@@ -83,10 +114,11 @@ class post_fm : Fragment() {
                 val commuTitle = jsonObject.getString("commuTitle")
                 val userNick = jsonObject.getString("userNick")
                 val commuText = jsonObject.getString("commuText")
-                //val date = jsonObject.getString("date")
-                //val img = jsonObject.getInt("mtFile")
+                val date = jsonObject.getString("commuCreateAt")
+                val commuNO = jsonObject.getString("commuNo")
+                val img = jsonObject.getString("commuImgPath")
 
-                val board = CommuVO(userNick,commuTitle,commuText)
+                board = CommuVO(userNick,commuTitle,commuText,date,img,commuNO)
                 boardList.add(board)
             }
         } catch (e: JSONException) {

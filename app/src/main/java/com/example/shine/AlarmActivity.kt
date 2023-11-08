@@ -14,8 +14,8 @@ import com.android.volley.toolbox.Volley
 import com.example.shine.VO.AlarmVO
 import org.json.JSONArray
 import org.json.JSONObject
-class AlarmActivity : AppCompatActivity(){}
-//class AlarmActivity : AppCompatActivity() {
+
+class AlarmActivity : AppCompatActivity() {
 //    lateinit var rv : RecyclerView
 //    var queue : RequestQueue? =null
 //    lateinit var  request : StringRequest //실제 요청
@@ -23,10 +23,10 @@ class AlarmActivity : AppCompatActivity(){}
 //
 //    // MovieVO가 저장되는 ArrayList 만들기
 //    var AlarmList : ArrayList<AlarmVO> = ArrayList()
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_alarm)
-//
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_alarm)}}
+
 //        rv = findViewById(R.id.rv)
 //
 //        if(queue==null) queue = Volley.newRequestQueue(this@AlarmActivity)

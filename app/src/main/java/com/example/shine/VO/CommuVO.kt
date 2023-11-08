@@ -2,7 +2,7 @@ package com.example.shine.VO
 
 import android.icu.text.CaseMap.Title
 
-class CommuVO( val userNick : String = "" ,val commuTitle : String = "", val commuText : String ="")
+class CommuVO( val userNick : String = "" ,val commuTitle : String = "", val commuText : String ="",val commuCreateAt : String = "" ,val imgpath : String = "", val commuNO :String = "")
 
 
 //   // lateinit var img : Int

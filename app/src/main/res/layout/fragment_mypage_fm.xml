@@ -134,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgMyphoto" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/imgMO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
@@ -145,7 +145,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/imgMY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"

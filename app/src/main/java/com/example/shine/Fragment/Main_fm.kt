@@ -1,5 +1,6 @@
 package com.example.shine.Fragment
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -8,17 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.shine.R
-import com.example.shine.VO.CommuVO
-import com.example.shine.VO.PowerVO
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
@@ -31,10 +31,8 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONException
-import org.json.JSONObject
 import java.util.Calendar
 
 
@@ -110,12 +108,13 @@ class main_fm : Fragment() {
         // 임의 데이터 -> api 로 받아온 데이터
         for (i in 6 until 20) {
             valueList.add(BarEntry(i.toFloat(), i * 100f))
+
         }
 
         val barDataSet = BarDataSet(valueList, title)
         // 바 색상 설정 (ColorTemplate.LIBERTY_COLORS)
         barDataSet.setColors(
-            Color.rgb(255, 204, 0), // 연한 주황색 1
+          Color.rgb(255, 204, 0), // 연한 주황색 1
             Color.rgb(255, 183, 77), // 연한 주황색 2
             Color.rgb(255, 165, 0), // 연한 주황색 3
             Color.rgb(255, 140, 0), // 연한 주황색 4
@@ -179,7 +178,7 @@ class main_fm : Fragment() {
         ////---------------------------------------------------------------
         // 임의의 데이터 생성 (X, Y 값)
         val dataPoints = listOf(
-            Pair(0f, 1f),    // (3,1)
+            Pair(0f, 1f),    // (,1)
             Pair(1f, 2f),
             Pair(2f, 3f),
             Pair(3f, 4f),
@@ -235,58 +234,157 @@ class main_fm : Fragment() {
         val reqQueue: RequestQueue = Volley.newRequestQueue(requireContext())
 
 
-
         val today = Calendar.getInstance()
         val year = today.get(Calendar.YEAR)
         val month = today.get(Calendar.MONTH)+1
         val day = today.get(Calendar.DAY_OF_MONTH)
         val date= "$year"+"년"+"$month"+"월"+"$day"+"일"
 
+        var preferences =  requireContext().getSharedPreferences("Mypreferences", Context.MODE_PRIVATE)
+        var savedToken = preferences.getString("token", null)
+        var savedNickNm = preferences.getString("userNickNm",null)
 
-        val url = "http://172.30.1.46:8582/power/barchart"
 
+        val url1 = "http://172.30.1.46:8582/power/"
         val valueList = ArrayList<BarEntry>()
+        val barReq = object : JsonArrayRequest(
+            Request.Method.POST, url1, null,
+            { response ->
 
-        val jsonArrayRequest = JsonArrayRequest(Request.Method.GET, url, null,
+                //parms -> serarchone
+
+                Log.d("ddd", response.toString())
+
+
+                try {
+                    for (i in 0 until response.length()) {
+                        val jsonObject = response.getJSONObject(i) // x값
+                        val value = jsonObject.getInt("y값")
+                        valueList.add(BarEntry(i.toFloat(), value.toFloat()))
+                    }
+
+                    val barDataSet = BarDataSet(valueList, "")
+                    barDataSet.setColors(
+                        Color.rgb(255, 204, 0),
+                        Color.rgb(255, 183, 77),
+                        Color.rgb(255, 165, 0),
+                        Color.rgb(255, 140, 0),
+                        Color.rgb(255, 120, 0)
+                    )
+                    val data = BarData(barDataSet)
+                    barChart.data = data
+                    barChart.invalidate()
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            { error ->
+                // 에러 처리
+                error.printStackTrace()
+            }) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Authorization"] = "Bearer $savedToken"
+                return headers
+            }
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+
+                params["searchOne"] = savedNickNm!!
+                return params
+            }
+
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+        }
+        reqQueue.add(barReq)
+
+
+        val selectRe = object : JsonArrayRequest(
+            Request.Method.POST,// 요청메서드
+            "http://172.30.1.46:8582/power/info/day",null,
+
+            { response ->
+
+                Log.d("mainddd", response.toString())
+
+                try {
+
+                    val jsonObject = response.getJSONObject(0)
+
+                    val ipptNm = jsonObject.getString("ipptNm") // 발전소 이름
+                    val Money = jsonObject.getString("powerMoney") // 총 수익금
+                    val Qsum = jsonObject.getString("powerSum") // 하루 총 발전량
+                    val prePower = jsonObject.getString("powerGenpred") // 예상 발전량
+                    val preMoney = jsonObject.getString("powerGenpredMoney") // 예상 발전량 예측금액
+
+                    tv_ipptNm.text = "$ipptNm"
+                    tv_date.text = date
+                    tv_total.text = "$Money" + "원"
+                    tv_power.text = " $Qsum"
+                    tv_PrePower.text = "예측 총 발전량 " + "$prePower" + " kwh"
+                    tv_PreTotal.text = "예측 총 수익금 " + "$preMoney" + " 원"
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            },
+            {
+                    error ->
+                Log.d("err", error.toString())
+
+            }
+        )
+        {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Authorization"] = "Bearer $savedToken"
+                return headers
+            }
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+
+                params["searchOne"] = savedNickNm!!
+
+
+                return params
+            }
+
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+
+        }
+        reqQueue.add(selectRe)
+
+
+
+        val dataPoints = ArrayList<Pair<Float, Float>>()
+        val url2 = "http://172.30.1.46:8582/power/info/time"
+        val lineReq = JsonArrayRequest(Request.Method.GET, url2, null,
             Response.Listener { response ->
 
-                // JSON 데이터를 파싱하여 valueList에 데이터 추가
+                     Log.d("Pree", response.toString())
+                // 서버에서 받아온 데이터를 파싱하여 dataPoints에 추가
                 for (i in 0 until response.length()) {
                     val jsonObject = response.getJSONObject(i)
-                    val value = jsonObject.getInt("value") // 서버에서 받아온 데이터 필드명에 따라 수정
-                    valueList.add(BarEntry(i.toFloat(), value.toFloat()))
+                    val xValue = jsonObject.getDouble("xValue").toFloat() // 시간
+                    val yValue = jsonObject.getDouble("yValue").toFloat() // 예측데이터값 넣으면되귶
+                    dataPoints.add(Pair(xValue, yValue))
                 }
 
-                // BarDataSet 및 BarData를 업데이트
-                val barDataSet = BarDataSet(valueList, "")
-                barDataSet.setColors(/* 설정할 색상 */)
-
-                val data = BarData(barDataSet)
-                barChart.data = data
-                barChart.invalidate()
-
-
+                // 데이터 포인트를 기반으로 라인 차트 업데이트
+                updateLineChart(dataPoints)
             },
             Response.ErrorListener { error ->
-                // 에러 처리
+
             })
 
-        reqQueue.add(jsonArrayRequest)
-
-        //tv_ipptNm.text = "$"
-        tv_date.text= date
-        //tv_total.text = "$"+"원"
-        //tv_smp.text = "$"
-        //tv_rec.text ="$"
-        // tv_PrePower.text = "예측 총 발전량 "+"$"+"kwh"
-        //tv_PreTotal.text = "예측 총 수익금 "+"$"+"원"
-
-
-
-
-        //val ipptNm = response.getString("ipptNm")// 발전소 이름
-        // val Qsum = response.getString("Qsum")// 하루 총 발전량
-
+        reqQueue.add(lineReq)
 
 
 
@@ -301,9 +399,28 @@ class main_fm : Fragment() {
 
         return mainV
     }
+    private fun updateLineChart(dataPoints: List<Pair<Float, Float>>) {
+        chartData.clear() // 이전 데이터 지우기
+
+        for ((x, y) in dataPoints) {
+            chartData.add(Entry(x, y))
+        }
+
+        val dataSet = LineDataSet(chartData, "Sample Data")
+        dataSet.color = Color.parseColor("#FFA500") // 주황색
+        dataSet.valueTextColor = Color.parseColor("#FFA500") // 텍스트 컬러를 주황색으로 변경
+        dataSet.setCircleColor(Color.parseColor("#FFA500")) // 마커 색상 주황색
+
+        dataSet.setDrawValues(false)
+        dataSet.highLightColor = Color.TRANSPARENT
+
+        lineChart.data = LineData(dataSet)
+        lineChart.invalidate()
+    }
 
 
 }
+
 
 
 

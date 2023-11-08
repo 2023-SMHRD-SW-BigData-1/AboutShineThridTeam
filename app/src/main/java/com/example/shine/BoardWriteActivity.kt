@@ -20,8 +20,17 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.shine.Fragment.post_fm
+import com.example.shine.Fragment.postdetail_fm
 import com.example.shine.VO.CommuVO
 import com.google.gson.Gson
+import okhttp3.Callback
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
 
@@ -34,8 +43,7 @@ class BoardWriteActivity : AppCompatActivity() {
     lateinit var btnGellery: Button
     lateinit var reqQueue: RequestQueue
     lateinit var mtFile : ByteArray
-
-
+    // val imgUrl = "C:/Users/smhrd/Desktop/royal2/Directory/upload/filein"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_board_write)
@@ -46,8 +54,8 @@ class BoardWriteActivity : AppCompatActivity() {
         btnUpload = findViewById(R.id.btnUpload)
         btnGellery = findViewById(R.id.btnGellery)
 
-        reqQueue = Volley.newRequestQueue(this@BoardWriteActivity)
 
+        reqQueue = Volley.newRequestQueue(this@BoardWriteActivity)
 
 
 
@@ -88,7 +96,35 @@ class BoardWriteActivity : AppCompatActivity() {
             val json = Gson().toJson(lm)
 
             val url = "http://172.30.1.46:8582/commu/registration"
+            // val imgUrl = "C:/Users/smhrd/Desktop/royal2/Directory/upload/filein"
+            // retrofit
+            val requestFile = RequestBody.create(MediaType.parse("image/*"), mtFile)
 
+            val retrofit = Retrofit.Builder()
+                .baseUrl(url).addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            val apiService = retrofit.create(ApiService::class.java)
+            val call = apiService.uploadImage(requestFile)
+            call.enqueue(object : retrofit2.Callback<ImageUploadResponse>{
+                override fun onResponse(
+                    call: Call<ImageUploadResponse>,
+                    response: retrofit2.Response<ImageUploadResponse>
+                ) {
+                    if(response.isSuccessful){
+                        val uploadResponse = response.body()
+                        val imageUrl = uploadResponse?.imgUrl
+                    }
+                }
+
+                override fun onFailure(call: Call<ImageUploadResponse>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+
+
+            // Volley
             val stringRequest = object : StringRequest(
                 Request.Method.POST,
                 url,
@@ -115,8 +151,8 @@ class BoardWriteActivity : AppCompatActivity() {
                     params["content"] = content
                     params["userNick"] = savedNickNm
                    //  Log.d("adminMulti", savedNickNm)
-                    // data = imgUpload()
-                    params["mtFile"] = "mtFile.toString()"
+                     //data = imgUpload()
+                    params["mtFile"] = mtFile.toString()
                     Toast.makeText(this@BoardWriteActivity, mtFile.toString(), Toast.LENGTH_SHORT).show()
                     // params["mtFile"] = mtFile
                     // Log.d("adminMulti", data.toString())

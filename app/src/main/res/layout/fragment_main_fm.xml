@@ -49,7 +49,6 @@
                         android:id="@+id/textView10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:text="원/kwh"
                         app:layout_constraintEnd_toEndOf="@+id/textView"
                         app:layout_constraintHorizontal_bias="1.0"
@@ -108,6 +107,7 @@
                         android:textSize="13sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="@+id/tv_Ippt"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/tv_Ippt"
                         app:layout_constraintTop_toBottomOf="@+id/tv_Ippt" />
 
@@ -128,7 +128,6 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:text="SMP"
                         app:layout_constraintEnd_toStartOf="@+id/tv_smp"
                         app:layout_constraintStart_toStartOf="@+id/textView23"
@@ -148,8 +147,7 @@
                         android:id="@+id/textView23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="12dp"
-                        android:text="현 총 발전량"
+                        android:text="총 발전량"
                         app:layout_constraintEnd_toStartOf="@+id/tv_power"
                         app:layout_constraintTop_toBottomOf="@+id/tv_total" />
 
@@ -157,7 +155,6 @@
                         android:id="@+id/tv_smp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:text="101.1"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toStartOf="@+id/textView10"
@@ -566,7 +563,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="36dp"
-                        android:layout_marginTop="45dp"
+                        android:layout_marginTop="52dp"
                         android:text="이상 의심 감지"
                         app:layout_constraintStart_toStartOf="@+id/button8"
                         app:layout_constraintTop_toTopOf="parent" />

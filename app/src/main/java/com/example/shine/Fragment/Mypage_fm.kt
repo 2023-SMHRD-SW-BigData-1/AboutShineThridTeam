@@ -1,5 +1,6 @@
 package com.example.shine.Fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -42,6 +43,8 @@ class mypage_fm : Fragment() {
         var tv_phone : TextView = mypageV.findViewById(R.id.tvPhone)
         var myphoto : ImageView = mypageV.findViewById(R.id.imgMyphoto)
         var tv_add : TextView = mypageV.findViewById(R.id.tv_add)
+        var imgMod : ImageView = mypageV.findViewById(R.id.imgMO)
+        var imgMY : ImageView = mypageV.findViewById(R.id.imgMY)
 
         // Volley Request의 경우 Activity의 RequestQueue에 추가 해야 함
         // 따라서 RequestQueue 변수 reqQueue를 얻어오려면 context 대신 requireActivity()를 사용
@@ -55,15 +58,33 @@ class mypage_fm : Fragment() {
             startActivity(intent)
         }
 
+
+        imgMod.setOnClickListener {
+            val intent = Intent(context, MypageModifyActivity::class.java)
+            startActivity(intent)
+        }
+
+
         tv_mypost.setOnClickListener{
 
             val myPostFragment = mypost_fm()
             // fragment끼리 바꿔줄때 사용
-
            parentFragmentManager.beginTransaction().replace(R.id.fl, myPostFragment)
             .addToBackStack(null) // 이전 Fragment를 스택에 추가하여 뒤로 가기 버튼으로 이동 가능
             .commit()
         }
+
+        imgMY.setOnClickListener {
+            val myPostFragment = mypost_fm()
+            parentFragmentManager.beginTransaction().replace(R.id.fl, myPostFragment)
+                .addToBackStack(null) // 이전 Fragment를 스택에 추가하여 뒤로 가기 버튼으로 이동 가능
+                .commit()
+        }
+
+
+        var preferences =  requireContext().getSharedPreferences("Mypreferences", Context.MODE_PRIVATE)
+        var savedToken = preferences.getString("token", null)
+        var savedNickNm = preferences.getString("userNickNm",null)
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,
             "http://172.30.1.46:8582/api/userinfo", null,
