@@ -10,14 +10,20 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.shine.MypageModifyActivity
 import com.example.shine.R
+import com.example.shine.VO.ParamsVO
+import com.google.gson.Gson
+import org.json.JSONArray
 import org.json.JSONObject
+import java.nio.charset.Charset
 
 
 class mypage_fm : Fragment() {
@@ -86,17 +92,28 @@ class mypage_fm : Fragment() {
         var savedToken = preferences.getString("token", null)
         var savedNickNm = preferences.getString("userNickNm",null)
 
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,
-            "http://172.30.1.46:8582/api/userinfo", null,
-            Response.Listener<JSONObject> { response ->
-                try {
-                    // JSON 응답을 파싱
-                        val userNick = response.getString("userNick")
-                        val userEmail = response.getString("userEmail")
-                        val userPhone = response.getString("userPhone")
-                        val userAdd = response.getString("userAdd")
+        tv_nickname.text = "$savedNickNm"
 
-                    tv_nickname.text = "$userNick"
+
+        val selectRe = object : JsonArrayRequest(
+            Request.Method.POST,
+            "http://172.30.1.46:8582/user/info", null,
+
+            { response ->
+
+                Log.d("user", response.toString())
+
+                try {
+
+                    val jsonObject = response.getJSONObject(0)
+
+                    // JSON 응답을 파싱
+
+                        val userEmail = jsonObject.getString("userEmail")
+                        val userPhone = jsonObject.getString("userPhone")
+                        val userAdd = jsonObject.getString("userAdd")
+
+                    tv_nickname.text = "$savedNickNm"
                     tv_email.text =  "$userEmail"
                     tv_phone.text = "$userPhone"
                     tv_add.text = "$userAdd"
@@ -105,13 +122,36 @@ class mypage_fm : Fragment() {
                     e.printStackTrace()
                 }
             },
-            Response.ErrorListener { error ->
+            { error ->
                 // 에러 처리
                 Log.e("UserInfoError", error.message.toString())
-            })
+
+            })    {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Authorization"] = "Bearer $savedToken"
+                return headers
+            }
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+
+                return params
+            }
+            override fun getBody(): ByteArray {
+                val lm = ParamsVO(savedNickNm.toString(), "")
+                val json = Gson().toJson(lm)
+                return json.toByteArray(Charset.forName("UTF-8"))
+            }
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
 
 
-        reqQueue.add(jsonObjectRequest)
+        }
+
+
+        reqQueue.add(selectRe)
         return mypageV
     }
 }

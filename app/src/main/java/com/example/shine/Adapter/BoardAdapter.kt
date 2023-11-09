@@ -21,15 +21,15 @@ import java.util.concurrent.Executors
 class BoardAdapter(val context: Context, val layout : Int, val boardList: ArrayList<CommuVO>)
     : RecyclerView.Adapter<BoardAdapter.ViewHolder>(){
 
-        val inflater = LayoutInflater.from(context)
+    val inflater = LayoutInflater.from(context)
 
-   //1.
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            var view = inflater.inflate(layout,parent,false)
-            return  ViewHolder(view)
-        }
+    //1.
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        var view = inflater.inflate(layout,parent,false)
+        return  ViewHolder(view)
+    }
     //2.
-        inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
+    inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
 
         lateinit var tvTitle : TextView
         lateinit var tvWriter : TextView
@@ -37,17 +37,17 @@ class BoardAdapter(val context: Context, val layout : Int, val boardList: ArrayL
         lateinit var img : ImageView
         lateinit var tv_con : TextView
 
-            init{
-                tvTitle = view.findViewById(R.id.tvTitle)
-                tvWriter  = view.findViewById(R.id.tvWriter)
-                tvTime = view.findViewById(R.id.tvTime)
-                tv_con = view.findViewById(R.id.tv_con)
-                img = view.findViewById(R.id.img)
-            }
+        init{
+            tvTitle = view.findViewById(R.id.tvTitle)
+            tvWriter  = view.findViewById(R.id.tvWriter)
+            tvTime = view.findViewById(R.id.tvTime)
+            tv_con = view.findViewById(R.id.tv_con)
+            img = view.findViewById(R.id.img)
         }
+    }
 
     //3.
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.tvTitle.text = boardList[position].commuTitle
         holder.tvWriter.text = boardList[position].userNick
@@ -55,11 +55,11 @@ class BoardAdapter(val context: Context, val layout : Int, val boardList: ArrayL
         holder.tvTime.text = boardList[position].commuCreateAt
 
 
-        val url = "https://cdn.pixabay.com/photo/2021/08/03/07/03/orange-6518675_960_720.jpg"
+        // val url = "https://cdn.pixabay.com/photo/2021/08/03/07/03/orange-6518675_960_720.jpg"
 
-        Glide.with(context)
-            .load(url) // 불러올 이미지 url
-            .into(holder.img) // 이미지를 넣을 뷰
+//        Glide.with(context)
+//            .load(url) // 불러올 이미지 url
+//            .into(holder.img) // 이미지를 넣을 뷰
 
         holder.itemView.setOnClickListener {
             val selectedBoard = boardList[position] // Selected board item

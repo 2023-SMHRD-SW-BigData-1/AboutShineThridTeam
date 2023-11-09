@@ -42,60 +42,67 @@ class post_fm : Fragment() {
 
         val requestQueue = Volley.newRequestQueue(requireContext())
 
+
+
         btnWrite.setOnClickListener {
-
-
             val intent = Intent(context, BoardWriteActivity::class.java)
             startActivity(intent)
-
         }
+
 
 
         var preferences =  requireContext().getSharedPreferences("Mypreferences", Context.MODE_PRIVATE)
         var savedToken = preferences.getString("token", null)
         var savedNickNm = preferences.getString("userNickNm",null)
 
-            val apiUrl = "http://172.30.1.46:8582/commu/search"
+        val apiUrl = "http://172.30.1.46:8582/commu/search"
 
 
-           Log.v("test", "포스트화면")
+        Log.v("test", "포스트화면")
 
-            val request = object : StringRequest(
-                Request.Method.POST,
-                apiUrl,
-                { response ->
+        val request = object : StringRequest(
+            Request.Method.POST,
+            apiUrl,
+            { response ->
 
-                    // 서버로부터의 응답을 JSON 파싱하고 데이터를 게시글 목록에 추가
-                    val boardList: ArrayList<CommuVO> = parseBoardList(response)
+                // 서버로부터의 응답을 JSON 파싱하고 데이터를 게시글 목록에 추가
+                val boardList: ArrayList<CommuVO> = parseBoardList(response)
 
-                    Log.d("ppost", response.toString())
+                Log.d("ppost", response.toString())
 
                     // 날짜를 기준으로 최신순으로 정렬
                     boardList.sortByDescending { it.commuCreateAt }
 
-                    val layoutManager = LinearLayoutManager(requireContext())
-                    rvBoard.layoutManager = layoutManager
+//                    // 로그로 정렬된 boardList 출력
+//                    for (board in boardList) {
+//                        Log.d("Sorted BoardList", "Title: ${board.commuTitle}, CreateAt: ${board.commuCreateAt}")
+//                    }
 
-                    val adapter = BoardAdapter(requireContext(), R.layout.board_list, boardList)
-                    rvBoard.adapter = adapter
-                },
-                { error ->
+                val layoutManager = LinearLayoutManager(requireContext())
+                rvBoard.layoutManager = layoutManager
 
-                }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    headers["Authorization"] = "Bearer $savedToken"
-                    return headers
-                }
-                override fun getBodyContentType(): String {
-                    return "application/json; charset=utf-8"
-                }
+                val adapter = BoardAdapter(requireContext(), R.layout.board_list, boardList)
+                rvBoard.adapter = adapter
+
+            },
+            { error ->
 
             }
+        ) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Authorization"] = "Bearer $savedToken"
+                return headers
+            }
 
-                requestQueue.add(request)
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+
+        }
+
+        requestQueue.add(request)
 
 
 
@@ -116,12 +123,13 @@ class post_fm : Fragment() {
                 val commuText = jsonObject.getString("commuText")
                 val date = jsonObject.getString("commuCreateAt")
                 val commuNO = jsonObject.getString("commuNo")
-                val img = jsonObject.getString("commuImgPath")
+              // val img = jsonObject.getString("commuImgPath")
 
-                board = CommuVO(userNick,commuTitle,commuText,date,img,commuNO)
+                board = CommuVO(userNick,commuTitle,commuText,date,"",commuNO)
                 boardList.add(board)
             }
         } catch (e: JSONException) {
+            Log.d("error","e")
             e.printStackTrace()
         }
 

@@ -95,38 +95,40 @@ class main_fm : Fragment() {
 
     }
 
-    // 바 차트 데이터 설정
-    private fun setData(barChart: BarChart) {
 
+    private fun setData(barChart: BarChart, response: JSONArray) {
         // Zoom In / Out 가능 여부 설정
         barChart.setScaleEnabled(false)
 
         val valueList = ArrayList<BarEntry>()
 
-        val title = ""
-////////////////////////////////////////////////////////////////////-----------------------------------
-        // 임의 데이터 -> api 로 받아온 데이터
-        for (i in 6 until 20) {
-            valueList.add(BarEntry(i.toFloat(), i * 100f))
-
-        }
-
-        val barDataSet = BarDataSet(valueList, title)
-        // 바 색상 설정 (ColorTemplate.LIBERTY_COLORS)
-        barDataSet.setColors(
-          Color.rgb(255, 204, 0), // 연한 주황색 1
-            Color.rgb(255, 183, 77), // 연한 주황색 2
-            Color.rgb(255, 165, 0), // 연한 주황색 3
-            Color.rgb(255, 140, 0), // 연한 주황색 4
-            Color.rgb(255, 120, 0)  // 연한 주황색 5
+        // 바 색상 설정 (ColorTemplate.LIBERTY_COLORS) - 원하는 색상으로 변경
+        val colors = intArrayOf(
+            Color.rgb(255, 204, 0),
+            Color.rgb(255, 183, 77),
+            Color.rgb(255, 165, 0),
+            Color.rgb(255, 140, 0),
+            Color.rgb(255, 120, 0)
         )
 
-        val data = BarData(barDataSet)
-        barChart.data = data
-        barChart.invalidate()
+        try {
+            for (i in 7 until response.length()) {
+                val jsonObject = response.getJSONObject(i)
+
+                val value = jsonObject.getInt("power") // y 값
+                valueList.add(BarEntry(i.toFloat(), value.toFloat()))
+            }
+
+            val barDataSet = BarDataSet(valueList, "API Data")
+            barDataSet.colors = colors.toList()
+
+            val data = BarData(barDataSet)
+            barChart.data = data
+            barChart.invalidate()
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
     }
-
-
     // [라인 그래프]
     // 라인 차트 설정 및 초기화
     private fun initLineChart(lineChart: LineChart) {
@@ -240,48 +242,53 @@ class main_fm : Fragment() {
         val day = today.get(Calendar.DAY_OF_MONTH)
         val date= "$year"+"년"+"$month"+"월"+"$day"+"일"
 
+
+        tv_date.text = date
+
+
         var preferences =  requireContext().getSharedPreferences("Mypreferences", Context.MODE_PRIVATE)
         var savedToken = preferences.getString("token", null)
         var savedNickNm = preferences.getString("userNickNm",null)
 
 
-        val url1 = "http://172.30.1.46:8582/power/"
-        val valueList = ArrayList<BarEntry>()
-        val barReq = object : JsonArrayRequest(
-            Request.Method.POST, url1, null,
+
+        val chartRe = object : JsonArrayRequest(
+
+            Request.Method.POST,// 요청메서드
+            "http://172.30.1.46:8582/power/info/time",null,
+
             { response ->
 
-                //parms -> serarchone
-
-                Log.d("ddd", response.toString())
-
+                Log.d("time", response.toString())
 
                 try {
+
+
+                    setData(barChart, response)
+
+                    val dataPoints = ArrayList<Pair<Float, Float>>() //ㄹㅏ인
+
                     for (i in 0 until response.length()) {
-                        val jsonObject = response.getJSONObject(i) // x값
-                        val value = jsonObject.getInt("y값")
-                        valueList.add(BarEntry(i.toFloat(), value.toFloat()))
+                        val jsonObject = response.getJSONObject(i)
+
+                        val xValue = jsonObject.getDouble("xValue").toFloat() // 시간
+                        val yValue = jsonObject.getDouble("powerGenpred").toFloat() // 예측데이터값
+
+                        dataPoints.add(Pair(xValue, yValue))
                     }
 
-                    val barDataSet = BarDataSet(valueList, "")
-                    barDataSet.setColors(
-                        Color.rgb(255, 204, 0),
-                        Color.rgb(255, 183, 77),
-                        Color.rgb(255, 165, 0),
-                        Color.rgb(255, 140, 0),
-                        Color.rgb(255, 120, 0)
-                    )
-                    val data = BarData(barDataSet)
-                    barChart.data = data
-                    barChart.invalidate()
-                } catch (e: JSONException) {
+
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             },
-            { error ->
-                // 에러 처리
-                error.printStackTrace()
-            }) {
+            {
+                    error ->
+                Log.d("err", error.toString())
+
+            }
+        )
+        {
             @Throws(AuthFailureError::class)
             override fun getHeaders(): Map<String, String> {
                 val headers = HashMap<String, String>()
@@ -298,8 +305,9 @@ class main_fm : Fragment() {
             override fun getBodyContentType(): String {
                 return "application/json; charset=utf-8"
             }
+
         }
-        reqQueue.add(barReq)
+        reqQueue.add(chartRe)
 
 
         val selectRe = object : JsonArrayRequest(
@@ -324,8 +332,8 @@ class main_fm : Fragment() {
                     tv_date.text = date
                     tv_total.text = "$Money" + "원"
                     tv_power.text = " $Qsum"
-                    tv_PrePower.text = "예측 총 발전량 " + "$prePower" + " kwh"
-                    tv_PreTotal.text = "예측 총 수익금 " + "$preMoney" + " 원"
+                    tv_PrePower.text = "$prePower"
+                    tv_PreTotal.text = "$preMoney"
 
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -362,60 +370,15 @@ class main_fm : Fragment() {
         reqQueue.add(selectRe)
 
 
-
-        val dataPoints = ArrayList<Pair<Float, Float>>()
-        val url2 = "http://172.30.1.46:8582/power/info/time"
-        val lineReq = JsonArrayRequest(Request.Method.GET, url2, null,
-            Response.Listener { response ->
-
-                     Log.d("Pree", response.toString())
-                // 서버에서 받아온 데이터를 파싱하여 dataPoints에 추가
-                for (i in 0 until response.length()) {
-                    val jsonObject = response.getJSONObject(i)
-                    val xValue = jsonObject.getDouble("xValue").toFloat() // 시간
-                    val yValue = jsonObject.getDouble("yValue").toFloat() // 예측데이터값 넣으면되귶
-                    dataPoints.add(Pair(xValue, yValue))
-                }
-
-                // 데이터 포인트를 기반으로 라인 차트 업데이트
-                updateLineChart(dataPoints)
-            },
-            Response.ErrorListener { error ->
-
-            })
-
-        reqQueue.add(lineReq)
-
-
-
         barChart = mainV.findViewById(R.id.chart)
         initBarChart(barChart)
-        setData(barChart)
 
 
         lineChart = mainV.findViewById(R.id.chart2)
         initLineChart(lineChart)  // 라인 그래프 설정 초기화
-        initLineChartData()       // 라인 그래프 데이터 초기화
+        initLineChartData()
 
         return mainV
-    }
-    private fun updateLineChart(dataPoints: List<Pair<Float, Float>>) {
-        chartData.clear() // 이전 데이터 지우기
-
-        for ((x, y) in dataPoints) {
-            chartData.add(Entry(x, y))
-        }
-
-        val dataSet = LineDataSet(chartData, "Sample Data")
-        dataSet.color = Color.parseColor("#FFA500") // 주황색
-        dataSet.valueTextColor = Color.parseColor("#FFA500") // 텍스트 컬러를 주황색으로 변경
-        dataSet.setCircleColor(Color.parseColor("#FFA500")) // 마커 색상 주황색
-
-        dataSet.setDrawValues(false)
-        dataSet.highLightColor = Color.TRANSPARENT
-
-        lineChart.data = LineData(dataSet)
-        lineChart.invalidate()
     }
 
 
