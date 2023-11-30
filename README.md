@@ -31,7 +31,7 @@
     <tr>
         <td>사용언어</td>
         <td>
-           <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -43,14 +43,14 @@
     <tr>
         <td>개발도구</td>
         <td>
-       <img src="https://img.shields.io/badge/Androidstudio-3DDC84?style=for-the-badge&logo=Androidstudio&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Androidstudio-3DDC84?style=for-the-badge&logo=Androidstudio&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>서버환경</td>
         <td>
             <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white"/> 
-            <img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/> 
+            <img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=ApacheTomcat&logoColor=white"/> 
         </td>
     </tr>
     <tr>
@@ -66,27 +66,23 @@
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
         </td>
     </tr>
-  
-     <tr>
+    <tr>
         <td>프레임워크</td>
         <td>
-        <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=JSON&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Jwt-000000?style=for-the-badge&logo=JSONWebTokens&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/> 
-        <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=SpringSecurity&logoColor=white"/> 
+            <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=JSON&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Jwt-000000?style=for-the-badge&logo=JSONWebTokens&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/> 
+            <img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=SpringSecurity&logoColor=white"/> 
         </td>
     </tr>
     <tr>
         <td>인프라구조</td>
         <td>
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white"/> 
+            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white"/> 
         </td>
     </tr>
 </table>
-
-
 <br>
-
 
 ## 3️⃣ 화면 구성
 
