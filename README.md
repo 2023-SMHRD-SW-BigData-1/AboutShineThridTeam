@@ -71,7 +71,7 @@
         <td>프레임워크</td>
         <td>
         <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=JSON&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Jwt-000000?style=for-the-badge&logo=JSONWebTokens&logoColor=white">
+        <img src="https://img.shields.io/badge/Jwt-000000?style=for-the-badge&logo=JSONWebTokens&logoColor=white"/>
         <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/> 
         <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=SpringSecurity&logoColor=white"/> 
         </td>
@@ -90,22 +90,22 @@
 
 ## 3️⃣ 화면 구성
 
-### 🍎SPLASH
-### 🍎로그인/로그아웃
-### 🍎마이페이지
+### ☀️SPLASH
+### ☀️로그인/로그아웃
+### ☀️마이페이지
 ![my](https://github.com/2023-SMHRD-SW-BigData-1/BeforeRoyalTeam/assets/132533622/a5e6cd73-66da-4c9c-afc8-7e77a72bacee)
 <br>
 
-### 🍎메인화면
+### ☀️메인화면
 ![메인](https://github.com/2023-SMHRD-SW-BigData-1/BeforeRoyalTeam/assets/132533622/3ee3689f-9432-4c1f-a116-c66d6b429b89)
 <br>
 
 
-### 🍎알림서비스
+###☀️알림서비스
 ![fcm](https://github.com/2023-SMHRD-SW-BigData-1/BeforeRoyalTeam/assets/132533622/62290bcb-924c-4f70-b10b-1a16e625648d)
 <br>
 
-### 🍎게시판
+### ☀️게시판
 ![board](https://github.com/2023-SMHRD-SW-BigData-1/BeforeRoyalTeam/assets/132533622/cbcfc059-1224-4e56-a71e-d6bd4ea11246)
 <br>
 
